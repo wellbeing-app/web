@@ -20,11 +20,11 @@ export default async function Home({ params } : { params: Promise<{ lang: string
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto">
-          <button className="bg-primary text-primary-foreground px-8 py-3 rounded-xl font-medium theme-transition-all hover:bg-primary/90 hover:shadow-md">
-            {dict.home.waitlistBtn}
+          <button className="bg-primary text-primary-foreground px-8 py-3 rounded-full font-medium theme-transition-all hover:bg-primary/90 hover:shadow-md">
+            {dict.home.supportBtn}
           </button>
-          <button className="bg-transparent border border-border px-8 py-3 rounded-xl font-medium theme-transition-all hover:bg-secondary/80 hover:shadow-md">
-            {dict.home.manifestoBtn}
+          <button className="bg-transparent border border-border px-8 py-3 rounded-full font-medium theme-transition-all hover:bg-secondary/80 hover:shadow-md">
+            {dict.home.newsletterBtn}
           </button>
         </div>
       </div>

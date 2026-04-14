@@ -5,15 +5,16 @@
   },
   "nav": {
     "nav_home": "Home",
-    "nav_manifest": "Manifesto",
-    "nav_waitlist": "Waitlist",
+    "nav_vision": "Vision",
+    "nav_features": "Features",
+    "nav_team": "Team",
     "nav_contact": "Contact"
   },
   "home": {
-    "badge": "Welcome to a new beginning",
-    "title": "Space for your mind.",
-    "description": "No pressure. No notifications. Just a safe place designed for your peace and daily balance.",
-    "waitlistBtn": "Join the Waitlist",
-    "manifestoBtn": "Read Manifesto"
+    "badge": "Free for everyone. Forever.",
+    "title": "A space for the mind.",
+    "description": "No pressure. No rules. Just a safe place designed for your peace and daily balance.",
+    "supportBtn": "I want to help",
+    "newsletterBtn": "Keep me updated"
   }
 }

@@ -11,30 +11,33 @@ export function Navbar({ dict, lang }: { dict: { nav: Record<string, string> }; 
 
   const navLinks = [
     { href: `/${lang}`, label: dict.nav.nav_home },
-    { href: `/${lang}#manifest`, label: dict.nav.nav_manifest },
-    { href: `/${lang}#waitlist`, label: dict.nav.nav_waitlist },
+    { href: `/${lang}#vision`, label: dict.nav.nav_vision },
+    { href: `/${lang}#features`, label: dict.nav.nav_features },
+    { href: `/${lang}#team`, label: dict.nav.nav_team },
     { href: `/${lang}#contact`, label: dict.nav.nav_contact },
   ];
 
   return (
     <>
       <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl">
-        <nav className="glass theme-transition px-6 py-3 rounded-full flex items-center justify-between border border-border">
+        <nav className="glass theme-transition pl-6 pr-3 py-3 rounded-full flex items-center justify-between border border-border">
           <Link href={`/${lang}`} className="text-xl font-bold tracking-tight">
             Wellbeing.
           </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <Link 
-                key={link.label} 
-                href={link.href}
-                className="text-sm font-medium text-foreground/80 hover:text-foreground theme-transition hover:bg-secondary/50 px-3 py-1.5 rounded-full"
-              >
-                {link.label}
-              </Link>
-            ))}
+            <div className="flex items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-full theme-transition">
+              {navLinks.map((link) => (
+                <Link 
+                  key={link.label} 
+                  href={link.href}
+                  className="h-9 inline-flex items-center text-sm font-medium text-foreground/80 hover:text-foreground theme-transition px-3 rounded-full hover:bg-secondary/50"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
             <div className="flex items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-full theme-transition">
               <LanguageSwitcher lang={lang} />
               <ThemeToggle />
@@ -65,7 +68,7 @@ export function Navbar({ dict, lang }: { dict: { nav: Record<string, string> }; 
             <Link
               key={link.label}
               href={link.href}
-              className="text-lg font-medium py-3 px-6 hover:bg-secondary/50 w-full text-center rounded-xl theme-transition"
+              className="text-lg font-medium py-3 px-6 w-full text-center rounded-full bg-secondary/30 border border-border/50 backdrop-blur-sm hover:bg-secondary/50 theme-transition"
               onClick={() => setIsOpen(false)}
             >
               {link.label}

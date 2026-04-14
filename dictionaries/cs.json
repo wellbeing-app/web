@@ -5,15 +5,16 @@
   },
   "nav": {
     "nav_home": "Domů",
-    "nav_manifest": "Manifest",
-    "nav_waitlist": "Waitlist",
+    "nav_vision": "Vize",
+    "nav_features": "Funkce",
+    "nav_team": "Tým",
     "nav_contact": "Kontakt"
   },
   "home": {
-    "badge": "Vítejte v novém začátku",
-    "title": "Prostor pro tvou mysl.",
-    "description": "Žádný tlak. Žádné notifikace. Jen bezpečné místo navržené pro tvůj klid a každodenní rovnováhu.",
-    "waitlistBtn": "Přidat se na Waitlist",
-    "manifestoBtn": "Číst Manifest"
+    "badge": "Zdarma pro každého. Navždy.",
+    "title": "Prostor pro mysl.",
+    "description": "Žádný nátlak. Žádná pravidla. Pouze bezpečné místo navržené pro váš klid a rovnováhu v každodenním životě.",
+    "supportBtn": "Chci se zapojit",
+    "newsletterBtn": "Chci dostávat aktualizace"
   }
 }
