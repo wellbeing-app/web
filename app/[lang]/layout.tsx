@@ -26,9 +26,9 @@ export default async function RootLayout({
   const dict = await getDictionary(resolvedParams.lang as 'en' | 'cs');
   
   return (
-    <html lang={resolvedParams.lang} className={`${fontVariables} disable-transitions`} suppressHydrationWarning>
+<html lang={resolvedParams.lang} className={`${fontVariables}`} suppressHydrationWarning>
       <body className="antialiased min-h-screen bg-background text-foreground font-sans flex flex-col theme-transition">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange={false}>
           <Navbar dict={dict} lang={resolvedParams.lang} />
           {children}
         </ThemeProvider>
