@@ -16,5 +16,32 @@
     "description": "No pressure. No rules. Just a safe place designed for your peace and daily balance.",
     "supportBtn": "I want to help",
     "newsletterBtn": "Keep me updated"
+  },
+  "vision": {
+    "title": "Our Vision",
+    "description": "We believe in a world where mental health care is as natural as breathing. Our goal is to create tools that help you find inner peace in a fast-paced world."
+  },
+  "features": {
+    "title": "What We Offer",
+    "description": "Designed for your peace.",
+    "list": [
+      { "title": "Mood Journal", "desc": "Track your emotions over time" },
+      { "title": "Breathing Exercises", "desc": "Instant stress relief" },
+      { "title": "Community Support", "desc": "You are not alone" }
+    ]
+  },
+  "team": {
+    "title": "Our Team",
+    "description": "The people behind the vision.",
+    "members": [
+      { "name": "Anna Zezulka", "role": "Founder & Design" },
+      { "name": "Jakub Novák", "role": "Developer" }
+    ]
+  },
+  "contact": {
+    "title": "Stay in Touch",
+    "description": "Want to learn more? Join our newsletter.",
+    "emailPlaceholder": "Your email",
+    "submitBtn": "Send"
   }
 }

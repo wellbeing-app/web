@@ -16,5 +16,32 @@
     "description": "Žádný nátlak. Žádná pravidla. Pouze bezpečné místo navržené pro váš klid a rovnováhu v každodenním životě.",
     "supportBtn": "Chci se zapojit",
     "newsletterBtn": "Chci dostávat aktualizace"
+  },
+  "vision": {
+    "title": "Naše vize",
+    "description": "Věříme ve svět, kde je péče o duševní zdraví stejně přirozená jako dýchání. Naším cílem je vytvořit nástroje, které vám pomohou najít vnitřní klid v uspěchaném světě."
+  },
+  "features": {
+    "title": "Co nabízíme",
+    "description": "Navrženo pro váš klid.",
+    "list": [
+      { "title": "Deník nálad", "desc": "Sledujte své emoce v čase" },
+      { "title": "Dechová cvičení", "desc": "Okamžitá úleva od stresu" },
+      { "title": "Komunitní podpora", "desc": "Nejste v tom sami" }
+    ]
+  },
+  "team": {
+    "title": "Náš tým",
+    "description": "Lidé, kteří za tím stojí.",
+    "members": [
+      { "name": "Anna Zezulka", "role": "Zakladatelka & Design" },
+      { "name": "Jakub Novák", "role": "Vývojář" }
+    ]
+  },
+  "contact": {
+    "title": "Zůstaňme v kontaktu",
+    "description": "Chcete se dozvědět více? Připojte se k našemu newsletteru.",
+    "emailPlaceholder": "Váš email",
+    "submitBtn": "Odeslat"
   }
 }

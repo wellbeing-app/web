@@ -20,13 +20,16 @@ export function Navbar({ dict, lang }: { dict: { nav: Record<string, string> }; 
   return (
     <>
       <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-[800px] mx-auto">
-        <nav className="glass px-6 py-3 rounded-full flex md:grid md:grid-cols-3 items-center justify-between border border-border transition-colors duration-300">
-          <Link href={`/${lang}`} className="text-xl font-bold tracking-tight justify-self-start transition-colors duration-300">
-            Wellbeing.
-          </Link>
+        <nav className="relative bg-card px-3 py-3 rounded-full flex items-center justify-between border border-border transition-colors duration-300 min-h-[64px]">
+          {/* Left: Logo */}
+          <div className="flex-1 flex justify-start pl-6">
+            <Link href={`/${lang}`} className="text-xl font-bold tracking-tight transition-colors duration-300">
+              Wellbeing.
+            </Link>
+          </div>
 
-          {/* Desktop Nav Links */}
-          <div className="hidden md:flex justify-self-center items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-full transition-colors duration-300 animate-fade-in">
+          {/* Center: Desktop Nav Links (Absolute Centered) */}
+          <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-full transition-colors duration-300 animate-fade-in z-10">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
@@ -38,10 +41,12 @@ export function Navbar({ dict, lang }: { dict: { nav: Record<string, string> }; 
             ))}
           </div>
 
-          {/* Desktop Controls */}
-          <div className="hidden md:flex justify-self-end items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-full transition-colors duration-300">
-            <LanguageSwitcher lang={lang} />
-            <ThemeToggle />
+          {/* Right: Desktop Controls */}
+          <div className="flex-1 flex justify-end pr-1">
+            <div className="hidden md:flex items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-full transition-colors duration-300">
+              <LanguageSwitcher lang={lang} />
+              <ThemeToggle />
+            </div>
           </div>
 
           {/* Mobile Nav Toggle */}
@@ -63,7 +68,7 @@ export function Navbar({ dict, lang }: { dict: { nav: Record<string, string> }; 
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="fixed top-24 left-1/2 -translate-x-1/2 w-[95%] z-40 md:hidden glass rounded-3xl p-6 border border-border flex flex-col items-center gap-4 animate-fade-in transition-colors duration-300">
+        <div className="fixed top-24 left-1/2 -translate-x-1/2 w-[95%] z-40 md:hidden bg-card rounded-3xl p-6 border border-border flex flex-col items-center gap-4 animate-fade-in transition-colors duration-300">
           {navLinks.map((link) => (
             <Link
               key={link.label}
