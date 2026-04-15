@@ -19,8 +19,8 @@ export function Navbar({ dict, lang }: { dict: { nav: Record<string, string> }; 
 
   return (
     <>
-      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-fit max-w-[95vw]">
-        <nav className="glass theme-transition pl-6 pr-3 py-3 rounded-full flex items-center justify-start gap-6 border border-border">
+      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] md:w-200">
+        <nav className="glass px-6 py-3 rounded-full flex items-center justify-between border border-border">
           <Link href={`/${lang}`} className="text-xl font-bold tracking-tight">
             Wellbeing.
           </Link>
@@ -29,8 +29,8 @@ export function Navbar({ dict, lang }: { dict: { nav: Record<string, string> }; 
           <div className="hidden md:flex items-center gap-6">
             <div className="flex items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-full theme-transition">
               {navLinks.map((link) => (
-                <Link 
-                  key={link.label} 
+                <Link
+                  key={link.label}
                   href={link.href}
                   className="h-9 inline-flex items-center text-sm font-medium text-foreground/80 hover:text-foreground theme-transition px-3 rounded-full hover:bg-secondary/50"
                 >

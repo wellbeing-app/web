@@ -6,7 +6,7 @@ export default async function Home({ params } : { params: Promise<{ lang: string
 
   return (
     <main key={resolvedParams.lang} className="relative min-h-screen flex flex-col items-center justify-center p-4 md:p-8 overflow-hidden pt-32">
-      <div className="glass relative z-10 w-full max-w-160 flex flex-col items-center justify-center animate-in fade-in theme-transition p-10 md:p-16 rounded-4xl text-center space-y-8">
+      <div className="glass relative z-10 w-full max-w-160 flex flex-col items-center justify-center animate-in fade-in duration-700 ease-in-out theme-transition p-10 md:p-16 rounded-4xl text-center space-y-8">
         <span className="inline-flex items-center bg-secondary/30 border border-border/50 backdrop-blur-sm text-secondary-foreground grayscale text-sm font-medium px-4 py-1.5 rounded-full theme-transition">
           {dict.home.badge}
         </span>

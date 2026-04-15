@@ -26,9 +26,11 @@ export default async function RootLayout({
   const dict = await getDictionary(resolvedParams.lang as 'en' | 'cs');
   
   return (
-<html lang={resolvedParams.lang} className={`${fontVariables}`} suppressHydrationWarning>
-      <body className="antialiased min-h-screen bg-background text-foreground font-sans flex flex-col theme-transition">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange={false}>
+    <html lang={resolvedParams.lang} suppressHydrationWarning>
+      {/* 2. FontVariables se přesunuly sem do body */}
+      <body className={`${fontVariables} antialiased min-h-screen bg-background text-foreground flex flex-col theme-transition`}>
+        {/* 3. Zapnuli jsme disableTransitionOnChange (smazáním ={false}), čímž zmizí FOUC po reloadu */}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Navbar dict={dict} lang={resolvedParams.lang} />
           {children}
         </ThemeProvider>
