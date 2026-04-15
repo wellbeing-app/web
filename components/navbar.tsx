@@ -19,8 +19,8 @@ export function Navbar({ dict, lang }: { dict: { nav: Record<string, string> }; 
 
   return (
     <>
-      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl">
-        <nav className="glass theme-transition pl-6 pr-3 py-3 rounded-full flex items-center justify-between border border-border">
+      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-fit max-w-[95vw]">
+        <nav className="glass theme-transition pl-6 pr-3 py-3 rounded-full flex items-center justify-start gap-6 border border-border">
           <Link href={`/${lang}`} className="text-xl font-bold tracking-tight">
             Wellbeing.
           </Link>
