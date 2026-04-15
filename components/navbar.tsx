@@ -19,34 +19,34 @@ export function Navbar({ dict, lang }: { dict: { nav: Record<string, string> }; 
 
   return (
     <>
-      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] md:w-200">
-        <nav className="glass px-6 py-3 rounded-full flex items-center justify-between border border-border">
-          <Link href={`/${lang}`} className="text-xl font-bold tracking-tight">
+      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-[800px] mx-auto">
+        <nav className="glass px-6 py-3 rounded-full flex md:grid md:grid-cols-3 items-center justify-between border border-border transition-colors duration-300">
+          <Link href={`/${lang}`} className="text-xl font-bold tracking-tight justify-self-start transition-colors duration-300">
             Wellbeing.
           </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-6">
-            <div className="flex items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-full theme-transition">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="h-9 inline-flex items-center text-sm font-medium text-foreground/80 hover:text-foreground theme-transition px-3 rounded-full hover:bg-secondary/50"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-            <div className="flex items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-full theme-transition">
-              <LanguageSwitcher lang={lang} />
-              <ThemeToggle />
-            </div>
+          {/* Desktop Nav Links */}
+          <div className="hidden md:flex justify-self-center items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-full transition-colors duration-300 animate-fade-in">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="h-9 inline-flex items-center text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 px-3 rounded-full hover:bg-secondary/50"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Desktop Controls */}
+          <div className="hidden md:flex justify-self-end items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-full transition-colors duration-300">
+            <LanguageSwitcher lang={lang} />
+            <ThemeToggle />
           </div>
 
           {/* Mobile Nav Toggle */}
           <div className="flex md:hidden items-center gap-2">
-            <div className="flex items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-full theme-transition">
+            <div className="flex items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-full transition-colors duration-300">
               <LanguageSwitcher lang={lang} />
               <ThemeToggle />
             </div>
@@ -63,12 +63,12 @@ export function Navbar({ dict, lang }: { dict: { nav: Record<string, string> }; 
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="fixed top-24 left-1/2 -translate-x-1/2 w-[95%] z-40 md:hidden glass rounded-3xl p-6 border border-border flex flex-col items-center gap-4 animate-in fade-in zoom-in-95 theme-transition">
+        <div className="fixed top-24 left-1/2 -translate-x-1/2 w-[95%] z-40 md:hidden glass rounded-3xl p-6 border border-border flex flex-col items-center gap-4 animate-fade-in transition-colors duration-300">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="text-lg font-medium py-3 px-6 w-full text-center rounded-full bg-secondary/30 border border-border/50 backdrop-blur-sm hover:bg-secondary/50 theme-transition"
+              className="text-lg font-medium py-3 px-6 w-full text-center rounded-full bg-secondary/30 border border-border/50 backdrop-blur-sm hover:bg-secondary/50 transition-colors duration-300"
               onClick={() => setIsOpen(false)}
             >
               {link.label}

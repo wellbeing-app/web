@@ -28,7 +28,7 @@ export default async function RootLayout({
   return (
     <html lang={resolvedParams.lang} suppressHydrationWarning>
       {/* 2. FontVariables se přesunuly sem do body */}
-      <body className={`${fontVariables} antialiased min-h-screen bg-background text-foreground flex flex-col theme-transition`}>
+      <body className={`${fontVariables} antialiased min-h-screen bg-background text-foreground flex flex-col`}>
         {/* 3. Zapnuli jsme disableTransitionOnChange (smazáním ={false}), čímž zmizí FOUC po reloadu */}
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Navbar dict={dict} lang={resolvedParams.lang} />

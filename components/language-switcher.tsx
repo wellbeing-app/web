@@ -20,7 +20,7 @@ export function LanguageSwitcher({ lang }: { lang: string }) {
   return (
     <button
       onClick={() => switchLanguage(targetLang)}
-      className="w-9 h-9 rounded-full hover:bg-secondary/50 theme-transition-all flex items-center justify-center text-foreground/80 hover:text-foreground cursor-pointer font-medium text-xs tracking-wider"
+      className="w-9 h-9 rounded-full hover:bg-secondary/50 transition-all duration-300 flex items-center justify-center text-foreground/80 hover:text-foreground cursor-pointer font-medium text-xs tracking-wider"
       aria-label="Switch language"
     >
       <Globe className="w-5 h-5" />
