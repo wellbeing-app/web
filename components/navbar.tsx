@@ -19,8 +19,8 @@ export function Navbar({ dict, lang }: { dict: { nav: Record<string, string> }; 
 
   return (
     <>
-      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-[800px] mx-auto">
-        <nav className="relative bg-card px-3 py-3 rounded-full flex items-center justify-between border border-border transition-colors duration-300 min-h-[64px]">
+      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-200 mx-auto">
+        <nav className="relative bg-card px-3 py-3 rounded-full flex items-center justify-between border border-border transition-colors duration-300 min-h-16">
           {/* Left: Logo */}
           <div className="flex-1 flex justify-start pl-6">
             <Link href={`/${lang}`} className="text-xl font-bold tracking-tight transition-colors duration-300">
