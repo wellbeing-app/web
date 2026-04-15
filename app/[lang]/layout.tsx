@@ -27,9 +27,6 @@ export default async function RootLayout({
   
   return (
     <html lang={resolvedParams.lang} suppressHydrationWarning>
-      <head>
-        <meta name="probely-verification" content="e96616a2-988f-48b6-977d-84d7a0ccddd2" />
-      </head>
       {/* 2. FontVariables se přesunuly sem do body */}
       <body className={`${fontVariables} antialiased min-h-screen bg-background text-foreground flex flex-col`}>
         {/* 3. Zapnuli jsme disableTransitionOnChange (smazáním ={false}), čímž zmizí FOUC po reloadu */}
