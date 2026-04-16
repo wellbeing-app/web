@@ -19,7 +19,7 @@
   },
   "vision": {
     "title": "Our Vision",
-    "description": "We believe in a world where mental health care is as natural as breathing. Our goal is to create tools that help you find inner peace in a fast-paced world."
+    "description": "We are creating a comprehensive and free application that brings together all the necessary tools for daily mental health care under one roof."
   },
   "features": {
     "title": "What We Offer",
@@ -34,8 +34,9 @@
     "title": "Our Team",
     "description": "The people behind the vision.",
     "members": [
-      { "name": "Anna Zezulka", "role": "Founder & Design" },
-      { "name": "Jakub Novák", "role": "Developer" }
+      { "name": "Anna Zezulka", "role": "Psychology student & Developer" },
+      { "name": "Sofia Grycová", "role": "Psychology student" },
+      { "name": "Natálie Neumannová", "role": "Psychology student" }
     ]
   },
   "contact": {

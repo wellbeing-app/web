@@ -37,9 +37,6 @@ export function WaitlistForm() {
       {!submitted ? (
         <form className="flex flex-col gap-4 w-full" onSubmit={handleSubmit}>
           <div className="flex flex-col gap-2">
-            <label htmlFor="email" className="text-sm font-medium text-foreground">
-              {dict.contact.emailLabel}
-            </label>
             <input
               id="email"
               type="email"
@@ -49,6 +46,7 @@ export function WaitlistForm() {
                 setError('');
               }}
               placeholder={dict.contact.emailPlaceholder}
+              aria-label={dict.contact.emailLabel}
               aria-invalid={error ? 'true' : 'false'}
               aria-describedby={error ? 'email-error' : undefined}
               className={`w-full px-6 py-3 rounded-full bg-secondary/20 border border-border outline-hidden focus:ring-2 focus:ring-primary/20 transition-all ${error ? 'border-red-500' : ''}`}

@@ -19,7 +19,7 @@
   },
   "vision": {
     "title": "Naše vize",
-    "description": "Věříme ve svět, kde je péče o duševní zdraví stejně přirozená jako dýchání. Naším cílem je vytvořit nástroje, které vám pomohou najít vnitřní klid v uspěchaném světě."
+    "description": "Vytváříme komplexní a bezplatnou aplikaci, která pod jednou střechou sdružuje všechny potřebné nástroje pro každodenní péči o duševní zdraví."
   },
   "features": {
     "title": "Co nabízíme",
@@ -34,8 +34,9 @@
     "title": "Náš tým",
     "description": "Lidé, kteří za tím stojí.",
     "members": [
-      { "name": "Anna Zezulka", "role": "Zakladatelka & Design" },
-      { "name": "Jakub Novák", "role": "Vývojář" }
+      { "name": "Anna Zezulka", "role": "Studentka psychologie & Vývojářka" },
+      { "name": "Sofia Grycová", "role": "Studentka psychologie" },
+      { "name": "Natálie Neumannová", "role": "Studentka psychologie" }
     ]
   },
   "contact": {

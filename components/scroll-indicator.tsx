@@ -29,9 +29,9 @@ export function ScrollIndicator() {
       return;
     }
 
-    // Trigger Point: We pick a point high in the viewport where sticky transitions occur.
-    // 160px accounts for the navbar and some breathing room.
-    const triggerPoint = 160;
+    // Trigger Point: We pick a point in the viewport where transitions feel most natural.
+    // Using half the viewport height ensures the dot switches as the next card centers.
+    const triggerPoint = window.innerHeight / 2;
     let foundId = sections[0].id;
 
     for (const section of sections) {

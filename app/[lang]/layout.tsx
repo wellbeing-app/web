@@ -8,6 +8,7 @@ import '../globals.css';
 import { getDictionary } from '@/lib/dictionary';
 import { Navbar } from '@/components/navbar';
 import { DictionaryProvider } from '@/components/providers/dictionary-provider';
+import { SmoothScroll } from '@/components/providers/smooth-scroll';
 
 const baseUrl = 'https://wellbeing.zezulka.me';
 
@@ -94,26 +95,28 @@ export default async function RootLayout({
         className={`${fontVariables} antialiased min-h-screen bg-background text-foreground flex flex-col`}
         suppressHydrationWarning
       >
-        <DictionaryProvider dictionary={dictionary}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-            nonce={nonce}
-          >
-            <a
-              href="#main-content"
-              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-100 focus:p-4 focus:bg-background focus:border focus:rounded-md focus:shadow-lg"
+        <SmoothScroll>
+          <DictionaryProvider dictionary={dictionary}>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+              nonce={nonce}
             >
-              {dictionary.accessibility.skipToMain}
-            </a>
-            <Navbar lang={resolvedParams.lang} />
-            <main id="main-content" className="flex-1 focus:outline-none">
-              {children}
-            </main>
-          </ThemeProvider>
-        </DictionaryProvider>
+              <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-100 focus:p-4 focus:bg-background focus:border focus:rounded-md focus:shadow-lg"
+              >
+                {dictionary.accessibility.skipToMain}
+              </a>
+              <Navbar lang={resolvedParams.lang} />
+              <main id="main-content" className="flex-1 focus:outline-none">
+                {children}
+              </main>
+            </ThemeProvider>
+          </DictionaryProvider>
+        </SmoothScroll>
       </body>
     </html>
   );
