@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import { Button } from "@/components/ui/button";
 
 interface ErrorProps {
   error: Error & { digest?: string };
@@ -24,12 +23,12 @@ export default function Error({ error, reset }: ErrorProps) {
           {error.message}
         </pre>
       )}
-      <Button
+      <button
         onClick={() => reset()}
         className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4"
       >
         Try again
-      </Button>
+      </button>
     </div>
   );
 }

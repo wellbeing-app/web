@@ -30,29 +30,69 @@ function getLocaleFromAcceptLanguage(request: NextRequest): string | undefined {
 export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  // Check if there is any supported locale in the pathname
+  // 1. Generate Nonce and CSP
+  const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
+  const isDev = process.env.NODE_ENV === "development";
+  const reportUri = "/api/csp-report";
+
+  const cspHeader = `
+    default-src 'self';
+    script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${
+    isDev ? " 'unsafe-eval'" : ""
+  };
+    style-src 'self' ${isDev ? "'unsafe-inline'" : `'nonce-${nonce}'`};
+    img-src 'self' blob: data: https:;
+    font-src 'self' data:;
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    frame-ancestors 'none';
+    upgrade-insecure-requests;
+    report-uri ${reportUri};
+  `
+    .replace(/\s{2,}/g, " ")
+    .trim();
+
+  // 2. Prepare Headers
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-nonce", nonce);
+  requestHeaders.set("Content-Security-Policy", cspHeader);
+
+  // 3. Handle Locale Redirection
   const pathnameIsMissingLocale = locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
 
   if (pathnameIsMissingLocale) {
-    // 1. Check cookie preference first
     let locale = getLocaleFromCookie(request);
-
-    // 2. Fall back to Accept-Language header
     if (!locale) {
       locale = getLocaleFromAcceptLanguage(request);
     }
-
-    // 3. Use default locale (en)
     if (!locale) {
       locale = defaultLocale;
     }
 
-    return NextResponse.redirect(new URL(`/${locale}${pathname}`, request.url));
+    const redirectResponse = NextResponse.redirect(
+      new URL(`/${locale}${pathname}`, request.url),
+      {
+        headers: {
+          "Content-Security-Policy": cspHeader,
+        },
+      }
+    );
+    return redirectResponse;
   }
 
-  return NextResponse.next();
+  // 4. Return Next Response with CSP and Nonce
+  const response = NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    },
+  });
+
+  response.headers.set("Content-Security-Policy", cspHeader);
+
+  return response;
 }
 
 export const config = {

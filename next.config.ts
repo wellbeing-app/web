@@ -10,15 +10,6 @@ const nextConfig: NextConfig = {
         source: "/:path*",
         headers: [
           {
-            key: "Content-Security-Policy",
-            // Removed 'unsafe-inline' and 'unsafe-eval' from script-src.
-            // Removed 'unsafe-inline' from style-src.
-            // These were only needed for development features (Storybook) and
-            // inline styles in dev. Production uses Tailwind CSS classes.
-            value:
-              "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' https: data: blob:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'",
-          },
-          {
             key: "X-Frame-Options",
             value: "DENY",
           },
