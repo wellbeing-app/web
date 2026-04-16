@@ -75,7 +75,7 @@ export default async function RootLayout({
 }: React.PropsWithChildren<{ params: Promise<{ lang: string }> }>) {
   const resolvedParams = await params;
   const dictionary = await getDictionary(resolvedParams.lang as 'en' | 'cs');
-  
+
   // Retrieve the nonce from middleware (proxy.ts)
   const headersList = await headers();
   const nonce = headersList.get('x-nonce') || '';
@@ -102,8 +102,8 @@ export default async function RootLayout({
             disableTransitionOnChange
             nonce={nonce}
           >
-            <a 
-              href="#main-content" 
+            <a
+              href="#main-content"
               className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-100 focus:p-4 focus:bg-background focus:border focus:rounded-md focus:shadow-lg"
             >
               {dictionary.accessibility.skipToMain}
