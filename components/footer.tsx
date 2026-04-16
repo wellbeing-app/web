@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 /**
  * Footer Component - "Docked" Taskbar
- * 
- * Minimalist design matching Navbar/Cards. 
+ *
+ * Minimalist design matching Navbar/Cards.
  * Reverted to "upper half pill" as per user request.
  * Positioned to be flush with the bottom edge.
  */

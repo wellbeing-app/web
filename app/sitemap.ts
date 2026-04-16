@@ -1,8 +1,8 @@
-import type { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // TODO: domain will be soon changed
-  const baseUrl = 'https://wellbeing.zezulka.me'
+  const baseUrl = 'https://wellbeing.zezulka.me';
 
   return [
     {
@@ -29,5 +29,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily',
       priority: 0.7,
     },
-  ]
+  ];
 }

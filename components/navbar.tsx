@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Link from "next/link";
-import { Menu, X } from "lucide-react";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { LanguageSwitcher } from "@/components/language-switcher";
-import { useDictionary } from "@/components/providers/dictionary-provider";
+import { useState } from 'react';
+import Link from 'next/link';
+import { Menu, X } from 'lucide-react';
+import { ThemeToggle } from '@/components/theme-toggle';
+import { LanguageSwitcher } from '@/components/language-switcher';
+import { useDictionary } from '@/components/providers/dictionary-provider';
 
 export function Navbar({ lang }: { lang: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +25,10 @@ export function Navbar({ lang }: { lang: string }) {
         <nav className="relative bg-card px-3 py-3 rounded-full flex items-center justify-between border border-border transition-colors duration-300 min-h-16">
           {/* Left: Logo */}
           <div className="flex-1 flex justify-start pl-6">
-            <Link href={`/${lang}`} className="text-xl font-bold tracking-tight transition-colors duration-300">
+            <Link
+              href={`/${lang}`}
+              className="text-xl font-bold tracking-tight transition-colors duration-300"
+            >
               Wellbeing.
             </Link>
           </div>

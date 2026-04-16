@@ -1,5 +1,5 @@
-import React from "react";
-import { useDictionary } from "@/components/providers/dictionary-provider";
+import React from 'react';
+import { useDictionary } from '@/components/providers/dictionary-provider';
 
 export function Hero() {
   const dict = useDictionary();

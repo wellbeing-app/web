@@ -37,7 +37,6 @@
   --radius-md: var(--radius);
   --radius-lg: calc(var(--radius) + 4px);
   --radius-xl: calc(var(--radius) + 8px);
-
 }
 
 /* ========================================
@@ -46,27 +45,27 @@
   Define core palette once, then distribute it semantically.
 */
 @layer base {
-
-  html, body {
+  html,
+  body {
     @apply antialiased min-h-screen bg-background text-foreground flex flex-col;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
   }
 
-  html::-webkit-scrollbar, 
+  html::-webkit-scrollbar,
   body::-webkit-scrollbar {
     display: none; /* Chrome, Safari and Opera */
   }
 
   :root {
     /* --- CORE PALETTE (Base Tokens) --- */
-    --base-cloud: #F0EEE9;
+    --base-cloud: #f0eee9;
     --base-charcoal: #363533;
     --base-silver: #e2dfd8; /* Replaces Ice */
-    --base-stone: #d1cdc5;  /* Replaces Orchid */
-    
+    --base-stone: #d1cdc5; /* Replaces Orchid */
+
     /* Shared layout tokens */
-    --base-surface: #F7F6F2;
+    --base-surface: #f7f6f2;
     --base-edge: #d8d5cf;
 
     /* Dark mode specific base tokens */
@@ -106,7 +105,6 @@
 
     --glass-bg: rgba(255, 255, 255, 0.85);
     --glass-border: rgba(255, 255, 255, 1);
-
   }
 
   .dark {
@@ -140,8 +138,6 @@
 
     --glass-bg: rgba(37, 36, 35, 0.75);
     --glass-border: rgba(255, 255, 255, 0.08);
-
-
   }
 }
 
@@ -165,8 +161,12 @@
   }
 
   @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   .animate-fade-in {
@@ -212,4 +212,3 @@
     font-weight: 500;
   }
 }
-

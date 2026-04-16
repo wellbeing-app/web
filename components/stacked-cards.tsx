@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect, useRef } from "react";
-import { Footer } from "./footer";
+import { useEffect, useRef } from 'react';
+import { Footer } from './footer';
 
 interface Card {
   id: string;
@@ -14,8 +14,8 @@ interface StackedCardsProps {
 
 /**
  * StackedCards Component - Static Footer Version
- * 
- * Implements the Rolodex stacking effect and integrates a static 
+ *
+ * Implements the Rolodex stacking effect and integrates a static
  * footer into the viewport-height space of the final section.
  */
 export function StackedCards({ cards }: StackedCardsProps) {
@@ -42,18 +42,21 @@ export function StackedCards({ cards }: StackedCardsProps) {
 
         if (i < cards.length - 1) {
           const nextCardEl = document.getElementById(cards[i + 1].id);
-          
+
           if (nextCardEl) {
             const nextRect = nextCardEl.getBoundingClientRect();
-            
-            const startPoint = vh * 0.6; 
+
+            const startPoint = vh * 0.6;
             const endPoint = stickyTop;
-            
-            const progress = Math.max(0, Math.min(1, (startPoint - nextRect.top) / (startPoint - endPoint)));
-            
-            const scale = 1 - (progress * 0.05);
+
+            const progress = Math.max(
+              0,
+              Math.min(1, (startPoint - nextRect.top) / (startPoint - endPoint))
+            );
+
+            const scale = 1 - progress * 0.05;
             const blur = progress * 2;
-            
+
             currentCardEl.style.transform = `scale(${scale})`;
             currentCardEl.style.filter = `blur(${blur}px)`;
           }
@@ -61,13 +64,13 @@ export function StackedCards({ cards }: StackedCardsProps) {
       });
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
     const timer = setTimeout(handleScroll, 100);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
       clearTimeout(timer);
     };
   }, [cards]);
@@ -83,7 +86,7 @@ export function StackedCards({ cards }: StackedCardsProps) {
                The last card uses h-screen to ensure that when centered (15vh top), 
                the bottom gap (15vh) is fully visible, containing the static footer.
             */
-            className={`relative ${isLast ? "h-dvh mb-0" : "h-[120vh] mb-32"}`}
+            className={`relative ${isLast ? 'h-dvh mb-0' : 'h-[120vh] mb-32'}`}
             style={{ zIndex: i }}
           >
             <div

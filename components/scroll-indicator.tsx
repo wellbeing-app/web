@@ -1,31 +1,31 @@
-"use client";
+'use client';
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback } from 'react';
 
 const sections = [
-  { id: "home", label: "Home" },
-  { id: "vision", label: "Vision" },
-  { id: "features", label: "Features" },
-  { id: "team", label: "Team" },
-  { id: "contact", label: "Contact" },
+  { id: 'home', label: 'Home' },
+  { id: 'vision', label: 'Vision' },
+  { id: 'features', label: 'Features' },
+  { id: 'team', label: 'Team' },
+  { id: 'contact', label: 'Contact' },
 ];
 
 /**
  * ScrollIndicator Component
- * 
+ *
  * Uses position-based detection to handle sticky stacked cards.
  * Real-time tracking via scroll events ensures accuracy during transitions.
  */
 export function ScrollIndicator() {
-  const [activeId, setActiveId] = useState<string>("home");
+  const [activeId, setActiveId] = useState<string>('home');
 
   const determineActiveSection = useCallback(() => {
     // Safety check for server-side or early renders
-    if (typeof window === "undefined") return;
+    if (typeof window === 'undefined') return;
 
     // Force 'home' when at the very top
     if (window.scrollY < 50) {
-      setActiveId("home");
+      setActiveId('home');
       return;
     }
 
@@ -49,8 +49,8 @@ export function ScrollIndicator() {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("scroll", determineActiveSection, { passive: true });
-    
+    window.addEventListener('scroll', determineActiveSection, { passive: true });
+
     // Use requestAnimationFrame for the initial check to avoid synchronous setState inside useEffect,
     // which fixes the 'react-hooks/set-state-in-effect' ESLint warning.
     const rafId = requestAnimationFrame(determineActiveSection);
@@ -59,7 +59,7 @@ export function ScrollIndicator() {
     const timer = setTimeout(determineActiveSection, 100);
 
     return () => {
-      window.removeEventListener("scroll", determineActiveSection);
+      window.removeEventListener('scroll', determineActiveSection);
       cancelAnimationFrame(rafId);
       clearTimeout(timer);
     };
@@ -72,7 +72,7 @@ export function ScrollIndicator() {
     // Use scrollTo for precise control over sticky offsets
     const rect = element.getBoundingClientRect();
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
+
     // Calculate position: We want the element's top to land at the top of the viewport
     // minus any scroll-margin or sticky padding.
     // For this design, roughly 50px-100px offset works well for centering the content.
@@ -80,12 +80,12 @@ export function ScrollIndicator() {
 
     window.scrollTo({
       top: targetY,
-      behavior: "smooth"
+      behavior: 'smooth',
     });
   };
 
   return (
-    <nav 
+    <nav
       className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center gap-2 p-2 rounded-full glass border border-border/50"
       aria-label="Progress navigation"
     >
@@ -95,13 +95,11 @@ export function ScrollIndicator() {
           onClick={() => scrollToSection(id)}
           className={`
             w-2 rounded-full transition-all duration-300 ease-out cursor-pointer
-            ${activeId === id 
-              ? "h-5 bg-foreground" 
-              : "h-2 bg-foreground/20 hover:bg-foreground/50"}
+            ${activeId === id ? 'h-5 bg-foreground' : 'h-2 bg-foreground/20 hover:bg-foreground/50'}
           `}
           title={label}
           aria-label={`Scroll to ${label}`}
-          aria-current={activeId === id ? "true" : undefined}
+          aria-current={activeId === id ? 'true' : undefined}
         />
       ))}
     </nav>

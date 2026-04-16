@@ -34,8 +34,35 @@ export interface Dictionary {
   contact: {
     title: string;
     description: string;
+    emailLabel: string;
     emailPlaceholder: string;
+    emailError: string;
+    successMessage: string;
     submitBtn: string;
+    privacyText: string;
+    privacyLink: string;
+  };
+  privacy: {
+    lastUpdated: string;
+    weCollect: string;
+    howWeUse: string;
+    legalBasis: string;
+    yourRights: string;
+    contact: string;
+    weCollectDesc: string;
+    newsletterUpdates: string;
+    subscriptionProcessing: string;
+    inquiries: string;
+    consent: string;
+    access: string;
+    correction: string;
+    deletion: string;
+    withdraw: string;
+    portability: string;
+    questions: string;
+  };
+  accessibility: {
+    skipToMain: string;
   };
 }
 

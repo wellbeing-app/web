@@ -48,5 +48,27 @@
     "submitBtn": "Subscribe",
     "privacyText": "I agree to have my email collected for newsletter purposes. We process in accordance with GDPR.",
     "privacyLink": "Privacy Policy"
+  },
+  "accessibility": {
+    "skipToMain": "Skip to main content"
+  },
+  "privacy": {
+    "lastUpdated": "Last updated",
+    "weCollect": "1. What We Collect",
+    "howWeUse": "2. How We Use It",
+    "legalBasis": "3. Legal Basis",
+    "yourRights": "4. Your Rights",
+    "contact": "5. Contact",
+    "weCollectDesc": "We collect your email address when you sign up for our newsletter. This information is collected solely for the purpose of sending newsletter updates about Wellbeing.",
+    "newsletterUpdates": "sending newsletter communications",
+    "subscriptionProcessing": "processing your subscription to our service",
+    "inquiries": "responding to your inquiries",
+    "consent": "We process your personal data based on your consent, which you provide by checking the consent box when signing up for the newsletter. You can withdraw your consent at any time by clicking the unsubscribe link in any email.",
+    "access": "access to your personal data",
+    "correction": "requesting a correction of your data",
+    "deletion": "requesting the deletion of your data",
+    "withdraw": "withdrawing your consent at any time",
+    "portability": "data portability",
+    "questions": "If you have questions about this privacy policy or our data processing practices, please contact us."
   }
 }

@@ -67,5 +67,8 @@
     "withdraw": "odvolání souhlasu kdykoli",
     "portability": "přenositelnost údajů",
     "questions": "Pokud máte dotazy k této zásádě ochrany osobních údajů nebo našim postupům při zpracování údajů, kontaktujte nás."
+  },
+  "accessibility": {
+    "skipToMain": "Přeskočit na hlavní obsah"
   }
 }

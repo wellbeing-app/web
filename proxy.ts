@@ -1,11 +1,11 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
-import { match as matchLocale } from "@formatjs/intl-localematcher";
-import Negotiator from "negotiator";
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+import { match as matchLocale } from '@formatjs/intl-localematcher';
+import Negotiator from 'negotiator';
 
-const locales = ["en", "cs"];
-const defaultLocale = "en"; // Default to English for international users
-const localeCookieName = "locale";
+const locales = ['en', 'cs'];
+const defaultLocale = 'en'; // Default to English for international users
+const localeCookieName = 'locale';
 
 function getLocaleFromCookie(request: NextRequest): string | undefined {
   const cookie = request.cookies.get(localeCookieName)?.value;
@@ -31,15 +31,13 @@ export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
   // 1. Generate Nonce and CSP
-  const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
-  const isDev = process.env.NODE_ENV === "development";
-  const reportUri = "/api/csp-report";
+  const nonce = Buffer.from(crypto.randomUUID()).toString('base64');
+  const isDev = process.env.NODE_ENV === 'development';
+  const reportUri = '/api/csp-report';
 
   const cspHeader = `
     default-src 'self';
-    script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${
-    isDev ? " 'unsafe-eval'" : ""
-  };
+    script-src 'self' 'nonce-${nonce}' 'strict-dynamic'${isDev ? " 'unsafe-eval'" : ''};
     style-src 'self' ${isDev ? "'unsafe-inline'" : `'nonce-${nonce}'`};
     img-src 'self' blob: data: https:;
     font-src 'self' data:;
@@ -50,13 +48,13 @@ export function proxy(request: NextRequest) {
     upgrade-insecure-requests;
     report-uri ${reportUri};
   `
-    .replace(/\s{2,}/g, " ")
+    .replace(/\s{2,}/g, ' ')
     .trim();
 
   // 2. Prepare Headers
   const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-nonce", nonce);
-  requestHeaders.set("Content-Security-Policy", cspHeader);
+  requestHeaders.set('x-nonce', nonce);
+  requestHeaders.set('Content-Security-Policy', cspHeader);
 
   // 3. Handle Locale Redirection
   const pathnameIsMissingLocale = locales.every(
@@ -72,14 +70,11 @@ export function proxy(request: NextRequest) {
       locale = defaultLocale;
     }
 
-    const redirectResponse = NextResponse.redirect(
-      new URL(`/${locale}${pathname}`, request.url),
-      {
-        headers: {
-          "Content-Security-Policy": cspHeader,
-        },
-      }
-    );
+    const redirectResponse = NextResponse.redirect(new URL(`/${locale}${pathname}`, request.url), {
+      headers: {
+        'Content-Security-Policy': cspHeader,
+      },
+    });
     return redirectResponse;
   }
 
@@ -90,12 +85,12 @@ export function proxy(request: NextRequest) {
     },
   });
 
-  response.headers.set("Content-Security-Policy", cspHeader);
+  response.headers.set('Content-Security-Policy', cspHeader);
 
   return response;
 }
 
 export const config = {
   // Matcher ignoring `/_next/` and `/api/`
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml).*)'],
 };

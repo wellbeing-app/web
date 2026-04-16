@@ -30,6 +30,7 @@ A premium, modern wellbeing platform landing page designed with an "Apple-style"
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone <repository-url>
    cd web-v2
@@ -43,9 +44,11 @@ A premium, modern wellbeing platform landing page designed with an "Apple-style"
 ### Running Locally
 
 Start the development server:
+
 ```bash
 npm run dev
 ```
+
 Open [http://localhost:3000](http://localhost:3000) to see the result.
 
 ## 🔐 Environment Variables
@@ -57,19 +60,25 @@ The project is designed to be deployment-ready with minimal configuration. Curre
 ## 🧪 Testing
 
 ### E2E Testing (Playwright)
+
 Run the end-to-end tests:
+
 ```bash
 npm run test:e2e
 ```
 
 ### Unit Testing (Vitest)
+
 Unit testing is supported via Vitest. To run tests:
+
 ```bash
 npx vitest
 ```
 
 ### UI Testing (Storybook)
+
 View component documentation:
+
 ```bash
 npm run storybook
 ```
@@ -77,6 +86,7 @@ npm run storybook
 ## 🌍 Language Support
 
 Content is managed via localized dictionaries in `dictionaries/`.
+
 - `en.json`: English content
 - `cs.json`: Czech content
 
