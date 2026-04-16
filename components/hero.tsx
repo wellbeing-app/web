@@ -18,10 +18,16 @@ export function Hero() {
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto animate-fade-in">
-        <button className="bg-primary text-primary-foreground px-8 py-3 rounded-full font-medium transition-all duration-300 hover:bg-primary/90">
+        <button
+          className="bg-primary text-primary-foreground px-8 py-3 rounded-full font-medium transition-all duration-300 hover:bg-primary/90"
+          aria-label={dict.home.supportBtn}
+        >
           {dict.home.supportBtn}
         </button>
-        <button className="bg-transparent border border-border px-8 py-3 rounded-full font-medium transition-all duration-300 hover:bg-secondary/80">
+        <button
+          className="bg-transparent border border-border px-8 py-3 rounded-full font-medium transition-all duration-300 hover:bg-secondary/80"
+          aria-label={dict.home.newsletterBtn}
+        >
           {dict.home.newsletterBtn}
         </button>
       </div>

@@ -180,5 +180,36 @@
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
+  /* Skip to main content link - hidden visually, revealed on focus */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .sr-only:focus {
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: 0.25rem 1rem;
+    margin: 0;
+    clip: auto;
+    white-space: normal;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    border-radius: var(--radius-sm);
+    z-index: 9999;
+    top: 1rem;
+    left: 1rem;
+    text-decoration: none;
+    font-weight: 500;
+  }
 }
 

@@ -1,0 +1,6 @@
+# robots.txt for Wellbeing App
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://wellbeing.zezulka.me/sitemap.xml

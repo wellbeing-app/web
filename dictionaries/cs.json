@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Wellbeing.",
-    "description": "Aplikace pro každodenní duševní zdraví"
+    "description": "Bezplatná aplikace pro vaši duševní pohodu. Denník nálad, dechová cvičení a komunitní podpora pro každý den."
   },
   "nav": {
     "nav_home": "Domů",
@@ -41,7 +41,31 @@
   "contact": {
     "title": "Zůstaňme v kontaktu",
     "description": "Chcete se dozvědět více? Připojte se k našemu newsletteru.",
+    "emailLabel": "E-mailová adresa",
     "emailPlaceholder": "Váš email",
-    "submitBtn": "Odeslat"
+    "emailError": "Prosím zadejte platnou e-mailovou adresu.",
+    "successMessage": "Děkujeme! Byli jste přidáni na odběratele.",
+    "submitBtn": "Odeslat",
+    "privacyText": "Souhlasím se zpracováním e-mailu pro účely newsletteru. Zpracováváme v souladu s GDPR.",
+    "privacyLink": "Zásady ochrany osobních údajů"
+  },
+  "privacy": {
+    "lastUpdated": "Naposledy aktualizováno",
+    "weCollect": "1. Co sbíráme",
+    "howWeUse": "2. Jak to používáme",
+    "legalBasis": "3. Právní základ",
+    "yourRights": "4. Vaše práva",
+    "contact": "5. Kontakt",
+    "weCollectDesc": "Sbíráme vaši e-mailovou adresu, když se přihlásíte k odběru našeho newsletteru. Tyto informace sbíráme pouze pro účely zasílání newsletterových aktualizací o službě Wellbeing.",
+    "newsletterUpdates": "zasílání newsletterových komunikací",
+    "subscriptionProcessing": "zpracování vašeho odběru naší služby",
+    "inquiries": "odpovídání na vaše dotazy",
+    "consent": "Zpracováváme vaše osobní údaje na základě vašeho souhlasu, který poskytujete zaškrtnutím souhlasného políčka při přihlašování k odběru newsletteru. Souhlas můžete kdykoli odvolat kliknutím na odkaz pro odhlášení v jakémkoli e-mailu.",
+    "access": "přístup k vašim osobním údajům",
+    "correction": "požadavek na opravu vašich údajů",
+    "deletion": "požadavek na vymazání vašich údajů",
+    "withdraw": "odvolání souhlasu kdykoli",
+    "portability": "přenositelnost údajů",
+    "questions": "Pokud máte dotazy k této zásádě ochrany osobních údajů nebo našim postupům při zpracování údajů, kontaktujte nás."
   }
 }

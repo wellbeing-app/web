@@ -41,7 +41,12 @@
   "contact": {
     "title": "Stay in Touch",
     "description": "Want to learn more? Join our newsletter.",
+    "emailLabel": "Email address",
     "emailPlaceholder": "Your email",
-    "submitBtn": "Send"
+    "emailError": "Please enter a valid email address.",
+    "successMessage": "Thank you! You have been subscribed.",
+    "submitBtn": "Subscribe",
+    "privacyText": "I agree to have my email collected for newsletter purposes. We process in accordance with GDPR.",
+    "privacyLink": "Privacy Policy"
   }
 }
