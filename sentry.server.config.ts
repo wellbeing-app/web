@@ -20,4 +20,3 @@ Sentry.init({
 
 // Verify Sentry Metrics
 Sentry.metrics.count('test_metric', 1);
-

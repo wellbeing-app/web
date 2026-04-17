@@ -31,5 +31,4 @@ Sentry.init({
 // Verify Sentry Metrics
 Sentry.metrics.count('test_metric', 1);
 
-
 export const onRouterTransitionStart = Sentry.captureRouterTransitionStart;
