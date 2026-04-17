@@ -1,16 +1,32 @@
 import { NextResponse } from 'next/server';
+import * as Sentry from '@sentry/nextjs';
 
 export async function POST(request: Request) {
   try {
     const report = await request.json();
-    console.log('CSP Violation Report:', JSON.stringify(report, null, 2));
+    const cspReport = report['csp-report'];
 
-    // In a real application, you might want to send this to a logging service
-    // or database. For now, we'll just log it to the server console.
+    if (cspReport) {
+      console.log('CSP Violation Report:', JSON.stringify(report, null, 2));
+
+      // Forward to Sentry
+      Sentry.withScope((scope) => {
+        scope.setLevel('warning');
+        scope.setTag('security', 'csp-violation');
+        scope.setTag('violated-directive', cspReport['violated-directive']);
+        scope.setTag('blocked-uri', cspReport['blocked-uri']);
+        scope.setContext('csp_report', cspReport);
+        
+        Sentry.captureMessage(
+          `CSP Violation: ${cspReport['blocked-uri']} blocked by ${cspReport['violated-directive']}`,
+        );
+      });
+    }
 
     return NextResponse.json({ received: true }, { status: 200 });
   } catch (error) {
     console.error('Failed to parse CSP report:', error);
+    Sentry.captureException(error);
     return NextResponse.json({ error: 'Invalid report' }, { status: 400 });
   }
 }
