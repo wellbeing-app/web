@@ -24,6 +24,7 @@ export default defineConfig({
             '@/': new URL('./', import.meta.url).pathname,
           },
         },
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } as any,
       {
         extends: true,
@@ -39,6 +40,7 @@ export default defineConfig({
             instances: [{ browser: 'chromium' }],
           },
         },
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } as any,
     ],
   },
