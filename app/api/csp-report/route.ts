@@ -7,8 +7,6 @@ export async function POST(request: Request) {
     const cspReport = report['csp-report'];
 
     if (cspReport) {
-      console.log('CSP Violation Report:', JSON.stringify(report, null, 2));
-
       // Forward to Sentry
       Sentry.withScope((scope) => {
         scope.setLevel('warning');
@@ -25,7 +23,6 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ received: true }, { status: 200 });
   } catch (error) {
-    console.error('Failed to parse CSP report:', error);
     Sentry.captureException(error);
     return NextResponse.json({ error: 'Invalid report' }, { status: 400 });
   }
