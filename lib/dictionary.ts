@@ -79,6 +79,14 @@ const dictionaries = {
   cs: () => import('@/dictionaries/cs.json').then((module) => module.default),
 };
 
+const cache: Partial<Record<'en' | 'cs', Promise<Dictionary>>> = {};
+
 export const getDictionary = async (locale: 'en' | 'cs'): Promise<Dictionary> => {
-  return (dictionaries[locale]?.() ?? dictionaries.cs()) as Promise<Dictionary>;
+  const loader = dictionaries[locale] ?? dictionaries.cs;
+
+  if (!cache[locale]) {
+    cache[locale] = loader() as Promise<Dictionary>;
+  }
+
+  return cache[locale] as Promise<Dictionary>;
 };
