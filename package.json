@@ -11,7 +11,7 @@
     "test:e2e": "playwright test",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org anna-zezulka --project javascript-nextjs .next && sentry-cli sourcemaps upload --org anna-zezulka --project javascript-nextjs .next"
+    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org anna-zezulka --project javascript-nextjs .next && (if [ -n \"$SENTRY_AUTH_TOKEN\" ]; then sentry-cli sourcemaps upload --org anna-zezulka --project javascript-nextjs .next; else echo \"Skipping Sentry sourcemaps upload: SENTRY_AUTH_TOKEN not set\"; fi)"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.8.3",
