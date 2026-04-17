@@ -7,8 +7,6 @@ export async function POST(request: Request) {
     const cspReport = report['csp-report'];
 
     if (cspReport) {
-      console.log('CSP Violation Report:', JSON.stringify(report, null, 2));
-
       // Forward to Sentry
       Sentry.withScope((scope) => {
         scope.setLevel('warning');
