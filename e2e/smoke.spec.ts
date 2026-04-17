@@ -9,7 +9,9 @@ test('smoke test: navigation and language switching', async ({ page }) => {
 
   // 3. Click the LanguageSwitcher button
   // The button has aria-label="Switch language"
-  const languageSwitcher = page.getByRole('button', { name: 'Switch language' }).filter({ visible: true });
+  const languageSwitcher = page
+    .getByRole('button', { name: 'Switch language' })
+    .filter({ visible: true });
   await languageSwitcher.click();
 
   // 4. Assert the URL changes to include /en
