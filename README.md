@@ -33,7 +33,7 @@ A premium, modern wellbeing platform landing page designed with an "Apple-style"
 
    ```bash
    git clone <repository-url>
-   cd web-v2
+   cd web
    ```
 
 2. Install dependencies:
