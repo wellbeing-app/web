@@ -9,7 +9,7 @@ interface SectionSnapProps {
 }
 
 const WHEEL_THRESHOLD = 4;
-const WHEEL_COOLDOWN_MS = 90;
+const WHEEL_COOLDOWN_MS = 400;
 const KEY_COOLDOWN_MS = 80;
 const TOUCH_THRESHOLD_PX = 40;
 const CHAINED_DURATION = 0.55;

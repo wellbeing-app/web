@@ -53,6 +53,9 @@
   "accessibility": {
     "skipToMain": "Skip to main content"
   },
+  "stackedCards": {
+    "nextSlide": "Next"
+  },
   "privacy": {
     "lastUpdated": "Last updated",
     "weCollect": "1. What We Collect",

@@ -72,6 +72,9 @@ export interface Dictionary {
   accessibility: {
     skipToMain: string;
   };
+  stackedCards: {
+    nextSlide: string;
+  };
 }
 
 const dictionaries = {

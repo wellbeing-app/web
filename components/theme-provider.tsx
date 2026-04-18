@@ -1,9 +1,12 @@
 'use client';
 
 import * as React from 'react';
-import { ThemeProvider as NextThemesProvider, type ThemeProviderProps } from 'next-themes';
+import {
+  ThemeProvider as NextThemesProvider,
+  useTheme,
+  type ThemeProviderProps,
+} from 'next-themes';
 
-// Suppress the React 19 false positive warning from next-themes
 if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
   const orig = console.error;
   console.error = (...args: unknown[]) => {
@@ -14,14 +17,26 @@ if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
   };
 }
 
+function ThemeCookieSync() {
+  const { resolvedTheme } = useTheme();
+  React.useEffect(() => {
+    if (resolvedTheme !== 'dark' && resolvedTheme !== 'light') return;
+    document.cookie = `theme=${resolvedTheme}; path=/; max-age=31536000; SameSite=Lax`;
+  }, [resolvedTheme]);
+  return null;
+}
+
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   React.useEffect(() => {
-    // React hydrated successfully. We can now remove the safety block
-    // and re-enable smooth UI theme toggling for the entire session!
     setTimeout(() => {
       document.documentElement.classList.remove('disable-transitions');
     }, 10);
   }, []);
 
-  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+  return (
+    <NextThemesProvider {...props}>
+      <ThemeCookieSync />
+      {children}
+    </NextThemesProvider>
+  );
 }

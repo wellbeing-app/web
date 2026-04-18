@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { headers } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import { GeistPixelSquare } from 'geist/font/pixel';
@@ -83,8 +83,17 @@ export default async function RootLayout({
   const headersList = await headers();
   const nonce = headersList.get('x-nonce') || '';
 
+  const cookieStore = await cookies();
+  const theme = cookieStore.get('theme')?.value;
+  const isDark = theme === 'dark';
+
   return (
-    <html lang={resolvedParams.lang} suppressHydrationWarning>
+    <html
+      lang={resolvedParams.lang}
+      className={isDark ? 'dark' : undefined}
+      style={isDark ? { colorScheme: 'dark' } : undefined}
+      suppressHydrationWarning
+    >
       <head>
         <script
           type="application/ld+json"

@@ -79,5 +79,8 @@
   },
   "accessibility": {
     "skipToMain": "Přeskočit na hlavní obsah"
+  },
+  "stackedCards": {
+    "nextSlide": "Další"
   }
 }
