@@ -14,7 +14,7 @@ describe('Sentry Example API', () => {
     const Sentry = await import('@sentry/nextjs');
 
     // We expect the function to throw, so we catch the error to inspect it
-    let caughtError: any;
+    let caughtError: unknown;
     try {
       GET();
     } catch (error) {
@@ -23,8 +23,9 @@ describe('Sentry Example API', () => {
 
     // Verify the error was thrown and has the correct properties
     expect(caughtError).toBeDefined();
-    expect(caughtError.name).toBe('SentryExampleAPIError');
-    expect(caughtError.message).toBe(
+    expect(caughtError).toBeInstanceOf(Error);
+    expect((caughtError as Error).name).toBe('SentryExampleAPIError');
+    expect((caughtError as Error).message).toBe(
       'This error is raised on the backend called by the example page.'
     );
 

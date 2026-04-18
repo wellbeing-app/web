@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 
 const sections = [
   { id: 'home', label: 'Home' },
@@ -18,6 +18,7 @@ const sections = [
  */
 export function ScrollIndicator() {
   const [activeId, setActiveId] = useState<string>('home');
+  const elementsCache = useRef<Record<string, HTMLElement>>({});
 
   const determineActiveSection = useCallback(() => {
     // Safety check for server-side or early renders
@@ -35,7 +36,15 @@ export function ScrollIndicator() {
     let foundId = sections[0].id;
 
     for (const section of sections) {
-      const element = document.getElementById(section.id);
+      let element = elementsCache.current[section.id];
+      if (!element) {
+        const el = document.getElementById(section.id);
+        if (el) {
+          element = el;
+          elementsCache.current[section.id] = el;
+        }
+      }
+
       if (element) {
         const rect = element.getBoundingClientRect();
         // The active section is the LAST section that has reached or passed the trigger point.
