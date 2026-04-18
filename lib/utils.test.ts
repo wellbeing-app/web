@@ -19,7 +19,9 @@ describe('cn utility', () => {
   });
 
   it('should handle nested arrays and objects correctly', () => {
-    expect(cn('base', ['arr1', { 'obj-true': true, 'obj-false': false }])).toBe('base arr1 obj-true');
+    expect(cn('base', ['arr1', { 'obj-true': true, 'obj-false': false }])).toBe(
+      'base arr1 obj-true'
+    );
   });
 
   it('should resolve Tailwind CSS conflicts using tailwind-merge', () => {
@@ -39,11 +41,13 @@ describe('cn utility', () => {
   it('should work with complex combined inputs', () => {
     const isActive = true;
     const hasError = false;
-    expect(cn(
-      'px-2 py-1',
-      { 'bg-blue-500': isActive, 'bg-red-500': hasError },
-      ['font-bold', undefined],
-      isActive ? 'rounded-md' : 'rounded-none'
-    )).toBe('px-2 py-1 bg-blue-500 font-bold rounded-md');
+    expect(
+      cn(
+        'px-2 py-1',
+        { 'bg-blue-500': isActive, 'bg-red-500': hasError },
+        ['font-bold', undefined],
+        isActive ? 'rounded-md' : 'rounded-none'
+      )
+    ).toBe('px-2 py-1 bg-blue-500 font-bold rounded-md');
   });
 });
