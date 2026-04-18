@@ -8,13 +8,16 @@ interface SectionSnapProps {
   duration?: number;
 }
 
-const ADVANCE_LOCK_MS = 650;
 const WHEEL_THRESHOLD = 4;
+const WHEEL_COOLDOWN_MS = 90;
+const KEY_COOLDOWN_MS = 80;
 const TOUCH_THRESHOLD_PX = 40;
+const CHAINED_DURATION = 0.55;
 
 export function SectionSnap({ sectionIds, duration = 0.9 }: SectionSnapProps) {
   const lenisRef = useLenis();
-  const lockUntilRef = useRef(0);
+  const targetIndexRef = useRef<number | null>(null);
+  const lastAdvanceAtRef = useRef(0);
   const touchStartYRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -37,49 +40,53 @@ export function SectionSnap({ sectionIds, duration = 0.9 }: SectionSnapProps) {
       return idx;
     };
 
-    const advance = (direction: 1 | -1) => {
-      const now = performance.now();
-      if (now < lockUntilRef.current) return;
+    const scrollToIndex = (idx: number, tops: number[]) => {
       const lenis = lenisRef.current;
       if (!lenis) return;
+      const chained = targetIndexRef.current !== null;
+      targetIndexRef.current = idx;
+      lastAdvanceAtRef.current = performance.now();
+      lenis.scrollTo(tops[idx], {
+        duration: chained ? CHAINED_DURATION : duration,
+        lock: true,
+        onComplete: () => {
+          if (targetIndexRef.current === idx) targetIndexRef.current = null;
+        },
+      });
+    };
+
+    const advance = (direction: 1 | -1, cooldownMs: number) => {
+      if (performance.now() - lastAdvanceAtRef.current < cooldownMs) return;
       const tops = getTops();
       if (tops.length === 0) return;
-      const idx = currentIndex(tops);
-      const target = Math.max(0, Math.min(tops.length - 1, idx + direction));
-      if (target === idx) return;
-      lockUntilRef.current = now + ADVANCE_LOCK_MS;
-      lenis.scrollTo(tops[target], { duration, lock: true });
+      const base = targetIndexRef.current ?? currentIndex(tops);
+      const target = Math.max(0, Math.min(tops.length - 1, base + direction));
+      if (target === base) return;
+      scrollToIndex(target, tops);
     };
 
     const onWheel = (e: WheelEvent) => {
       if (Math.abs(e.deltaY) < WHEEL_THRESHOLD) return;
       e.preventDefault();
       e.stopPropagation();
-      advance(e.deltaY > 0 ? 1 : -1);
+      advance(e.deltaY > 0 ? 1 : -1, WHEEL_COOLDOWN_MS);
     };
 
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
         e.preventDefault();
-        advance(1);
+        advance(1, KEY_COOLDOWN_MS);
       } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
         e.preventDefault();
-        advance(-1);
+        advance(-1, KEY_COOLDOWN_MS);
       } else if (e.key === 'Home') {
         e.preventDefault();
-        const lenis = lenisRef.current;
-        if (lenis) {
-          lockUntilRef.current = performance.now() + ADVANCE_LOCK_MS;
-          lenis.scrollTo(0, { duration, lock: true });
-        }
+        const tops = getTops();
+        if (tops.length > 0) scrollToIndex(0, tops);
       } else if (e.key === 'End') {
         e.preventDefault();
-        const lenis = lenisRef.current;
         const tops = getTops();
-        if (lenis && tops.length > 0) {
-          lockUntilRef.current = performance.now() + ADVANCE_LOCK_MS;
-          lenis.scrollTo(tops[tops.length - 1], { duration, lock: true });
-        }
+        if (tops.length > 0) scrollToIndex(tops.length - 1, tops);
       }
     };
 
@@ -93,7 +100,7 @@ export function SectionSnap({ sectionIds, duration = 0.9 }: SectionSnapProps) {
       if (Math.abs(dy) < TOUCH_THRESHOLD_PX) return;
       touchStartYRef.current = null;
       e.preventDefault();
-      advance(dy > 0 ? 1 : -1);
+      advance(dy > 0 ? 1 : -1, 0);
     };
 
     const onTouchEnd = () => {
