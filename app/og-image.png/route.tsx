@@ -1,5 +1,6 @@
 import { ImageResponse } from 'next/og';
 import { NextRequest } from 'next/server';
+import * as Sentry from '@sentry/nextjs';
 
 const fontRegular = fetch(new URL('../../lib/fonts/GeistMono-Regular.ttf', import.meta.url)).then(
   (res) => res.arrayBuffer()
@@ -139,7 +140,9 @@ export async function GET(req: NextRequest) {
       }
     );
   } catch (error) {
-    console.error('Error generating OG image:', error);
+    Sentry.captureException(error, {
+      extra: { message: 'Error generating OG image' },
+    });
     return new Response('Failed to generate OG image', { status: 500 });
   }
 }
