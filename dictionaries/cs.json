@@ -11,9 +11,9 @@
     "nav_contact": "Kontakt"
   },
   "home": {
-    "badge": "Zdarma pro každého. Navždy.",
+    "badge": "Ve vývoji",
     "title": "Prostor pro mysl.",
-    "description": "Žádný nátlak. Žádná pravidla. Pouze bezpečné místo navržené pro váš klid a rovnováhu v každodenním životě.",
+    "description": "Žádný nátlak. Žádná pravidla. Pouze bezpečné místo navržené pro váš klid a rovnováhu v každodenním životě. Zdarma pro každého. Navždy.",
     "supportBtn": "Chci se zapojit",
     "newsletterBtn": "Chci dostávat aktualizace"
   },
@@ -33,11 +33,16 @@
   "team": {
     "title": "Náš tým",
     "description": "Lidé, kteří za tím stojí.",
-    "members": [
-      { "name": "Anna Zezulka", "role": "Studentka psychologie & Vývojářka" },
-      { "name": "Sofia Grycová", "role": "Studentka psychologie" },
-      { "name": "Natálie Neumannová", "role": "Studentka psychologie" }
-    ]
+    "roles": {
+      "anna": "Studentka psychologie & Vývojářka",
+      "sofia": "Studentka psychologie",
+      "natalie": "Studentka psychologie",
+      "daniel": "Vývojář"
+    },
+    "groups": {
+      "vedeni": "Vedení",
+      "vyvoj": "Vývoj"
+    }
   },
   "contact": {
     "title": "Zůstaňme v kontaktu",

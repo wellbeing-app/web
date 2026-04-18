@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useCallback, useRef, useSyncExternalStore } from 'react';
 import { motion, useScroll, useTransform, type MotionStyle } from 'framer-motion';
 import { ChevronDown, Maximize2 } from 'lucide-react';
 import { Footer } from './footer';
@@ -18,6 +18,35 @@ interface StackedCardsProps {
   cards: CardData[];
 }
 
+const DESKTOP_MEDIA_QUERY = '(min-width: 768px)';
+
+function useIsDesktop(): boolean {
+  const subscribe = useCallback((callback: () => void) => {
+    const mq = window.matchMedia(DESKTOP_MEDIA_QUERY);
+    mq.addEventListener('change', callback);
+    return () => mq.removeEventListener('change', callback);
+  }, []);
+  const getSnapshot = useCallback(() => window.matchMedia(DESKTOP_MEDIA_QUERY).matches, []);
+  const getServerSnapshot = useCallback(() => true, []);
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+}
+
+function FullscreenButton({ href }: { href: string }) {
+  const router = useRouter();
+  const params = useParams();
+  const lang = params.lang as string;
+  return (
+    <button
+      type="button"
+      onClick={() => router.push(`/${lang}${href}`)}
+      className="absolute top-4 right-4 md:top-6 md:right-6 p-2.5 md:p-3 rounded-xl md:rounded-2xl glass border border-border/50 bg-secondary/20 text-secondary-foreground/60 hover:text-secondary-foreground hover:bg-secondary/40 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer z-20"
+      aria-label="Fullscreen"
+    >
+      <Maximize2 className="h-4 w-4 md:h-5 md:w-5" />
+    </button>
+  );
+}
+
 function CardPill({
   children,
   style,
@@ -29,31 +58,12 @@ function CardPill({
   showFullscreen?: boolean;
   href?: string;
 }) {
-  const router = useRouter();
-  const params = useParams();
-  const lang = params.lang as string;
-
-  const onFullscreenClick = () => {
-    if (href) {
-      router.push(`/${lang}${href}`);
-    }
-  };
-
   return (
     <div
       className="w-full max-w-200 h-[70vh] bg-card border border-border rounded-4xl p-10 md:p-16 flex flex-col items-center justify-center text-center overflow-y-auto no-scrollbar relative group/card"
       style={style}
     >
-      {showFullscreen && (
-        <button
-          type="button"
-          onClick={onFullscreenClick}
-          className="absolute top-6 right-6 p-3 rounded-2xl glass border border-border/50 bg-secondary/20 text-secondary-foreground/60 hover:text-secondary-foreground hover:bg-secondary/40 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer z-20"
-          aria-label="Fullscreen"
-        >
-          <Maximize2 className="h-5 w-5" />
-        </button>
-      )}
+      {showFullscreen && href && <FullscreenButton href={href} />}
       {children}
     </div>
   );
@@ -148,18 +158,57 @@ function FinalCard({ card, index }: { card: CardData; index: number }) {
   );
 }
 
+function MobileSection({
+  card,
+  showFullscreen,
+}: {
+  card: CardData;
+  showFullscreen: boolean;
+}) {
+  return (
+    <section
+      id={card.id}
+      className="relative px-4 py-6 flex justify-center"
+    >
+      <div className="relative w-full bg-card border border-border rounded-3xl p-6 sm:p-8 flex flex-col items-center justify-center text-center">
+        {showFullscreen && card.href && <FullscreenButton href={card.href} />}
+        {card.component}
+      </div>
+    </section>
+  );
+}
+
 /**
- * StackedCards — Apple-style showcase.
+ * StackedCards — Apple-style showcase on desktop, flat cards on mobile.
  *
- * Each non-final section is 200vh tall with a sticky h-screen stage inside.
- * Card N is pinned for the first 100vh of its section; during the second 100vh
- * Card N+1 (higher zIndex) slides up from below and covers it, while Card N
- * scales/blurs/fades to recede. Transforms are bound directly to scroll — the
- * smoothness comes from Lenis at the input layer, not from framer-motion spring
- * damping, so the animation tracks the scroll position exactly.
+ * Desktop (≥768px): each non-final section is 200vh tall with a sticky h-screen
+ * stage. Card N is pinned for the first 100vh; during the second 100vh Card N+1
+ * slides up and covers it while Card N scales/blurs/fades. Transforms are bound
+ * directly to scroll — smoothness comes from Lenis at the input layer.
+ *
+ * Mobile (<768px): natural-height sections stacked vertically. No sticky cage,
+ * no scale/blur animation. Fullscreen button still surfaces the dedicated page.
  */
 export function StackedCards({ cards }: StackedCardsProps) {
   const dict = useDictionary();
+  const isDesktop = useIsDesktop();
+
+  if (!isDesktop) {
+    const lastIndex = cards.length - 1;
+    return (
+      <div className="w-full flex flex-col">
+        {cards.map((card, i) => (
+          <MobileSection
+            key={card.id}
+            card={card}
+            showFullscreen={i > 0 && i < lastIndex}
+          />
+        ))}
+        <Footer />
+      </div>
+    );
+  }
+
   return (
     <div className="w-full">
       {cards.map((card, i) => {

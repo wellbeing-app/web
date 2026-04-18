@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLenis } from './providers/smooth-scroll';
 
 interface SectionSnapProps {
@@ -8,6 +8,7 @@ interface SectionSnapProps {
   duration?: number;
 }
 
+const DESKTOP_MEDIA_QUERY = '(min-width: 768px)';
 const WHEEL_THRESHOLD = 4;
 const WHEEL_COOLDOWN_MS = 400;
 const KEY_COOLDOWN_MS = 80;
@@ -19,8 +20,18 @@ export function SectionSnap({ sectionIds, duration = 0.9 }: SectionSnapProps) {
   const targetIndexRef = useRef<number | null>(null);
   const lastAdvanceAtRef = useRef(0);
   const touchStartYRef = useRef<number | null>(null);
+  const [isDesktop, setIsDesktop] = useState(true);
 
   useEffect(() => {
+    const mq = window.matchMedia(DESKTOP_MEDIA_QUERY);
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
+
+  useEffect(() => {
+    if (!isDesktop) return;
     const getTops = () =>
       sectionIds
         .map((id) => {
@@ -123,7 +134,7 @@ export function SectionSnap({ sectionIds, duration = 0.9 }: SectionSnapProps) {
       window.removeEventListener('touchend', onTouchEnd);
       window.removeEventListener('touchcancel', onTouchEnd);
     };
-  }, [sectionIds, duration, lenisRef]);
+  }, [isDesktop, sectionIds, duration, lenisRef]);
 
   return null;
 }

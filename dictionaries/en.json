@@ -11,9 +11,9 @@
     "nav_contact": "Contact"
   },
   "home": {
-    "badge": "Free for everyone. Forever.",
+    "badge": "Under development",
     "title": "A space for the mind.",
-    "description": "No pressure. No rules. Just a safe place designed for your peace and daily balance.",
+    "description": "No pressure. No rules. Just a safe place designed for your peace and daily balance. Free for everyone. Forever.",
     "supportBtn": "I want to help",
     "newsletterBtn": "Keep me updated"
   },
@@ -33,11 +33,16 @@
   "team": {
     "title": "Our Team",
     "description": "The people behind the vision.",
-    "members": [
-      { "name": "Anna Zezulka", "role": "Psychology student & Developer" },
-      { "name": "Sofia Grycová", "role": "Psychology student" },
-      { "name": "Natálie Neumannová", "role": "Psychology student" }
-    ]
+    "roles": {
+      "anna": "Psychology student & Developer",
+      "sofia": "Psychology student",
+      "natalie": "Psychology student",
+      "daniel": "Developer"
+    },
+    "groups": {
+      "vedeni": "Leadership",
+      "vyvoj": "Development"
+    }
   },
   "contact": {
     "title": "Stay in Touch",

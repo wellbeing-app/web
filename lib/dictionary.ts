@@ -26,10 +26,8 @@ export interface Dictionary {
   team: {
     title: string;
     description: string;
-    members: Array<{
-      name: string;
-      role: string;
-    }>;
+    roles: Record<string, string>;
+    groups: Record<string, string>;
   };
   contact: {
     title: string;
