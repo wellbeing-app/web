@@ -63,7 +63,7 @@ function CardPill({
   return (
     <motion.div
       layoutId={layoutId}
-      className="w-full max-w-200 h-[70vh] bg-card border border-border rounded-4xl p-10 md:p-12 flex flex-col items-center justify-center text-center overflow-y-auto no-scrollbar relative group/card"
+      className="w-full max-w-200 h-[70vh] bg-card border border-border rounded-4xl p-8 md:p-10 flex flex-col items-center justify-center text-center overflow-y-auto no-scrollbar relative group/card"
       style={style}
     >
       {showFullscreen && href && <FullscreenButton href={href} />}
@@ -184,7 +184,7 @@ function MobileSection({
     >
       <motion.div 
         layoutId={showFullscreen && card.href ? `card-${card.id}` : undefined}
-        className="relative w-full bg-card border border-border rounded-3xl p-6 sm:p-8 flex flex-col items-center justify-center text-center"
+        className="relative w-full bg-card border border-border rounded-3xl p-4 sm:p-6 flex flex-col items-center justify-center text-center"
       >
         {showFullscreen && card.href && <FullscreenButton href={card.href} />}
         {card.component}

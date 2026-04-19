@@ -13,7 +13,7 @@ export function Hero() {
   ];
 
   return (
-    <section id="home" className="relative space-y-8 flex flex-col items-center py-0 overflow-hidden">
+    <div className="relative gap-6 flex flex-col items-center py-0 overflow-hidden">
       {/* Background Enrichment */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-full max-h-2xl bg-primary/5 rounded-full blur-3xl -z-10 animate-breathe" />
 
@@ -40,6 +40,6 @@ export function Hero() {
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 }

@@ -8,7 +8,7 @@ interface MissionProps {
 export function Mission({ isFullPage = false }: MissionProps) {
   const dict = useDictionary();
   return (
-    <section id="vision" className="relative w-full flex flex-col items-center justify-center overflow-hidden rounded-4xl shadow-xs">
+    <div className="relative w-full flex flex-col items-center justify-center overflow-hidden rounded-4xl shadow-xs">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -52,6 +52,6 @@ export function Mission({ isFullPage = false }: MissionProps) {
           </div>
         </motion.div>
       )}
-    </section>
+    </div>
   );
 }

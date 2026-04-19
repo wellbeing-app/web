@@ -28,7 +28,7 @@ export function WaitlistForm() {
   };
 
   return (
-    <section id="contact" className="space-y-8 flex flex-col items-center w-full max-w-md mx-auto">
+    <div className="space-y-8 flex flex-col items-center w-full max-w-md mx-auto">
       <div className="space-y-4">
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight">{dict.contact.title}</h2>
         <p className="text-lg text-muted-foreground">{dict.contact.description}</p>
@@ -76,6 +76,6 @@ export function WaitlistForm() {
           {dict.contact.privacyLink}
         </Link>
       </p>
-    </section>
+    </div>
   );
 }
