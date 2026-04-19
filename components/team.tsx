@@ -8,7 +8,7 @@ export function Team({ showChart = false }: { showChart?: boolean }) {
   const people = flattenPeople(team).filter((p) => p.id !== 'daniel');
 
   return (
-    <div className="space-y-16 flex flex-col items-center">
+    <div className="relative space-y-16 flex flex-col items-center">
       <div className="space-y-4 text-center">
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight">{dict.team.title}</h2>
         <p className="text-lg text-muted-foreground">{dict.team.description}</p>

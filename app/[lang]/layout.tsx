@@ -77,7 +77,7 @@ export default async function RootLayout({
   modal,
   params,
 }: React.PropsWithChildren<{
-  modal: React.ReactNode;
+  modal?: React.ReactNode;
   params: Promise<{ lang: string }>;
 }>) {
   const resolvedParams = await params;
@@ -131,7 +131,7 @@ export default async function RootLayout({
                 {dictionary.accessibility.skipToMain}
               </a>
               <Navbar lang={resolvedParams.lang} />
-              <main id="main-content" className="flex-1 focus:outline-none">
+              <main id="main-content" className="relative flex-1 focus:outline-none">
                 {children}
                 {modal}
               </main>

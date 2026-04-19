@@ -135,7 +135,7 @@ function StackingCard({
       <div className="sticky top-0 h-screen flex flex-col items-center px-4 will-change-transform">
         <div className="flex-1" />
         <motion.div
-          className="w-full max-w-200 h-[70vh] flex items-center justify-center will-change-transform"
+          className="relative w-full max-w-200 h-[70vh] flex items-center justify-center will-change-transform"
           style={{ scale, opacity, filter }}
         >
           <CardPill 
@@ -225,7 +225,7 @@ export function StackedCards({ cards }: StackedCardsProps) {
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full relative">
       {cards.map((card, i) => {
         const isLast = i === cards.length - 1;
         if (isLast) {
