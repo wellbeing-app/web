@@ -15,17 +15,20 @@
     "title": "Prostor pro mysl.",
     "description": "Žádný nátlak. Žádná pravidla. Pouze bezpečné místo navržené pro váš klid a rovnováhu v každodenním životě. Zdarma pro každého. Navždy.",
     "supportBtn": "Chci se zapojit",
-    "newsletterBtn": "Chci dostávat aktualizace"
+    "newsletterBtn": "Chci dostávat aktualizace",
+    "targetPlatforms": "Cílové platformy"
   },
   "vision": {
     "title": "Naše vize",
     "description": "Vytváříme komplexní a bezplatnou aplikaci, která pod jednou střechou sdružuje všechny potřebné nástroje pro každodenní péči o duševní zdraví.",
     "marketAnalysisTitle": "Syntéza trhu",
-    "marketAnalysis": "Z analýzy vyplývá, že na trhu chybí aplikace, která by kombinovala moderní UI a AI prvky s českou lokalizací a krizovou intervencí, a zároveň nabízela personalizovaný přístup k uživateli. Náš projekt tento průnik představuje."
+    "marketAnalysis": "Z analýzy vyplývá, že na trhu chybí aplikace, která by kombinovala moderní UI a AI prvky s českou lokalizací a krizovou intervencí, a zároveň nabízela personalizovaný přístup k uživateli. Náš projekt tento průnik představuje.",
+    "learnMoreLink": "Dozvědět se více"
   },
   "features": {
     "title": "Co nabízíme",
     "description": "Navrženo pro váš klid.",
+    "tryItLink": "Vyzkoušet",
     "list": [
       { "title": "Deník nálad", "desc": "Sledujte své emoce v čase" },
       { "title": "Dechová cvičení", "desc": "Okamžitá úleva od stresu" },
@@ -64,7 +67,7 @@
   },
   "team": {
     "title": "Náš tým",
-    "description": "Lidé, kteří za tím stojí.",
+    "description": "Jsme skupina studentů psychologie a vývojářů, kteří se spojili s vášní pro duševní zdraví a technologie.",
     "roles": {
       "anna": "Studentka psychologie & Vývojářka",
       "sofia": "Studentka psychologie",
@@ -74,7 +77,8 @@
     "groups": {
       "vedeni": "Vedení",
       "vyvoj": "Vývoj"
-    }
+    },
+    "moreLink": "A další"
   },
   "contact": {
     "title": "Zůstaňme v kontaktu",
@@ -118,6 +122,99 @@
     "skipToMain": "Přeskočit na hlavní obsah"
   },
   "stackedCards": {
-    "nextSlide": "Další"
+    "nextSlide": "Další karta"
+  },
+  "screener": {
+    "heading": "Vyzkoušejte krátký dotazník pohody",
+    "intro": "Jde o stručné, mezinárodně validované dotazníky. Vaše odpovědi zůstávají ve vašem prohlížeči — nic se neukládá ani neodesílá. Výsledek je informativní, nejde o diagnózu.",
+    "cta": "Začít dotazník",
+    "pickPrompt": "Který dotazník chcete zkusit?",
+    "instruments": {
+      "who5": {
+        "name": "WHO-5 · Pohoda",
+        "blurb": "5 otázek · celková pohoda za poslední 2 týdny",
+        "timeframe": "Za posledních 14 dní…",
+        "items": [
+          "Cítil/a jsem se vesele a v dobré náladě",
+          "Cítil/a jsem se klidně a uvolněně",
+          "Cítil/a jsem se aktivně a plný/á energie",
+          "Probouzel/a jsem se svěží a odpočatý/á",
+          "Můj každodenní život byl naplněn věcmi, které mě zajímají"
+        ],
+        "scale": [
+          "Nikdy",
+          "Občas",
+          "Méně než polovinu času",
+          "Více než polovinu času",
+          "Většinu času",
+          "Po celou dobu"
+        ]
+      },
+      "phq9": {
+        "name": "PHQ-9 · Deprese",
+        "blurb": "9 otázek · nálada za poslední 2 týdny",
+        "timeframe": "Jak často vás v posledních 2 týdnech trápily následující potíže?",
+        "items": [
+          "Malý zájem nebo potěšení z vykonávaných činností",
+          "Pocit sklíčenosti, deprese nebo beznaděje",
+          "Obtížné usínání, přerušovaný spánek nebo nadměrný spánek",
+          "Pocit únavy nebo nedostatku energie",
+          "Snížená chuť k jídlu nebo přejídání",
+          "Špatný pocit ze sebe sama — pocit selhání nebo zklamání sebe či rodiny",
+          "Potíže se soustředěním, například při čtení nebo sledování televize",
+          "Tak pomalý pohyb nebo řeč, že by si toho mohli všimnout ostatní — nebo naopak takový neklid, že jste se pohyboval/a mnohem více než obvykle",
+          "Myšlenky, že by pro vás bylo lepší být mrtvý/á, nebo že byste si měl/a nějak ublížit"
+        ],
+        "scale": [
+          "Vůbec",
+          "Několik dní",
+          "Více než polovinu dní",
+          "Téměř každý den"
+        ]
+      },
+      "gad7": {
+        "name": "GAD-7 · Úzkost",
+        "blurb": "7 otázek · úzkost za poslední 2 týdny",
+        "timeframe": "Jak často vás v posledních 2 týdnech trápily následující potíže?",
+        "items": [
+          "Pocit nervozity, úzkosti nebo napětí",
+          "Neschopnost přestat si dělat starosti nebo je ovládat",
+          "Přílišné obavy o různé věci",
+          "Obtížné uvolnění",
+          "Takový neklid, že je pro vás těžké v klidu sedět",
+          "Snadná podrážděnost nebo rozčilení",
+          "Pocit strachu, jako by se mělo stát něco zlého"
+        ],
+        "scale": [
+          "Vůbec",
+          "Několik dní",
+          "Více než polovinu dní",
+          "Téměř každý den"
+        ]
+      }
+    },
+    "severityLabels": {
+      "who5_good": "Dobrá pohoda",
+      "who5_low": "Snížená pohoda",
+      "who5_poor": "Nízká pohoda — screening pozitivní",
+      "minimal": "Minimální",
+      "mild": "Mírná",
+      "moderate": "Střední",
+      "moderatelySevere": "Středně závažná",
+      "severe": "Závažná"
+    },
+    "ui": {
+      "progress": "Otázka {current} z {total}",
+      "back": "Zpět",
+      "next": "Dále",
+      "finish": "Zobrazit výsledek",
+      "startOver": "Začít znovu",
+      "changeInstrument": "Zkusit jiný dotazník",
+      "scoreLabel": "Vaše skóre",
+      "suggestedLabel": "Co by naše aplikace doporučila",
+      "disclaimer": "Screeningové dotazníky nejsou diagnózou. Pokud ve vás něco rezonuje, zvažte rozhovor s odborníkem na duševní zdraví.",
+      "crisisTitle": "Ozvěte se — nejste v tom sami",
+      "crisisBody": "Vaše odpovědi naznačují, že by vám pomohlo si s někým promluvit. V ČR volejte 116 123 (Linka první psychické pomoci, nonstop) nebo 112 v případě nouze. Pokud vám hrozí bezprostřední nebezpečí, kontaktujte záchrannou službu."
+    }
   }
 }

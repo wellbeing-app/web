@@ -10,16 +10,19 @@ export interface Dictionary {
     description: string;
     supportBtn: string;
     newsletterBtn: string;
+    targetPlatforms: string;
   };
   vision: {
     title: string;
     description: string;
     marketAnalysisTitle: string;
     marketAnalysis: string;
+    learnMoreLink: string;
   };
   features: {
     title: string;
     description: string;
+    tryItLink: string;
     list: Array<{
       title: string;
       desc: string;
@@ -34,6 +37,7 @@ export interface Dictionary {
     description: string;
     roles: Record<string, string>;
     groups: Record<string, string>;
+    moreLink: string;
   };
   contact: {
     title: string;
@@ -79,6 +83,48 @@ export interface Dictionary {
   stackedCards: {
     nextSlide: string;
   };
+  screener: {
+    heading: string;
+    intro: string;
+    cta: string;
+    pickPrompt: string;
+    instruments: {
+      who5: ScreenerContent;
+      phq9: ScreenerContent;
+      gad7: ScreenerContent;
+    };
+    severityLabels: {
+      who5_good: string;
+      who5_low: string;
+      who5_poor: string;
+      minimal: string;
+      mild: string;
+      moderate: string;
+      moderatelySevere: string;
+      severe: string;
+    };
+    ui: {
+      progress: string;
+      back: string;
+      next: string;
+      finish: string;
+      startOver: string;
+      changeInstrument: string;
+      scoreLabel: string;
+      suggestedLabel: string;
+      disclaimer: string;
+      crisisTitle: string;
+      crisisBody: string;
+    };
+  };
+}
+
+export interface ScreenerContent {
+  name: string;
+  blurb: string;
+  timeframe: string;
+  items: string[];
+  scale: string[];
 }
 
 const dictionaries = {

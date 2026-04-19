@@ -4,22 +4,38 @@ import {
   createContext,
   ReactNode,
   RefObject,
+  useCallback,
   useContext,
   useLayoutEffect,
   useRef,
+  useState,
 } from 'react';
 import Lenis from 'lenis';
 
 type LenisRef = RefObject<Lenis | null>;
 
-const LenisContext = createContext<LenisRef>({ current: null });
+interface SmoothScrollContextValue {
+  lenisRef: LenisRef;
+  setEnabled: (enabled: boolean) => void;
+}
 
-export const useLenis = (): LenisRef => useContext(LenisContext);
+const LenisContext = createContext<SmoothScrollContextValue>({
+  lenisRef: { current: null },
+  setEnabled: () => {},
+});
+
+export const useLenis = (): LenisRef => useContext(LenisContext).lenisRef;
+
+export const useSmoothScrollControl = (): ((enabled: boolean) => void) =>
+  useContext(LenisContext).setEnabled;
 
 export function SmoothScroll({ children }: { children: ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null);
+  const [enabled, setEnabled] = useState(true);
 
   useLayoutEffect(() => {
+    if (!enabled) return;
+
     const instance = new Lenis({
       duration: 0.9,
       easing: (t) => 1 - Math.pow(1 - t, 3),
@@ -44,7 +60,15 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       instance.destroy();
       lenisRef.current = null;
     };
+  }, [enabled]);
+
+  const setEnabledCallback = useCallback((next: boolean) => {
+    setEnabled(next);
   }, []);
 
-  return <LenisContext.Provider value={lenisRef}>{children}</LenisContext.Provider>;
+  return (
+    <LenisContext.Provider value={{ lenisRef, setEnabled: setEnabledCallback }}>
+      {children}
+    </LenisContext.Provider>
+  );
 }

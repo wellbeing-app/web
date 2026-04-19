@@ -15,17 +15,20 @@
     "title": "A space for the mind.",
     "description": "No pressure. No rules. Just a safe place designed for your peace and daily balance. Free for everyone. Forever.",
     "supportBtn": "I want to help",
-    "newsletterBtn": "Keep me updated"
+    "newsletterBtn": "Keep me updated",
+    "targetPlatforms": "Target platforms"
   },
   "vision": {
     "title": "Our Vision",
     "description": "We are creating a comprehensive and free application that brings together all the necessary tools for daily mental health care under one roof.",
     "marketAnalysisTitle": "Market Synthesis",
-    "marketAnalysis": "Our analysis shows that the market lacks an application that combines modern UI and AI features with professional localized support and crisis intervention, while offering a personalized approach. Our project represents this intersection."
+    "marketAnalysis": "Our analysis shows that the market lacks an application that combines modern UI and AI features with professional localized support and crisis intervention, while offering a personalized approach. Our project represents this intersection.",
+    "learnMoreLink": "Learn more"
   },
   "features": {
     "title": "What We Offer",
     "description": "Designed for your peace.",
+    "tryItLink": "Try it",
     "list": [
       { "title": "Mood Journal", "desc": "Track your emotions over time" },
       { "title": "Breathing Exercises", "desc": "Instant stress relief" },
@@ -74,7 +77,8 @@
     "groups": {
       "vedeni": "Leadership",
       "vyvoj": "Development"
-    }
+    },
+    "moreLink": "And more"
   },
   "contact": {
     "title": "Stay in Touch",
@@ -91,7 +95,100 @@
     "skipToMain": "Skip to main content"
   },
   "stackedCards": {
-    "nextSlide": "Next"
+    "nextSlide": "Next card"
+  },
+  "screener": {
+    "heading": "Try a 1-minute wellbeing check",
+    "intro": "These are brief, internationally validated screeners. Your answers stay in your browser — nothing is stored or sent anywhere. The result is informational, not a diagnosis.",
+    "cta": "Start a check",
+    "pickPrompt": "Which check would you like to try?",
+    "instruments": {
+      "who5": {
+        "name": "WHO-5 · Wellbeing",
+        "blurb": "5 questions · general wellbeing over the past 2 weeks",
+        "timeframe": "Over the last 2 weeks…",
+        "items": [
+          "I have felt cheerful and in good spirits",
+          "I have felt calm and relaxed",
+          "I have felt active and vigorous",
+          "I woke up feeling fresh and rested",
+          "My daily life has been filled with things that interest me"
+        ],
+        "scale": [
+          "At no time",
+          "Some of the time",
+          "Less than half the time",
+          "More than half the time",
+          "Most of the time",
+          "All of the time"
+        ]
+      },
+      "phq9": {
+        "name": "PHQ-9 · Depression",
+        "blurb": "9 questions · mood over the past 2 weeks",
+        "timeframe": "Over the last 2 weeks, how often have you been bothered by…",
+        "items": [
+          "Little interest or pleasure in doing things",
+          "Feeling down, depressed, or hopeless",
+          "Trouble falling or staying asleep, or sleeping too much",
+          "Feeling tired or having little energy",
+          "Poor appetite or overeating",
+          "Feeling bad about yourself — or that you are a failure or have let yourself or your family down",
+          "Trouble concentrating on things, such as reading or watching television",
+          "Moving or speaking so slowly that other people could have noticed — or being so fidgety or restless that you have been moving around a lot more than usual",
+          "Thoughts that you would be better off dead, or of hurting yourself in some way"
+        ],
+        "scale": [
+          "Not at all",
+          "Several days",
+          "More than half the days",
+          "Nearly every day"
+        ]
+      },
+      "gad7": {
+        "name": "GAD-7 · Anxiety",
+        "blurb": "7 questions · anxiety over the past 2 weeks",
+        "timeframe": "Over the last 2 weeks, how often have you been bothered by…",
+        "items": [
+          "Feeling nervous, anxious or on edge",
+          "Not being able to stop or control worrying",
+          "Worrying too much about different things",
+          "Trouble relaxing",
+          "Being so restless that it is hard to sit still",
+          "Becoming easily annoyed or irritable",
+          "Feeling afraid as if something awful might happen"
+        ],
+        "scale": [
+          "Not at all",
+          "Several days",
+          "More than half the days",
+          "Nearly every day"
+        ]
+      }
+    },
+    "severityLabels": {
+      "who5_good": "Good wellbeing",
+      "who5_low": "Reduced wellbeing",
+      "who5_poor": "Poor wellbeing — screening positive",
+      "minimal": "Minimal",
+      "mild": "Mild",
+      "moderate": "Moderate",
+      "moderatelySevere": "Moderately severe",
+      "severe": "Severe"
+    },
+    "ui": {
+      "progress": "Question {current} of {total}",
+      "back": "Back",
+      "next": "Next",
+      "finish": "See result",
+      "startOver": "Start over",
+      "changeInstrument": "Try another check",
+      "scoreLabel": "Your score",
+      "suggestedLabel": "What our app would suggest",
+      "disclaimer": "Screening tools are not a diagnosis. If anything here resonates, consider talking to a mental-health professional.",
+      "crisisTitle": "Please reach out — you are not alone",
+      "crisisBody": "Your answers suggest it would help to talk to someone now. In the Czech Republic call 116 123 (Linka první psychické pomoci, 24/7) or 112 in an emergency. If you are in immediate danger, contact local emergency services."
+    }
   },
   "privacy": {
     "lastUpdated": "Last updated",

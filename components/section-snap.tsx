@@ -79,6 +79,9 @@ export function SectionSnap({ sectionIds, duration = 0.9 }: SectionSnapProps) {
 
     const onWheel = (e: WheelEvent) => {
       if (Math.abs(e.deltaY) < WHEEL_THRESHOLD) return;
+      if (!lenisRef.current) return;
+      const target = e.target as Element | null;
+      if (target?.closest?.('[data-scroll-lock]')) return;
       e.preventDefault();
       e.stopPropagation();
       advance(e.deltaY > 0 ? 1 : -1, WHEEL_COOLDOWN_MS);
@@ -108,6 +111,9 @@ export function SectionSnap({ sectionIds, duration = 0.9 }: SectionSnapProps) {
 
     const onTouchMove = (e: TouchEvent) => {
       if (touchStartYRef.current === null) return;
+      if (!lenisRef.current) return;
+      const target = e.target as Element | null;
+      if (target?.closest?.('[data-scroll-lock]')) return;
       const dy = touchStartYRef.current - (e.touches[0]?.clientY ?? touchStartYRef.current);
       if (Math.abs(dy) < TOUCH_THRESHOLD_PX) return;
       touchStartYRef.current = null;

@@ -52,17 +52,14 @@ function CardPill({
   style,
   showFullscreen,
   href,
-  layoutId,
 }: {
   children: React.ReactNode;
   style?: React.CSSProperties;
   showFullscreen?: boolean;
   href?: string;
-  layoutId?: string;
 }) {
   return (
     <motion.div
-      layoutId={layoutId}
       className="w-full max-w-200 h-[70vh] bg-card border border-border rounded-4xl p-8 md:p-10 flex flex-col items-center justify-center text-center overflow-y-auto no-scrollbar relative group/card"
       style={style}
     >
@@ -141,7 +138,6 @@ function StackingCard({
           <CardPill 
             showFullscreen={index > 0} 
             href={card.href}
-            layoutId={card.href ? `card-${card.id}` : undefined}
           >
             {card.component}
           </CardPill>
@@ -161,7 +157,6 @@ function FinalCard({ card, index }: { card: CardData; index: number }) {
     >
       <CardPill 
         href={card.href}
-        layoutId={card.href ? `card-${card.id}` : undefined}
       >
         {card.component}
       </CardPill>
@@ -183,7 +178,6 @@ function MobileSection({
       className="relative px-4 py-6 flex justify-center"
     >
       <motion.div 
-        layoutId={showFullscreen && card.href ? `card-${card.id}` : undefined}
         className="relative w-full bg-card border border-border rounded-3xl p-4 sm:p-6 flex flex-col items-center justify-center text-center"
       >
         {showFullscreen && card.href && <FullscreenButton href={card.href} />}
