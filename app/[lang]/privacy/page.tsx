@@ -7,7 +7,7 @@ export default function PrivacyPage() {
   const dict = useDictionary();
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center py-16 px-4">
+    <div className="min-h-dvh flex flex-col items-center justify-center py-16 px-4">
       <Link href="/" className="mb-8 text-primary hover:underline">
         ← {dict.nav.nav_home}
       </Link>

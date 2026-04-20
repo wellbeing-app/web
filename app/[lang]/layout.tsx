@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { cookies, headers } from 'next/headers';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
@@ -13,6 +13,17 @@ import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const baseUrl = 'https://wellbeing.zezulka.me';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  interactiveWidget: 'resizes-content',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f0eee9' },
+    { media: '(prefers-color-scheme: dark)', color: '#1e1d1c' },
+  ],
+};
 
 const organizationJsonLd = {
   '@context': 'https://schema.org',
@@ -112,7 +123,7 @@ export default async function RootLayout({
         />
       </head>
       <body
-        className={`${fontVariables} antialiased min-h-screen bg-background text-foreground flex flex-col`}
+        className={`${fontVariables} antialiased min-h-dvh bg-background text-foreground flex flex-col`}
         suppressHydrationWarning
       >
         <SmoothScroll>

@@ -45,7 +45,7 @@ export function Features({ full = false }: FeaturesProps) {
                   <h3 className="font-bold text-base md:text-xl mb-1 md:mb-2 text-foreground/90 group-hover:text-foreground transition-colors">
                     {feature.title}
                   </h3>
-                  <p className="text-muted-foreground text-xs md:text-sm leading-relaxed group-hover:text-muted-foreground/80 transition-colors">
+                  <p className="text-muted-foreground text-sm leading-relaxed group-hover:text-muted-foreground/80 transition-colors">
                     {feature.desc}
                   </p>
                 </div>

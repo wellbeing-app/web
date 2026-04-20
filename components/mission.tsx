@@ -28,13 +28,13 @@ export function Mission({ isFullPage = false }: MissionProps) {
 
         <div className="relative max-w-2xl mx-auto">
           {/* Stylized Quotes */}
-          <span className="absolute -top-4 -left-3 md:-top-6 md:-left-4 text-4xl md:text-6xl text-primary/10 font-serif leading-none italic pointer-events-none">
+          <span className="hidden sm:block absolute -top-4 -left-3 md:-top-6 md:-left-4 text-4xl md:text-6xl text-primary/10 font-serif leading-none italic pointer-events-none">
             &ldquo;
           </span>
           <p className="text-base md:text-2xl font-medium font-serif leading-relaxed italic text-foreground/80 lowercase first-letter:uppercase">
             {dict.vision.description}
           </p>
-          <span className="absolute -bottom-8 -right-3 md:-bottom-10 md:-right-4 text-4xl md:text-6xl text-primary/10 font-serif leading-none italic pointer-events-none">
+          <span className="hidden sm:block absolute -bottom-8 -right-3 md:-bottom-10 md:-right-4 text-4xl md:text-6xl text-primary/10 font-serif leading-none italic pointer-events-none">
             &rdquo;
           </span>
         </div>

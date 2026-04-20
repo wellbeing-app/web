@@ -25,7 +25,7 @@ export function Team({ showChart = false }: { showChart?: boolean }) {
         <OrgChart />
       ) : (
         <div className="flex flex-col items-center gap-4 md:gap-6 w-full">
-          <div className="grid grid-cols-3 gap-3 md:gap-6 w-full">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-6 w-full">
             {people.map((member) => (
               <div
                 key={member.id}
@@ -34,7 +34,7 @@ export function Team({ showChart = false }: { showChart?: boolean }) {
                 <div className="w-14 h-14 md:w-24 md:h-24 rounded-full bg-accent animate-pulse" />
                 <div className="text-center">
                   <h3 className="font-bold text-sm md:text-lg">{member.name}</h3>
-                  <p className="text-muted-foreground text-xs">{dict.team.roles[member.id]}</p>
+                  <p className="text-muted-foreground text-xs sm:text-sm">{dict.team.roles[member.id]}</p>
                 </div>
               </div>
             ))}

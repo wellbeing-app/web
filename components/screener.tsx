@@ -151,7 +151,7 @@ function QuizView({
   return (
     <div className="space-y-6">
       <div>
-        <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
+        <div className="flex items-center justify-between text-sm md:text-xs text-muted-foreground mb-2">
           <span>{meta.name}</span>
           <span>{progressText}</span>
         </div>
@@ -167,7 +167,7 @@ function QuizView({
 
       <div className="space-y-2">
         <p className="text-sm text-muted-foreground">{meta.timeframe}</p>
-        <p className="text-lg md:text-xl font-medium leading-relaxed">{meta.items[view.step]}</p>
+        <p className="text-[length:var(--text-lg-fluid)] md:text-xl font-medium leading-relaxed">{meta.items[view.step]}</p>
       </div>
 
       <div className="grid gap-2">
@@ -177,7 +177,7 @@ function QuizView({
             type="button"
             onClick={() => onAnswer(scoreValue)}
             className={cn(
-              'w-full text-left rounded-xl border px-4 py-3 text-sm md:text-base transition-all cursor-pointer',
+              'w-full text-left rounded-xl border px-4 py-3.5 min-h-11 text-sm md:text-base transition-all cursor-pointer',
               currentAnswer === scoreValue
                 ? 'border-primary bg-primary/10 text-foreground'
                 : 'border-border bg-secondary/10 hover:bg-secondary/30',
@@ -193,7 +193,7 @@ function QuizView({
         <button
           type="button"
           onClick={onBack}
-          className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+          className="inline-flex items-center px-3 py-2 -mx-3 -my-2 min-h-11 text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
         >
           {dict.screener.ui.back}
         </button>
@@ -223,7 +223,7 @@ function ResultView({
       <div className="text-center space-y-2">
         <div className="text-xs uppercase tracking-wider text-muted-foreground">{meta.name}</div>
         <div className="text-sm text-muted-foreground">{dict.screener.ui.scoreLabel}</div>
-        <div className="text-5xl md:text-6xl font-bold tracking-tight">
+        <div className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
           {result.displayScore}
           <span className="text-2xl md:text-3xl text-muted-foreground font-normal">
             {' / '}
@@ -250,7 +250,7 @@ function ResultView({
 
       <div className="space-y-3">
         <div className="text-sm font-medium text-foreground/80">{dict.screener.ui.suggestedLabel}</div>
-        <div className="grid gap-2 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
           {suggestions.map((f, i) => (
             <div
               key={i}

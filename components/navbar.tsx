@@ -1,15 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { LanguageSwitcher } from '@/components/language-switcher';
 import { useDictionary } from '@/components/providers/dictionary-provider';
+import { MobileMenu } from '@/components/mobile-menu';
 
 export function Navbar({ lang }: { lang: string }) {
   const [isOpen, setIsOpen] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
   const dict = useDictionary();
+  const closeMenu = useCallback(() => setIsOpen(false), []);
 
   const navLinks = [
     { href: `/${lang}`, label: dict.nav.nav_home },
@@ -21,7 +24,10 @@ export function Navbar({ lang }: { lang: string }) {
 
   return (
     <>
-      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-200 mx-auto">
+      <header
+        className="fixed left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-200 mx-auto"
+        style={{ top: 'max(1rem, var(--safe-top))' }}
+      >
         <nav className="relative bg-card px-3 py-3 rounded-full flex items-center justify-between border border-border transition-colors duration-300 min-h-16">
           {/* Left: Logo */}
           <div className="flex-1 flex justify-start pl-6">
@@ -61,9 +67,13 @@ export function Navbar({ lang }: { lang: string }) {
               <ThemeToggle />
             </div>
             <button
-              className="p-2"
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle mobile menu"
+              ref={buttonRef}
+              className="p-2.5 rounded-full hover:bg-secondary/40 transition-colors duration-200"
+              onClick={() => setIsOpen((v) => !v)}
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+              aria-haspopup="menu"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -71,21 +81,26 @@ export function Navbar({ lang }: { lang: string }) {
         </nav>
       </header>
 
-      {/* Mobile Menu Overlay */}
-      {isOpen && (
-        <div className="fixed top-24 left-1/2 -translate-x-1/2 w-[95%] z-40 md:hidden bg-card rounded-3xl p-6 border border-border flex flex-col items-center gap-4 animate-fade-in transition-colors duration-300">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="text-lg font-medium py-3 px-6 w-full text-center rounded-full bg-secondary/30 border border-border/50 backdrop-blur-sm hover:bg-secondary/50 transition-colors duration-300"
-              onClick={() => setIsOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-      )}
+      <MobileMenu
+        open={isOpen}
+        onClose={closeMenu}
+        triggerRef={buttonRef}
+        labelledBy="mobile-menu-label"
+      >
+        <h2 id="mobile-menu-label" className="sr-only">
+          {dict.nav.nav_home}
+        </h2>
+        {navLinks.map((link) => (
+          <Link
+            key={link.label}
+            href={link.href}
+            className="text-lg font-medium py-3 px-6 w-full text-center rounded-full bg-secondary/30 border border-border/50 backdrop-blur-sm hover:bg-secondary/50 transition-colors duration-300"
+            onClick={closeMenu}
+          >
+            {link.label}
+          </Link>
+        ))}
+      </MobileMenu>
     </>
   );
 }

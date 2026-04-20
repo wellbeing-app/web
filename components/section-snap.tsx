@@ -1,14 +1,14 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useLenis } from './providers/smooth-scroll';
+import { useIsDesktop } from '@/lib/use-is-desktop';
 
 interface SectionSnapProps {
   sectionIds: readonly string[];
   duration?: number;
 }
 
-const DESKTOP_MEDIA_QUERY = '(min-width: 768px)';
 const WHEEL_THRESHOLD = 4;
 const WHEEL_COOLDOWN_MS = 400;
 const KEY_COOLDOWN_MS = 80;
@@ -20,15 +20,7 @@ export function SectionSnap({ sectionIds, duration = 0.9 }: SectionSnapProps) {
   const targetIndexRef = useRef<number | null>(null);
   const lastAdvanceAtRef = useRef(0);
   const touchStartYRef = useRef<number | null>(null);
-  const [isDesktop, setIsDesktop] = useState(true);
-
-  useEffect(() => {
-    const mq = window.matchMedia(DESKTOP_MEDIA_QUERY);
-    const update = () => setIsDesktop(mq.matches);
-    update();
-    mq.addEventListener('change', update);
-    return () => mq.removeEventListener('change', update);
-  }, []);
+  const isDesktop = useIsDesktop();
 
   useEffect(() => {
     if (!isDesktop) return;

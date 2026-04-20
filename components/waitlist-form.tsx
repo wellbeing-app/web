@@ -49,7 +49,7 @@ export function WaitlistForm() {
               aria-label={dict.contact.emailLabel}
               aria-invalid={error ? 'true' : 'false'}
               aria-describedby={error ? 'email-error' : undefined}
-              className={`w-full px-6 py-3 rounded-full bg-secondary/20 border border-border outline-hidden focus:ring-2 focus:ring-primary/20 transition-all ${error ? 'border-red-500' : ''}`}
+              className={`w-full px-6 py-3.5 min-h-11 rounded-full bg-secondary/20 border border-border outline-hidden focus:ring-2 focus:ring-primary/20 transition-all ${error ? 'border-red-500' : ''}`}
             />
             {error && (
               <p id="email-error" className="text-sm text-red-500" role="alert">
@@ -59,7 +59,7 @@ export function WaitlistForm() {
           </div>
           <button
             type="submit"
-            className="bg-primary text-primary-foreground px-8 py-3 rounded-full font-medium transition-all hover:bg-primary/90"
+            className="bg-primary text-primary-foreground px-8 py-3.5 min-h-11 rounded-full font-medium transition-all hover:bg-primary/90"
           >
             {dict.contact.submitBtn}
           </button>

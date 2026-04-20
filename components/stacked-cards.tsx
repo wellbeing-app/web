@@ -1,12 +1,13 @@
 'use client';
 
-import { useCallback, useRef, useSyncExternalStore } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform, type MotionStyle } from 'framer-motion';
 import { ChevronDown, Maximize2 } from 'lucide-react';
 import { Footer } from './footer';
 import { useLenis } from './providers/smooth-scroll';
 import { useDictionary } from './providers/dictionary-provider';
 import { useRouter, useParams } from 'next/navigation';
+import { useIsDesktop } from '@/lib/use-is-desktop';
 
 interface CardData {
   id: string;
@@ -16,19 +17,6 @@ interface CardData {
 
 interface StackedCardsProps {
   cards: CardData[];
-}
-
-const DESKTOP_MEDIA_QUERY = '(min-width: 768px)';
-
-function useIsDesktop(): boolean {
-  const subscribe = useCallback((callback: () => void) => {
-    const mq = window.matchMedia(DESKTOP_MEDIA_QUERY);
-    mq.addEventListener('change', callback);
-    return () => mq.removeEventListener('change', callback);
-  }, []);
-  const getSnapshot = useCallback(() => window.matchMedia(DESKTOP_MEDIA_QUERY).matches, []);
-  const getServerSnapshot = useCallback(() => true, []);
-  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 }
 
 function FullscreenButton({ href }: { href: string }) {
@@ -175,10 +163,10 @@ function MobileSection({
   return (
     <section
       id={card.id}
-      className="relative px-4 py-6 flex justify-center"
+      className="relative px-4 py-4 flex justify-center"
     >
-      <motion.div 
-        className="relative w-full bg-card border border-border rounded-3xl p-4 sm:p-6 flex flex-col items-center justify-center text-center"
+      <motion.div
+        className="relative w-full bg-card border border-border rounded-3xl p-5 sm:p-6 flex flex-col items-center justify-center text-center"
       >
         {showFullscreen && card.href && <FullscreenButton href={card.href} />}
         {card.component}
@@ -205,7 +193,7 @@ export function StackedCards({ cards }: StackedCardsProps) {
   if (!isDesktop) {
     const lastIndex = cards.length - 1;
     return (
-      <div className="w-full flex flex-col pt-24 pb-20 relative">
+      <div className="w-full flex flex-col pt-[calc(6rem+var(--safe-top))] pb-[calc(5rem+var(--safe-bottom))] relative">
         {cards.map((card, i) => (
           <MobileSection
             key={card.id}

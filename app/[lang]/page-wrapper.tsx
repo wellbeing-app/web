@@ -13,7 +13,7 @@ const SECTION_IDS = ['home', 'vision', 'features', 'team', 'contact'] as const;
 
 export function PageWrapper() {
   return (
-    <main className="relative min-h-screen animate-in fade-in duration-700 ease-in-out">
+    <main className="relative min-h-dvh animate-in fade-in duration-700 ease-in-out">
       <ScrollIndicator />
       <SectionSnap sectionIds={SECTION_IDS} />
       <StackedCards
