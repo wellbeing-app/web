@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.8.3",
-    "@sentry/cli": "^2.58.5",
+    "@sentry/cli": "^3.4.0",
     "@sentry/nextjs": "^10.49.0",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
