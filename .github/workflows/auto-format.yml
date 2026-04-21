@@ -21,7 +21,7 @@ jobs:
       contents: ${{ github.event_name == 'push' && 'write' || 'read' }}
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
