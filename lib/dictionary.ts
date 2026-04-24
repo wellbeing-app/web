@@ -11,6 +11,10 @@ export interface Dictionary {
     supportBtn: string;
     newsletterBtn: string;
     targetPlatforms: string;
+    mood_label: string;
+    mood_low: string;
+    mood_neutral: string;
+    mood_great: string;
     rotatingPhrases: string[];
   };
   vision: {

@@ -18,7 +18,7 @@ export function Hero() {
   return (
     <div className="relative gap-6 sm:gap-8 flex flex-col items-center py-0 overflow-hidden">
       <span className="inline-flex items-center gap-2 bg-secondary/30 border border-border/50 backdrop-blur-sm text-secondary-foreground text-xs md:text-sm font-medium px-3 md:px-4 py-1 md:py-1.5 rounded-full transition-colors duration-300 animate-fade-in">
-        <div className="relative w-1.5 h-1.5 flex-shrink-0" aria-hidden="true">
+        <div className="relative w-1.5 h-1.5 shrink-0" aria-hidden="true">
           <div className="absolute inset-0 rounded-full bg-[#E09B5A] animate-ping-ring" />
           <div className="absolute inset-0 rounded-full bg-[#E09B5A]" />
         </div>
