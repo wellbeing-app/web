@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useDictionary } from '@/components/providers/dictionary-provider';
-import { Terminal, Globe, ArrowUpRight } from 'lucide-react';
+import { Globe, ArrowUpRight } from 'lucide-react';
 import { useInView, motion } from 'framer-motion';
 import { Apple, Android, Microsoft, Linux, Github } from '@/components/icons';
 import Link from 'next/link';
@@ -137,22 +137,18 @@ export function DeveloperFriendly({ isFullPage = false }: DeveloperFriendlyProps
   const currentAction = sequence[step];
 
   return (
-    <div className="relative space-y-8 flex flex-col items-center w-full max-w-2xl mx-auto font-sans animate-fade-in">
-      <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-secondary/30 border border-border backdrop-blur-sm">
-        <Terminal className="w-8 h-8 text-foreground" />
-      </div>
-      
+    <div className="relative pt-12 md:pt-16 space-y-8 flex flex-col items-center w-full max-w-2xl mx-auto font-sans animate-fade-in">
       <div className="space-y-4 text-center">
-        <h2 className="text-3xl md:text-5xl font-black tracking-tight font-pixel uppercase [-webkit-text-stroke:0.5px_currentColor] md:[-webkit-text-stroke:0.5px_currentColor]">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight font-pixel uppercase [-webkit-text-stroke:0.3px_currentColor]">
           {dict.developer.title}
         </h2>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-lg mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto leading-relaxed">
           {dict.developer.description}
         </p>
       </div>
       
       {!isFullPage && (
-        <div className="w-full mt-8 rounded-2xl bg-card/80 border border-border backdrop-blur-sm text-left flex flex-col h-[250px] md:h-[280px] overflow-hidden">
+        <div className="w-full -mt-4 rounded-2xl bg-card/80 border border-border backdrop-blur-sm text-left flex flex-col h-[220px] md:h-[250px] overflow-hidden">
           <div className="flex items-center gap-2 px-6 py-4 border-b border-border/10 bg-black/5 dark:bg-white/5">
             <div className="w-3 h-3 rounded-full bg-red-500/80" />
             <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
@@ -185,16 +181,6 @@ export function DeveloperFriendly({ isFullPage = false }: DeveloperFriendlyProps
             )}
           </div>
         </div>
-      )}
-
-      {!isFullPage && (
-        <Link
-          href={`/${lang}/developer`}
-          className="inline-flex items-center justify-center gap-1.5 text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors group mt-6"
-        >
-          <span>{dict.developer.moreLink}</span>
-          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </Link>
       )}
 
       {isFullPage && (

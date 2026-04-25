@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useDictionary } from '@/components/providers/dictionary-provider';
 import { Mail } from 'lucide-react';
+import { Checkbox } from '@/components/ui/checkbox';
 
 export function WaitlistForm() {
   const dict = useDictionary();
@@ -40,7 +41,6 @@ export function WaitlistForm() {
           <form className="flex flex-col gap-4 w-full" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-2">
               <div className="relative flex items-center">
-                <Mail className="absolute left-6 w-5 h-5 text-muted-foreground" aria-hidden="true" />
                 <input
                   id="email"
                   type="email"
@@ -53,7 +53,7 @@ export function WaitlistForm() {
                   aria-label={dict.contact.emailLabel}
                   aria-invalid={error ? 'true' : 'false'}
                   aria-describedby={error ? 'email-error' : undefined}
-                  className={`w-full pl-14 pr-6 py-3.5 min-h-11 rounded-full bg-secondary/20 border border-border outline-hidden focus:ring-2 focus:ring-primary/20 transition-all ${error ? 'border-red-500' : ''}`}
+                  className={`w-full px-6 py-3.5 min-h-11 rounded-full bg-secondary/20 border border-border outline-hidden focus:ring-2 focus:ring-primary/20 transition-all ${error ? 'border-red-500' : ''}`}
                 />
               </div>
               {error && (
@@ -62,13 +62,11 @@ export function WaitlistForm() {
                 </p>
               )}
             </div>
-            <div className="flex items-start gap-3 mt-1">
+            <div className="flex items-start gap-3 mt-1 px-6">
               <div className="flex items-center h-5 mt-0.5">
-                <input
+                <Checkbox
                   id="gdpr-consent"
-                  type="checkbox"
                   required
-                  className="w-4 h-4 rounded border-border text-primary focus:ring-primary/20 transition-colors cursor-pointer"
                 />
               </div>
               <label htmlFor="gdpr-consent" className="text-xs text-muted-foreground text-left leading-relaxed cursor-pointer select-none">

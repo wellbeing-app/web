@@ -29,19 +29,16 @@ export function Hero() {
         {dict.home.title}
       </h1>
 
-      <p className="text-(length:--text-base-fluid) md:text-lg text-muted-foreground max-w-lg text-center leading-relaxed transition-colors duration-300 animate-fade-in">
+      <p className="text-(length:--text-base-fluid) md:text-lg text-muted-foreground max-w-xl text-center leading-relaxed transition-colors duration-300 animate-fade-in">
         {dict.home.description}
       </p>
 
       {/* Mood Slider Section */}
-      <div className="w-full max-w-md animate-fade-in pt-4">
-        <div className="glass border border-border/50 rounded-3xl p-8 md:p-10 shadow-[0_0_50px_rgba(0,0,0,0.06)] flex flex-col items-center gap-8">
-          <div className="flex flex-col items-center gap-6">
-            <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest text-center">
-              {dict.home.mood_label}
-            </p>
-            <div className="relative flex items-center justify-center">
-              <svg width="110" height="110" viewBox="0 0 40 40" className="overflow-visible">
+      <div className="w-full max-w-[320px] md:max-w-sm animate-fade-in pt-2">
+        <div className="glass border border-border/50 rounded-3xl p-4 md:p-5 shadow-[0_0_20px_rgba(0,0,0,0.02)]">
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+            <div className="relative flex items-center justify-center shrink-0">
+              <svg width="80" height="80" viewBox="0 0 40 40" className="overflow-visible">
                 <defs>
                   <radialGradient id="moodGradient" cx="30%" cy="30%" r="70%">
                     <stop offset="0%" stopColor="white" stopOpacity="0.4" />
@@ -53,7 +50,7 @@ export function Hero() {
                 <motion.path
                   d="M20,4 C29,4 36,11 36,20 C36,29 29,36 20,36 C11,36 4,29 4,20 C4,11 11,4 20,4 Z"
                   fill="url(#moodGradient)"
-                  className="drop-shadow-[0_0_12px_rgba(0,0,0,0.12)]"
+                  className="drop-shadow-[0_0_10px_rgba(0,0,0,0.1)]"
                   animate={{ 
                     d: mood < 40 
                       ? "M20,10 C27,10 32,16 32,22 C32,28 27,34 20,34 C13,34 8,28 8,22 C8,16 13,10 20,10 Z" 
@@ -88,22 +85,22 @@ export function Hero() {
                 />
               </svg>
             </div>
-          </div>
 
-          <div className="w-full flex flex-col gap-4">
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={mood}
-              onChange={(e) => setMood(parseInt(e.target.value))}
-              className="w-full h-2 bg-secondary border border-border rounded-full appearance-none cursor-pointer accent-primary focus:outline-hidden"
-              aria-label={dict.home.mood_label}
-            />
-            <div className="flex justify-between px-1 text-[10px] font-bold text-muted-foreground/60 tracking-tighter uppercase">
-              <span>{dict.home.mood_low}</span>
-              <span>{dict.home.mood_neutral}</span>
-              <span>{dict.home.mood_great}</span>
+            <div className="w-full flex flex-col gap-3">
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={mood}
+                onChange={(e) => setMood(parseInt(e.target.value))}
+                className="w-full h-1.5 bg-secondary border border-border rounded-full appearance-none cursor-pointer accent-primary focus:outline-hidden"
+                aria-label={dict.home.mood_label || 'Mood slider'}
+              />
+              <div className="flex justify-between px-1 text-[9px] font-bold text-muted-foreground/50 tracking-tighter uppercase">
+                <span>{dict.home.mood_low}</span>
+                <span>{dict.home.mood_neutral}</span>
+                <span>{dict.home.mood_great}</span>
+              </div>
             </div>
           </div>
         </div>

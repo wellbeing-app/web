@@ -27,7 +27,7 @@ function FullscreenButton({ href }: { href: string }) {
     <button
       type="button"
       onClick={() => router.push(`/${lang}${href}`)}
-      className="absolute top-4 right-4 md:top-6 md:right-6 p-2.5 md:p-3 rounded-xl md:rounded-2xl glass border border-border/50 bg-secondary/20 text-secondary-foreground/60 hover:text-secondary-foreground hover:bg-secondary/40 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer z-20"
+      className="absolute top-6 right-6 md:top-8 md:right-8 p-2.5 md:p-3 rounded-xl md:rounded-2xl glass border border-border/50 bg-secondary/20 text-secondary-foreground/60 hover:text-secondary-foreground hover:bg-secondary/40 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer z-20"
       aria-label="Fullscreen"
     >
       <Maximize2 className="h-4 w-4 md:h-5 md:w-5" />

@@ -327,4 +327,18 @@
     text-decoration: none;
     font-weight: 500;
   }
+
+  /* Fix for Radix UI hidden inputs being visible in some environments */
+  input[aria-hidden="true"] {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+  }
 }
