@@ -77,8 +77,7 @@ export function MobileMenu({ open, onClose, triggerRef, labelledBy, children }: 
             animate={reduce ? { opacity: 1 } : { opacity: 1, y: 0 }}
             exit={reduce ? { opacity: 0 } : { opacity: 0, y: -12 }}
             transition={reduce ? { duration: 0 } : PANEL_TRANSITION}
-            className="fixed left-1/2 -translate-x-1/2 w-[95%] max-w-200 z-50 md:hidden bg-card rounded-3xl p-6 border border-border flex flex-col items-center gap-3"
-            style={{ top: 'calc(max(1rem, var(--safe-top)) + 4.5rem)' }}
+            className="fixed left-1/2 -translate-x-1/2 w-[95%] max-w-200 z-50 md:hidden bg-card rounded-3xl p-6 border border-border flex flex-col items-center gap-3 top-safe-menu"
           >
             {children}
           </motion.div>

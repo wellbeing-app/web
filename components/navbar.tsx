@@ -48,8 +48,7 @@ export function Navbar({ lang }: { lang: string }) {
   return (
     <>
       <header
-        className="fixed left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-200 mx-auto"
-        style={{ top: 'max(1rem, var(--safe-top))' }}
+        className="fixed left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-200 mx-auto top-safe"
       >
         <nav className="relative bg-card px-3 py-3 rounded-full flex items-center justify-between border border-border transition-colors duration-300 min-h-16">
           {/* Left: Logo */}

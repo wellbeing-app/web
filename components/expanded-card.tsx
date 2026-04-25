@@ -68,9 +68,7 @@ export function ExpandedCard({ children, label = 'Expanded view' }: ExpandedCard
             initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.88 }}
             animate={reduce ? { opacity: 1 } : { opacity: 1, scale: 1 }}
             exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.88 }}
-            data-scroll-lock
-            style={{ overscrollBehavior: 'contain' }}
-            className="relative w-full max-w-5xl h-auto max-h-[calc(100dvh-2rem)] md:max-h-[calc(100dvh-4rem)] bg-card border border-border rounded-4xl shadow-2xl overflow-y-auto no-scrollbar"
+            className="relative w-full max-w-5xl h-auto max-h-[calc(100dvh-2rem)] md:max-h-[calc(100dvh-4rem)] bg-card border border-border rounded-4xl shadow-2xl overflow-y-auto no-scrollbar overscroll-contain"
             transition={reduce ? { duration: 0 } : SPRING}
           >
             {/* Desktop close — sticky top-right inside the scrolling panel */}
@@ -88,8 +86,7 @@ export function ExpandedCard({ children, label = 'Expanded view' }: ExpandedCard
           {/* Mobile close — thumb-reachable, safe-area aware */}
           <button
             onClick={handleClose}
-            className="md:hidden fixed right-4 z-60 flex items-center justify-center p-3 rounded-full glass border border-border/50 bg-secondary/30 text-secondary-foreground shadow-xl hover:bg-secondary/50 transition-all duration-200 cursor-pointer"
-            style={{ bottom: 'calc(1rem + var(--safe-bottom))' }}
+            className="md:hidden fixed right-4 z-60 flex items-center justify-center p-3 rounded-full glass border border-border/50 bg-secondary/30 text-secondary-foreground shadow-xl hover:bg-secondary/50 transition-all duration-200 cursor-pointer bottom-safe"
             aria-label="Close"
           >
             <X className="h-6 w-6" />

@@ -124,6 +124,7 @@
 
   .dark {
     /* --- SEMANTIC TOKENS (Dark Mode) --- */
+    color-scheme: dark;
     --background: #1e1d1c;
     --foreground: var(--base-cloud);
 
@@ -235,8 +236,20 @@
   .safe-top {
     padding-top: max(1rem, var(--safe-top));
   }
+  .top-safe {
+    top: max(1rem, var(--safe-top));
+  }
+  .top-safe-menu {
+    top: calc(max(1rem, var(--safe-top)) + 4.5rem);
+  }
   .safe-bottom {
     padding-bottom: max(1rem, var(--safe-bottom));
+  }
+  .bottom-safe {
+    bottom: calc(1rem + var(--safe-bottom));
+  }
+  .overscroll-contain {
+    overscroll-behavior: contain;
   }
   .safe-x {
     padding-left: var(--safe-left);
