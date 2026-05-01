@@ -284,6 +284,8 @@
   main p a,
   main ul a,
   main ol a,
+  main label a,
+  main section a,
   main .prose a {
     text-decoration: underline !important;
     text-underline-offset: 4px;
@@ -293,6 +295,8 @@
   main p a:hover,
   main ul a:hover,
   main ol a:hover,
+  main label a:hover,
+  main section a:hover,
   main .prose a:hover {
     text-decoration-thickness: 2px;
   }

@@ -192,10 +192,13 @@ export function StackedCards({ cards }: StackedCardsProps) {
     };
 
     lenis.on('scroll', onScroll);
-    // Initial check
-    onScroll();
+    // Initial check - defer to avoid forced reflow during hydration
+    const timer = setTimeout(onScroll, 100);
 
-    return () => lenis.off('scroll', onScroll);
+    return () => {
+      lenis.off('scroll', onScroll);
+      clearTimeout(timer);
+    };
   }, [lenisRef, cards, isDesktop]);
 
   // Handle initial hash on mount (for language switching preservation)

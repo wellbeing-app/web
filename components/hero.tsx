@@ -10,6 +10,7 @@ export function Hero() {
 
   const safeMood = typeof mood === 'number' && !isNaN(mood) ? mood : 70;
   // Interpolate mouth path: Sad (0) -> Neutral (50) -> Happy (100)
+  // Ensure we always have a valid path string to avoid "undefined" error in console
   const mouthPath = `M 12 26 Q 20 ${22 + (safeMood / 100) * 10} 28 26`;
 
   // Interpolate color: Red (0) -> Yellow (50) -> Green (100)
@@ -70,12 +71,14 @@ export function Hero() {
                     animate={{
                       d: safeMood < 40 ? 'M12 20 Q 14.5 22 17 20' : 'M12 17 Q 14.5 14.5 17 17',
                     }}
+                    initial={false}
                   />
                   <motion.path
                     d={safeMood < 40 ? 'M23 20 Q 25.5 22 28 20' : 'M23 17 Q 25.5 14.5 28 17'}
                     animate={{
                       d: safeMood < 40 ? 'M23 20 Q 25.5 22 28 20' : 'M23 17 Q 25.5 14.5 28 17',
                     }}
+                    initial={false}
                   />
                 </g>
 

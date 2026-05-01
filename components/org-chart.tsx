@@ -98,11 +98,13 @@ export function OrgChart() {
     setContainerSize({ width: container.scrollWidth, height: container.scrollHeight });
   }, []);
 
-  // Measure synchronously before paint so lines render at their final positions
-  // on the first frame, rather than being computed mid-animation and snapping later.
-  useLayoutEffect(() => {
+  // Measure after paint so lines render at their final positions without blocking initial paint.
+  useEffect(() => {
     if (!isDesktop) return;
-    recalculate();
+    const timer = setTimeout(() => {
+      recalculate();
+    }, 100);
+    return () => clearTimeout(timer);
   }, [recalculate, isDesktop]);
 
   useEffect(() => {

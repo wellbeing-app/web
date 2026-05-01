@@ -35,6 +35,7 @@ const nextConfig: NextConfig = {
     ];
   },
   productionBrowserSourceMaps: true,
+  optimizePackageImports: ['lucide-react'],
 };
 
 export default withSentryConfig(nextConfig, {

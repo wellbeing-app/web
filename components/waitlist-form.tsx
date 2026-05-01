@@ -73,7 +73,7 @@ export function WaitlistForm() {
                 {dict.contact.privacyText}{' '}
                 <Link
                   href="/privacy"
-                  className="text-primary hover:underline"
+                  className="text-primary underline decoration-primary/30 underline-offset-4 hover:decoration-primary"
                   onClick={(e) => e.stopPropagation()}
                 >
                   {dict.contact.privacyLink}

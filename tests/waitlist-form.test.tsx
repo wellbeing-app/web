@@ -39,6 +39,8 @@ describe('WaitlistForm Edge Cases', () => {
     const input = screen.getByLabelText('Test Label');
     const button = screen.getByRole('button', { name: 'Submit' });
 
+    const checkbox = screen.getByRole('checkbox');
+    fireEvent.click(checkbox);
     fireEvent.change(input, { target: { value: 'test@example.com' } });
     fireEvent.click(button);
 
