@@ -6,14 +6,14 @@ export const team: TeamNode = {
   kind: 'person',
   id: 'anna',
   name: 'Anna Zezulka',
-  image: '/placeholder_1.png',
+  image: '/anna.png',
   children: [
     {
       kind: 'group',
       id: 'vedeni',
       children: [
-        { kind: 'person', id: 'sofia', name: 'Sofia Grycová', image: '/placeholder_3.png' },
-        { kind: 'person', id: 'natalie', name: 'Natálie Neumannová', image: '/placeholder_2.png' },
+        { kind: 'person', id: 'sofia', name: 'Sofia Grycová', image: '/sofia.webp' },
+        { kind: 'person', id: 'natalie', name: 'Natálie Neumannová', image: '/natalie.webp' },
       ],
     },
     {

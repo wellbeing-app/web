@@ -1,4 +1,4 @@
-# Wellbeing.
+# Lumi.
 
 A premium, modern wellbeing platform landing page designed with an "Apple-style" aesthetics. This project features a unique Rolodex-style stacked card navigation, glassmorphism design elements, and a robust internationalization system.
 

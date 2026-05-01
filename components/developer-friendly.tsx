@@ -32,7 +32,7 @@ export function DeveloperFriendly({ isFullPage = false }: DeveloperFriendlyProps
     | { type: 'out', lines: string[] };
 
   const sequence: SequenceItem[] = [
-    { type: 'cmd', dir: '~/wellbeing', text: 'git clone https://github.com/wellbeing-app/web' },
+    { type: 'cmd', dir: '~/lumi', text: 'git clone https://github.com/lumi-app/web' },
     { type: 'out', lines: [
       "Cloning into 'web'...",
       "remote: Enumerating objects: 1027, done.",
@@ -42,15 +42,15 @@ export function DeveloperFriendly({ isFullPage = false }: DeveloperFriendlyProps
       "Receiving objects: 100% (1027/1027), 2.54 MiB | 7.29 MiB/s, done.",
       "Resolving deltas: 100% (588/588), done."
     ]},
-    { type: 'cmd', dir: '~/wellbeing', text: 'cd web' },
-    { type: 'cmd', dir: '~/wellbeing/web', text: 'npm install' },
+    { type: 'cmd', dir: '~/lumi', text: 'cd web' },
+    { type: 'cmd', dir: '~/lumi/web', text: 'npm install' },
     { type: 'out', lines: [
       "added 998 packages, and audited 999 packages in 17s",
       "",
       "221 packages are looking for funding",
       "  run `npm fund` for details"
     ]},
-    { type: 'cmd', dir: '~/wellbeing/web', text: 'npm run dev' },
+    { type: 'cmd', dir: '~/lumi/web', text: 'npm run dev' },
     { type: 'out', lines: [
       "> web@0.1.0 dev",
       "> next dev",
@@ -66,7 +66,7 @@ export function DeveloperFriendly({ isFullPage = false }: DeveloperFriendlyProps
   const [charIndex, setCharIndex] = useState(0);
   const [lineIndex, setLineIndex] = useState(0);
   const [history, setHistory] = useState<React.ReactNode[]>([]);
-  const [currentDir, setCurrentDir] = useState('~/wellbeing');
+  const [currentDir, setCurrentDir] = useState('~/lumi');
 
   const scrollToBottom = () => {
     if (terminalRef.current) {
@@ -206,7 +206,7 @@ export function DeveloperFriendly({ isFullPage = false }: DeveloperFriendlyProps
           </div>
 
           <a
-            href="https://github.com/wellbeing-app"
+            href="https://github.com/lumi-app"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 mt-4 px-6 py-3 rounded-full bg-primary text-primary-foreground text-sm md:text-base font-medium hover:scale-105 active:scale-95 transition-all shadow-lg hover:shadow-primary/20"

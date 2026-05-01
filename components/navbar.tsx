@@ -58,7 +58,7 @@ export function Navbar({ lang }: { lang: string }) {
               className="text-xl font-bold tracking-tight transition-colors duration-300"
               onClick={(e) => handleScroll(e, `/${lang}`)}
             >
-              Wellbeing.
+              Lumi.
             </Link>
           </div>
 

@@ -1,6 +1,6 @@
-# robots.txt for Wellbeing App
+# robots.txt for Lumi
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://wellbeing.zezulka.me/sitemap.xml
+Sitemap: https://lumi.zezulka.me/sitemap.xml

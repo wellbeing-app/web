@@ -23,11 +23,11 @@ export async function GET(req: NextRequest) {
     // Dictionary for translations
     const dictionaries: Record<string, { title: string; description: string }> = {
       en: {
-        title: 'Wellbeing App',
+        title: 'Lumi',
         description: 'A calming digital companion for your daily wellbeing journey',
       },
       cs: {
-        title: 'Wellbeing App',
+        title: 'Lumi',
         description: 'Uklidňující digitální společník pro vaši každodenní cestu wellbeingem',
       },
     };
@@ -95,7 +95,7 @@ export async function GET(req: NextRequest) {
             letterSpacing: '-2px',
           }}
         >
-          🌿 Wellbeing
+          🌿 Lumi
         </div>
 
         {/* Title */}
@@ -133,7 +133,7 @@ export async function GET(req: NextRequest) {
             color: colors.secondaryText,
           }}
         >
-          wellbeing.zezulka.me
+          lumi.zezulka.me
         </div>
       </div>,
       {

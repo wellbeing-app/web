@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // TODO: domain will be soon changed
-  const baseUrl = 'https://wellbeing.zezulka.me';
+  const baseUrl = 'https://lumi.zezulka.me';
 
   return [
     {

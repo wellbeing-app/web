@@ -4,8 +4,8 @@ test('smoke test: navigation and language switching', async ({ page }) => {
   // 1. Navigate to /cs
   await page.goto('/cs');
 
-  // 2. Verify <title> contains "Wellbeing"
-  await expect(page).toHaveTitle(/Wellbeing/);
+  // 2. Verify <title> contains "Lumi"
+  await expect(page).toHaveTitle(/Lumi/);
 
   // 3. Click the LanguageSwitcher button
   // The button has aria-label="Switch language"

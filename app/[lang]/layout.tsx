@@ -10,7 +10,7 @@ import { Navbar } from '@/components/navbar';
 import { DictionaryProvider } from '@/components/providers/dictionary-provider';
 import { SmoothScroll } from '@/components/providers/smooth-scroll';
 
-const baseUrl = 'https://wellbeing.zezulka.me';
+const baseUrl = 'https://lumi.zezulka.me';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -26,10 +26,10 @@ export const viewport: Viewport = {
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Wellbeing App',
+  name: 'Lumi',
   url: baseUrl,
   logo: `${baseUrl}/logo.png`,
-  sameAs: ['https://www.linkedin.com/company/wellbeing-app', 'https://twitter.com/wellbeingapp'],
+  sameAs: ['https://www.linkedin.com/company/lumi-app', 'https://twitter.com/lumiapp'],
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: '+420-123-456-789',
@@ -58,7 +58,7 @@ export async function generateMetadata({
       type: 'website',
       locale: lang === 'en' ? 'en_US' : 'cs_CZ',
       url: baseUrl,
-      siteName: 'Wellbeing App',
+      siteName: 'Lumi',
       images: [
         {
           url: `${baseUrl}/og-image.png?lang=${lang}`,
@@ -70,8 +70,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      site: '@wellbeingapp',
-      creator: '@wellbeingapp',
+      site: '@lumiapp',
+      creator: '@lumiapp',
       title: dict.metadata.title,
       description: dict.metadata.description,
       images: [`${baseUrl}/og-image.png?lang=${lang}`],

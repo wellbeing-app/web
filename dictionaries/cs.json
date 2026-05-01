@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "title": "Wellbeing.",
+    "title": "Lumi.",
     "description": "Bezplatná aplikace pro vaši duševní pohodu. Denník nálad, dechová cvičení a komunitní podpora pro každý den."
   },
   "nav": {
@@ -122,7 +122,7 @@
     "processorHeader": "6. Zpracovatelé údajů",
     "controllerHeader": "7. Správce údajů",
     "contact": "8. Kontakt",
-    "weCollectDesc": "Sbíráme vaši e-mailovou adresu, když se přihlásíte k odběru našeho newsletteru. Tyto informace sbíráme pouze pro účely zasílání newsletterových aktualizací o službě Wellbeing.",
+    "weCollectDesc": "Sbíráme vaši e-mailovou adresu, když se přihlásíte k odběru našeho newsletteru. Tyto informace sbíráme pouze pro účely zasílání newsletterových aktualizací o službě Lumi.",
     "newsletterUpdates": "zasílání newsletterových komunikací",
     "subscriptionProcessing": "zpracování vašeho odběru naší služby",
     "inquiries": "odpovídání na vaše dotazy",
@@ -130,7 +130,7 @@
     "rightsHeader": "V souladu s GDPR máte právo na:",
     "retentionDesc": "Vaši e-mailovou adresu uchováváme pouze po dobu, kdy zůstáváte přihlášeni k odběru našeho newsletteru. O vymazání můžete požádat kdykoli odhlášením z odběru.",
     "processorDesc": "Pro správu a zasílání našich newsletterových sdělení využíváme službu Resend jako našeho externího poskytovatele služeb.",
-    "controllerDesc": "Správcem údajů pro projekt Wellbeing je Anna Zezulka. V případě jakýchkoli dotazů týkajících se ochrany osobních údajů nás prosím kontaktujte na adrese: info@wellbeing-app.com",
+    "controllerDesc": "Správcem údajů pro projekt Lumi je Anna Zezulka. V případě jakýchkoli dotazů týkajících se ochrany osobních údajů nás prosím kontaktujte na adrese: info@lumi-app.com",
     "consent": "Zpracováváme vaše osobní údaje na základě vašeho souhlasu, který poskytujete zaškrtnutím souhlasného políčka při přihlašování k odběru newsletteru. Souhlas můžete kdykoli odvolat kliknutím na odkaz pro odhlášení v jakémkoli e-mailu.",
     "access": "přístup k vašim osobním údajům",
     "correction": "požadavek na opravu vašich údajů",

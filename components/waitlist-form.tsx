@@ -91,12 +91,12 @@ export function WaitlistForm() {
         )}
 
         <div className="mt-8 pt-8 border-t border-border/50 flex flex-col items-center">
-          <a 
-            href="mailto:placeholder@wellbeing-app.org"
+          <a
+            href="mailto:placeholder@lumi-app.org"
             className="group flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors duration-300"
           >
             <Mail className="w-5 h-5 transition-transform group-hover:scale-110" />
-            <span className="font-medium">placeholder@wellbeing-app.org</span>
+            <span className="font-medium">placeholder@lumi-app.org</span>
           </a>
         </div>
       </div>
