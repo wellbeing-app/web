@@ -42,7 +42,7 @@ export function Mission({ isFullPage = false }: MissionProps) {
         {!isFullPage && (
           <Link
             href={`/${lang}/vision`}
-            className="inline-flex items-center gap-1.5 text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors group mt-2 md:mt-4"
+            className="inline-flex items-center gap-1.5 text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors group mt-2 md:mt-4 underline decoration-muted-foreground/30 underline-offset-4 hover:decoration-foreground"
           >
             <span>{dict.vision.learnMoreLink}</span>
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

@@ -35,7 +35,7 @@ export function Team({ showChart = false }: { showChart?: boolean }) {
               >
                 {member.image ? (
                   <div className="relative w-14 h-14 md:w-24 md:h-24 rounded-full overflow-hidden border border-border/50">
-                    <Image src={member.image} alt={member.name} fill className="object-cover" unoptimized />
+                    <Image src={member.image} alt={member.name} fill className="object-cover" sizes="(max-width: 768px) 56px, 96px" />
                   </div>
                 ) : (
                   <div className="w-14 h-14 md:w-24 md:h-24 rounded-full bg-accent animate-pulse" />
@@ -50,7 +50,7 @@ export function Team({ showChart = false }: { showChart?: boolean }) {
 
           <Link
             href={`/${lang}/team`}
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors group"
+            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors group underline decoration-muted-foreground/30 underline-offset-4 hover:decoration-foreground"
           >
             <span>{dict.team.moreLink}</span>
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

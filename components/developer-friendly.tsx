@@ -2,65 +2,61 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useDictionary } from '@/components/providers/dictionary-provider';
-import { Globe, ArrowUpRight } from 'lucide-react';
+import { Globe } from 'lucide-react';
 import { useInView, motion } from 'framer-motion';
 import { Apple, Android, Microsoft, Linux, Github } from '@/components/icons';
-import Link from 'next/link';
-import { useParams } from 'next/navigation';
 
 interface DeveloperFriendlyProps {
   isFullPage?: boolean;
 }
 
+type SequenceItem = 
+  | { type: 'cmd', dir: string, text: string }
+  | { type: 'out', lines: string[] };
+
+const PLATFORMS = [
+  { name: 'iOS', icon: Apple, label: 'Download for iOS' },
+  { name: 'Android', icon: Android, label: 'Download for Android' },
+  { name: 'Windows', icon: Microsoft, label: 'Download for Windows' },
+  { name: 'Linux', icon: Linux, label: 'Download for Linux' },
+  { name: 'Web', icon: Globe, label: 'Open in browser' },
+];
+
+const SEQUENCE: SequenceItem[] = [
+  { type: 'cmd', dir: '~/lumi', text: 'git clone https://github.com/lumi-app/web' },
+  { type: 'out', lines: [
+    "Cloning into 'web'...",
+    "remote: Enumerating objects: 1027, done.",
+    "remote: Counting objects: 100% (80/80), done.",
+    "remote: Compressing objects: 100% (17/17), done.",
+    "remote: Total 1027 (delta 66), reused 65 (delta 62), pack-reused 947 (from 1)",
+    "Receiving objects: 100% (1027/1027), 2.54 MiB | 7.29 MiB/s, done.",
+    "Resolving deltas: 100% (588/588), done."
+  ]},
+  { type: 'cmd', dir: '~/lumi', text: 'cd web' },
+  { type: 'cmd', dir: '~/lumi/web', text: 'npm install' },
+  { type: 'out', lines: [
+    "added 998 packages, and audited 999 packages in 17s",
+    "",
+    "221 packages are looking for funding",
+    "  run `npm fund` for details"
+  ]},
+  { type: 'cmd', dir: '~/lumi/web', text: 'npm run dev' },
+  { type: 'out', lines: [
+    "> web@0.1.0 dev",
+    "> next dev",
+    "",
+    "▲ Next.js 16.2.3 (Turbopack)",
+    "- Local:         http://localhost:3000",
+    "- Network:       http://192.168.0.10:3000",
+    "✓ Ready in 466ms"
+  ]}
+];
+
 export function DeveloperFriendly({ isFullPage = false }: DeveloperFriendlyProps) {
   const dict = useDictionary();
-  const params = useParams();
-  const lang = params.lang as string;
   const terminalRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(terminalRef, { once: true, amount: 0.5 });
-
-  const platforms = [
-    { name: 'iOS', icon: Apple, label: 'Download for iOS' },
-    { name: 'Android', icon: Android, label: 'Download for Android' },
-    { name: 'Windows', icon: Microsoft, label: 'Download for Windows' },
-    { name: 'Linux', icon: Linux, label: 'Download for Linux' },
-    { name: 'Web', icon: Globe, label: 'Open in browser' },
-  ];
-
-  type SequenceItem = 
-    | { type: 'cmd', dir: string, text: string }
-    | { type: 'out', lines: string[] };
-
-  const sequence: SequenceItem[] = [
-    { type: 'cmd', dir: '~/lumi', text: 'git clone https://github.com/lumi-app/web' },
-    { type: 'out', lines: [
-      "Cloning into 'web'...",
-      "remote: Enumerating objects: 1027, done.",
-      "remote: Counting objects: 100% (80/80), done.",
-      "remote: Compressing objects: 100% (17/17), done.",
-      "remote: Total 1027 (delta 66), reused 65 (delta 62), pack-reused 947 (from 1)",
-      "Receiving objects: 100% (1027/1027), 2.54 MiB | 7.29 MiB/s, done.",
-      "Resolving deltas: 100% (588/588), done."
-    ]},
-    { type: 'cmd', dir: '~/lumi', text: 'cd web' },
-    { type: 'cmd', dir: '~/lumi/web', text: 'npm install' },
-    { type: 'out', lines: [
-      "added 998 packages, and audited 999 packages in 17s",
-      "",
-      "221 packages are looking for funding",
-      "  run `npm fund` for details"
-    ]},
-    { type: 'cmd', dir: '~/lumi/web', text: 'npm run dev' },
-    { type: 'out', lines: [
-      "> web@0.1.0 dev",
-      "> next dev",
-      "",
-      "▲ Next.js 16.2.3 (Turbopack)",
-      "- Local:         http://localhost:3000",
-      "- Network:       http://192.168.0.10:3000",
-      "✓ Ready in 466ms"
-    ]}
-  ];
 
   const [step, setStep] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
@@ -83,13 +79,13 @@ export function DeveloperFriendly({ isFullPage = false }: DeveloperFriendlyProps
   }, [step, charIndex, lineIndex]);
 
   useEffect(() => {
-    if (!isInView || step >= sequence.length) return;
+    if (!isInView || step >= SEQUENCE.length) return;
 
     let timeoutId: NodeJS.Timeout;
-    const currentAction = sequence[step];
+    const currentAction = SEQUENCE[step];
 
     if (currentAction.type === 'cmd') {
-      setCurrentDir(currentAction.dir);
+      setTimeout(() => setCurrentDir(currentAction.dir), 0);
       if (charIndex < currentAction.text.length) {
         timeoutId = setTimeout(() => {
           setCharIndex(prev => prev + 1);
@@ -100,7 +96,7 @@ export function DeveloperFriendly({ isFullPage = false }: DeveloperFriendlyProps
           setHistory(prev => [
             ...prev,
             <div key={`cmd-${step}`} className="mt-1">
-              <span className="text-green-400">{currentAction.dir}</span>
+              <span className="text-green-700 dark:text-green-400">{currentAction.dir}</span>
               <span className="text-muted-foreground mx-2">$</span>
               <span className="text-foreground">{currentAction.text}</span>
             </div>
@@ -133,8 +129,8 @@ export function DeveloperFriendly({ isFullPage = false }: DeveloperFriendlyProps
     return () => clearTimeout(timeoutId);
   }, [step, charIndex, lineIndex, isInView]);
 
-  const isFinished = step >= sequence.length;
-  const currentAction = sequence[step];
+  const isFinished = step >= SEQUENCE.length;
+  const currentAction = SEQUENCE[step];
 
   return (
     <div className="relative pt-12 md:pt-16 space-y-8 flex flex-col items-center w-full max-w-2xl mx-auto font-sans animate-fade-in">
@@ -165,7 +161,7 @@ export function DeveloperFriendly({ isFullPage = false }: DeveloperFriendlyProps
             
             {!isFinished && currentAction?.type === 'cmd' && (
               <div className="mt-1">
-                <span className="text-green-400">{currentAction.dir}</span>
+                <span className="text-green-700 dark:text-green-400">{currentAction.dir}</span>
                 <span className="text-muted-foreground mx-2">$</span>
                 <span className="text-foreground">{currentAction.text.slice(0, charIndex)}</span>
                 <span className="inline-block w-2.5 h-4 md:h-5 ml-1 bg-foreground animate-pulse align-middle" />
@@ -174,7 +170,7 @@ export function DeveloperFriendly({ isFullPage = false }: DeveloperFriendlyProps
             
             {isFinished && (
               <div className="mt-2">
-                <span className="text-green-400">{currentDir}</span>
+                <span className="text-green-700 dark:text-green-400">{currentDir}</span>
                 <span className="text-muted-foreground mx-2">$</span>
                 <span className="inline-block w-2.5 h-4 md:h-5 ml-1 bg-foreground animate-pulse align-middle" />
               </div>
@@ -194,7 +190,7 @@ export function DeveloperFriendly({ isFullPage = false }: DeveloperFriendlyProps
             {dict.home.targetPlatforms}
           </span>
           <div className="flex flex-wrap justify-center gap-3 md:gap-5">
-            {platforms.map((platform) => (
+            {PLATFORMS.map((platform) => (
               <div
                 key={platform.name}
                 className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center bg-card/50 border border-border/50 backdrop-blur-md rounded-xl md:rounded-2xl transition-all duration-500 hover:bg-secondary/80 hover:scale-110 active:scale-95 touch-manipulation hover:shadow-[0_0_20px_rgba(var(--primary),0.1)] cursor-pointer group"

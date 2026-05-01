@@ -4,25 +4,6 @@
     "expected": 0.9,
     "actual": 0,
     "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "bf-cache",
-    "level": "error",
-    "url": "http://localhost:3000/en",
-    "auditTitle": "Page prevented back/forward cache restoration",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/bf-cache/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
       0
     ],
     "operator": ">=",
@@ -38,8 +19,35 @@
     "expected": 0.9,
     "actual": 0,
     "values": [
-      0,
-      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "document-latency-insight",
+    "level": "error",
+    "url": "http://localhost:3000/en",
+    "auditTitle": "Document request latency"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0,
+    "values": [
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "dom-size-insight",
+    "level": "warn",
+    "url": "http://localhost:3000/en",
+    "auditTitle": "Optimize DOM size",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/dom-size/"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0,
+    "values": [
       0
     ],
     "operator": ">=",
@@ -55,8 +63,6 @@
     "expected": 0.9,
     "actual": 0,
     "values": [
-      0,
-      0,
       0
     ],
     "operator": ">=",
@@ -72,8 +78,6 @@
     "expected": 0.9,
     "actual": 0,
     "values": [
-      0,
-      0,
       0
     ],
     "operator": ">=",
@@ -86,11 +90,9 @@
   {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0.19,
+    "actual": 0.38,
     "values": [
-      0.15,
-      0.17,
-      0.19
+      0.38
     ],
     "operator": ">=",
     "passed": false,
@@ -105,8 +107,6 @@
     "expected": 0.9,
     "actual": 0.5,
     "values": [
-      0,
-      0.5,
       0.5
     ],
     "operator": ">=",
@@ -122,8 +122,6 @@
     "expected": 0,
     "actual": 1,
     "values": [
-      1,
-      1,
       1
     ],
     "operator": "<=",
@@ -139,8 +137,21 @@
     "expected": 0.9,
     "actual": 0,
     "values": [
-      0,
-      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "link-in-text-block",
+    "level": "error",
+    "url": "http://localhost:3000/en",
+    "auditTitle": "Links rely on color to be distinguishable.",
+    "auditDocumentationLink": "https://dequeuniversity.com/rules/axe/4.10/link-in-text-block"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0,
+    "values": [
       0
     ],
     "operator": ">=",
@@ -154,11 +165,9 @@
   {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0.04,
+    "actual": 0,
     "values": [
-      0,
-      0.04,
-      0.04
+      0
     ],
     "operator": ">=",
     "passed": false,
@@ -173,8 +182,6 @@
     "expected": 0.9,
     "actual": 0,
     "values": [
-      0,
-      0,
       0
     ],
     "operator": ">=",
@@ -190,8 +197,6 @@
     "expected": 0,
     "actual": 1,
     "values": [
-      1,
-      1,
       1
     ],
     "operator": "<=",
@@ -207,8 +212,6 @@
     "expected": 0,
     "actual": 1,
     "values": [
-      1,
-      1,
       1
     ],
     "operator": "<=",
@@ -220,12 +223,40 @@
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/render-blocking-resources/"
   },
   {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0,
+    "values": [
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "server-response-time",
+    "level": "warn",
+    "url": "http://localhost:3000/en",
+    "auditTitle": "Reduce initial server response time",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/time-to-first-byte/"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0.81,
+    "values": [
+      0.81
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "speed-index",
+    "level": "warn",
+    "url": "http://localhost:3000/en",
+    "auditTitle": "Speed Index",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/speed-index/"
+  },
+  {
     "name": "maxLength",
     "expected": 0,
     "actual": 2,
     "values": [
-      2,
-      2,
       2
     ],
     "operator": "<=",
@@ -241,8 +272,6 @@
     "expected": 0.9,
     "actual": 0,
     "values": [
-      0,
-      0,
       0
     ],
     "operator": ">=",
@@ -256,11 +285,9 @@
   {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0.66,
+    "actual": 0.41,
     "values": [
-      0.61,
-      0.66,
-      0.65
+      0.41
     ],
     "operator": ">=",
     "passed": false,
@@ -273,43 +300,8 @@
   {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0.62,
-    "values": [
-      0.52,
-      0.62,
-      0.61
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditProperty": "performance",
-    "auditId": "categories",
-    "level": "error",
-    "url": "http://localhost:3000/en"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
     "actual": 0,
     "values": [
-      0,
-      0,
-      0
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditId": "bf-cache",
-    "level": "error",
-    "url": "http://localhost:3000/cs",
-    "auditTitle": "Page prevented back/forward cache restoration",
-    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/bf-cache/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0,
-    "values": [
-      0,
-      0,
       0
     ],
     "operator": ">=",
@@ -325,8 +317,21 @@
     "expected": 0.9,
     "actual": 0,
     "values": [
-      0,
-      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "dom-size-insight",
+    "level": "warn",
+    "url": "http://localhost:3000/cs",
+    "auditTitle": "Optimize DOM size",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/dom-size/"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0,
+    "values": [
       0
     ],
     "operator": ">=",
@@ -342,8 +347,6 @@
     "expected": 0.9,
     "actual": 0,
     "values": [
-      0,
-      0,
       0
     ],
     "operator": ">=",
@@ -359,8 +362,6 @@
     "expected": 0.9,
     "actual": 0,
     "values": [
-      0,
-      0,
       0
     ],
     "operator": ">=",
@@ -373,11 +374,9 @@
   {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0.19,
+    "actual": 0.08,
     "values": [
-      0.19,
-      0.16,
-      0.19
+      0.08
     ],
     "operator": ">=",
     "passed": false,
@@ -392,8 +391,6 @@
     "expected": 0.9,
     "actual": 0.5,
     "values": [
-      0.5,
-      0.5,
       0.5
     ],
     "operator": ">=",
@@ -409,8 +406,6 @@
     "expected": 0,
     "actual": 1,
     "values": [
-      1,
-      1,
       1
     ],
     "operator": "<=",
@@ -426,8 +421,21 @@
     "expected": 0.9,
     "actual": 0,
     "values": [
-      0,
-      0,
+      0
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "link-in-text-block",
+    "level": "error",
+    "url": "http://localhost:3000/cs",
+    "auditTitle": "Links rely on color to be distinguishable.",
+    "auditDocumentationLink": "https://dequeuniversity.com/rules/axe/4.10/link-in-text-block"
+  },
+  {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0,
+    "values": [
       0
     ],
     "operator": ">=",
@@ -441,11 +449,9 @@
   {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0.06,
+    "actual": 0.01,
     "values": [
-      0.03,
-      0.06,
-      0.05
+      0.01
     ],
     "operator": ">=",
     "passed": false,
@@ -460,8 +466,6 @@
     "expected": 0.9,
     "actual": 0,
     "values": [
-      0,
-      0,
       0
     ],
     "operator": ">=",
@@ -477,8 +481,6 @@
     "expected": 0,
     "actual": 1,
     "values": [
-      1,
-      1,
       1
     ],
     "operator": "<=",
@@ -494,8 +496,6 @@
     "expected": 0,
     "actual": 1,
     "values": [
-      1,
-      1,
       1
     ],
     "operator": "<=",
@@ -507,12 +507,25 @@
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/render-blocking-resources/"
   },
   {
+    "name": "minScore",
+    "expected": 0.9,
+    "actual": 0.79,
+    "values": [
+      0.79
+    ],
+    "operator": ">=",
+    "passed": false,
+    "auditId": "speed-index",
+    "level": "warn",
+    "url": "http://localhost:3000/cs",
+    "auditTitle": "Speed Index",
+    "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/speed-index/"
+  },
+  {
     "name": "maxLength",
     "expected": 0,
     "actual": 2,
     "values": [
-      2,
-      2,
       2
     ],
     "operator": "<=",
@@ -528,8 +541,6 @@
     "expected": 0.9,
     "actual": 0,
     "values": [
-      0,
-      0,
       0
     ],
     "operator": ">=",
@@ -543,11 +554,9 @@
   {
     "name": "minScore",
     "expected": 0.9,
-    "actual": 0.66,
+    "actual": 0.49,
     "values": [
-      0.65,
-      0.66,
-      0.66
+      0.49
     ],
     "operator": ">=",
     "passed": false,
@@ -556,21 +565,5 @@
     "url": "http://localhost:3000/cs",
     "auditTitle": "Time to Interactive",
     "auditDocumentationLink": "https://developer.chrome.com/docs/lighthouse/performance/interactive/"
-  },
-  {
-    "name": "minScore",
-    "expected": 0.9,
-    "actual": 0.62,
-    "values": [
-      0.61,
-      0.62,
-      0.61
-    ],
-    "operator": ">=",
-    "passed": false,
-    "auditProperty": "performance",
-    "auditId": "categories",
-    "level": "error",
-    "url": "http://localhost:3000/cs"
   }
 ]

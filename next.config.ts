@@ -34,6 +34,7 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  productionBrowserSourceMaps: true,
 };
 
 export default withSentryConfig(nextConfig, {

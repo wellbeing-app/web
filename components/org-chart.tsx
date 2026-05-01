@@ -263,7 +263,7 @@ function MobilePersonRow({
         aria-hidden="true"
       >
         {node.image ? (
-          <Image src={node.image} alt={node.name} width={featured ? 64 : 40} height={featured ? 64 : 40} className="object-cover w-full h-full" unoptimized />
+          <Image src={node.image} alt={node.name} width={featured ? 64 : 40} height={featured ? 64 : 40} className="object-cover w-full h-full" />
         ) : (
           <span className="text-muted-foreground font-bold">{initials}</span>
         )}
@@ -330,7 +330,7 @@ function PersonCard({
         aria-hidden="true"
       >
         {node.image ? (
-          <Image src={node.image} alt={node.name} width={56} height={56} className="object-cover w-full h-full" unoptimized />
+          <Image src={node.image} alt={node.name} width={56} height={56} className="object-cover w-full h-full" />
         ) : (
           <span className="text-muted-foreground font-bold">{initials}</span>
         )}

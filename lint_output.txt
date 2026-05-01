@@ -1,0 +1,47 @@
+
+> web@0.1.0 lint
+> eslint
+
+
+/home/anna/Projects/web-lumi/components/developer-friendly.tsx
+    5:17  warning  'ArrowUpRight' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            @typescript-eslint/no-unused-vars
+    8:8   warning  'Link' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    @typescript-eslint/no-unused-vars
+   18:9   warning  'lang' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           @typescript-eslint/no-unused-vars
+   92:7   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/anna/Projects/web-lumi/components/developer-friendly.tsx:92:7
+  90 |
+  91 |     if (currentAction.type === 'cmd') {
+> 92 |       setCurrentDir(currentAction.dir);
+     |       ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  93 |       if (charIndex < currentAction.text.length) {
+  94 |         timeoutId = setTimeout(() => {
+  95 |           setCharIndex(prev => prev + 1);  react-hooks/set-state-in-effect
+  134:6   warning  React Hook useEffect has a missing dependency: 'sequence'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         react-hooks/exhaustive-deps
+
+/home/anna/Projects/web-lumi/components/scroll-indicator.tsx
+  44:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/anna/Projects/web-lumi/components/scroll-indicator.tsx:44:5
+  42 |     window.addEventListener('scroll', determineActiveSection, { passive: true });
+  43 |     // Run once on mount
+> 44 |     determineActiveSection();
+     |     ^^^^^^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  45 |
+  46 |     return () => {
+  47 |       window.removeEventListener('scroll', determineActiveSection);  react-hooks/set-state-in-effect
+
+✖ 6 problems (2 errors, 4 warnings)
+

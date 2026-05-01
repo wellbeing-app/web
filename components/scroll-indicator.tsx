@@ -41,9 +41,10 @@ export function ScrollIndicator() {
   useEffect(() => {
     window.addEventListener('scroll', determineActiveSection, { passive: true });
     // Run once on mount
-    determineActiveSection();
+    const timeoutId = setTimeout(determineActiveSection, 0);
 
     return () => {
+      clearTimeout(timeoutId);
       window.removeEventListener('scroll', determineActiveSection);
     };
   }, [determineActiveSection]);
