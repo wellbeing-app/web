@@ -79,13 +79,16 @@ export function SectionSnap({ sectionIds, duration = 0.9 }: SectionSnapProps) {
         const isScrollable = scrollLockEl.scrollHeight > scrollLockEl.clientHeight;
         if (isScrollable) {
           const atTop = scrollLockEl.scrollTop <= 0;
-          const atBottom = Math.abs(scrollLockEl.scrollHeight - scrollLockEl.scrollTop - scrollLockEl.clientHeight) < 1;
-          
+          const atBottom =
+            Math.abs(
+              scrollLockEl.scrollHeight - scrollLockEl.scrollTop - scrollLockEl.clientHeight
+            ) < 1;
+
           if ((e.deltaY > 0 && !atBottom) || (e.deltaY < 0 && !atTop)) {
             lastInnerScrollAtRef.current = performance.now();
             return;
           }
-          
+
           if (performance.now() - lastInnerScrollAtRef.current < 600) {
             return;
           }
@@ -126,19 +129,22 @@ export function SectionSnap({ sectionIds, duration = 0.9 }: SectionSnapProps) {
       const target = e.target as Element | null;
       const dy = touchStartYRef.current - (e.touches[0]?.clientY ?? touchStartYRef.current);
       if (Math.abs(dy) < TOUCH_THRESHOLD_PX) return;
-      
+
       const scrollLockEl = target?.closest?.('[data-scroll-lock]');
       if (scrollLockEl) {
         const isScrollable = scrollLockEl.scrollHeight > scrollLockEl.clientHeight;
         if (isScrollable) {
           const atTop = scrollLockEl.scrollTop <= 0;
-          const atBottom = Math.abs(scrollLockEl.scrollHeight - scrollLockEl.scrollTop - scrollLockEl.clientHeight) < 1;
-          
+          const atBottom =
+            Math.abs(
+              scrollLockEl.scrollHeight - scrollLockEl.scrollTop - scrollLockEl.clientHeight
+            ) < 1;
+
           if ((dy > 0 && !atBottom) || (dy < 0 && !atTop)) {
             lastInnerScrollAtRef.current = performance.now();
             return;
           }
-          
+
           if (performance.now() - lastInnerScrollAtRef.current < 600) {
             return;
           }

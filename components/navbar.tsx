@@ -29,17 +29,17 @@ export function Navbar({ lang }: { lang: string }) {
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     const [path, hash] = href.split('#');
-    
+
     // Check if we're already on the path we're linking to
     if (pathname === path) {
       const target = hash ? document.getElementById(hash) : 0;
       if (target !== null && lenisRef.current) {
         e.preventDefault();
-        lenisRef.current.scrollTo(target, { 
+        lenisRef.current.scrollTo(target, {
           duration: 0.6,
           easing: (t) => 1 - Math.pow(1 - t, 3),
           lock: true,
-          force: true
+          force: true,
         });
       }
     }
@@ -47,9 +47,7 @@ export function Navbar({ lang }: { lang: string }) {
 
   return (
     <>
-      <header
-        className="fixed left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-200 mx-auto top-safe"
-      >
+      <header className="fixed left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-200 mx-auto top-safe">
         <nav className="relative bg-card px-3 py-3 rounded-full flex items-center justify-between border border-border transition-colors duration-300 min-h-16">
           {/* Left: Logo */}
           <div className="flex-1 flex justify-start pl-6">

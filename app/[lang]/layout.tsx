@@ -116,7 +116,7 @@ export default async function RootLayout({
             __html: JSON.stringify(organizationJsonLd)
               .replace(/</g, '\\u003c')
               .replace(/>/g, '\\u003e')
-              .replace(/&/g, '\\u0026')
+              .replace(/&/g, '\\u0026'),
           }}
         />
       </head>
@@ -126,12 +126,7 @@ export default async function RootLayout({
       >
         <SmoothScroll>
           <DictionaryProvider dictionary={dictionary}>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              nonce={nonce}
-            >
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem nonce={nonce}>
               <a
                 href="#main-content"
                 className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-100 focus:p-4 focus:bg-background focus:border focus:rounded-md focus:shadow-lg"

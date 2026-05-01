@@ -186,12 +186,7 @@
           "Tak pomalý pohyb nebo řeč, že by si toho mohli všimnout ostatní — nebo naopak takový neklid, že jste se pohyboval/a mnohem více než obvykle",
           "Myšlenky, že by pro vás bylo lepší být mrtvý/á, nebo že byste si měl/a nějak ublížit"
         ],
-        "scale": [
-          "Vůbec",
-          "Několik dní",
-          "Více než polovinu dní",
-          "Téměř každý den"
-        ]
+        "scale": ["Vůbec", "Několik dní", "Více než polovinu dní", "Téměř každý den"]
       },
       "gad7": {
         "name": "GAD-7 · Úzkost",
@@ -206,12 +201,7 @@
           "Snadná podrážděnost nebo rozčilení",
           "Pocit strachu, jako by se mělo stát něco zlého"
         ],
-        "scale": [
-          "Vůbec",
-          "Několik dní",
-          "Více než polovinu dní",
-          "Téměř každý den"
-        ]
+        "scale": ["Vůbec", "Několik dní", "Více než polovinu dní", "Téměř každý den"]
       }
     },
     "severityLabels": {

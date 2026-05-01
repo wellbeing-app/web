@@ -35,14 +35,22 @@ export function Team({ showChart = false }: { showChart?: boolean }) {
               >
                 {member.image ? (
                   <div className="relative w-14 h-14 md:w-24 md:h-24 rounded-full overflow-hidden border border-border/50">
-                    <Image src={member.image} alt={member.name} fill className="object-cover" sizes="(max-width: 768px) 56px, 96px" />
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 56px, 96px"
+                    />
                   </div>
                 ) : (
                   <div className="w-14 h-14 md:w-24 md:h-24 rounded-full bg-accent animate-pulse" />
                 )}
                 <div className="text-center">
                   <h3 className="font-bold text-sm md:text-lg">{member.name}</h3>
-                  <p className="text-muted-foreground text-xs sm:text-sm">{dict.team.roles[member.id]}</p>
+                  <p className="text-muted-foreground text-xs sm:text-sm">
+                    {dict.team.roles[member.id]}
+                  </p>
                 </div>
               </div>
             ))}

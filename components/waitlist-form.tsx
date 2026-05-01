@@ -64,19 +64,23 @@ export function WaitlistForm() {
             </div>
             <div className="flex items-start gap-3 mt-1 px-6">
               <div className="flex items-center h-5 mt-0.5">
-                <Checkbox
-                  id="gdpr-consent"
-                  required
-                />
+                <Checkbox id="gdpr-consent" required />
               </div>
-              <label htmlFor="gdpr-consent" className="text-xs text-muted-foreground text-left leading-relaxed cursor-pointer select-none">
+              <label
+                htmlFor="gdpr-consent"
+                className="text-xs text-muted-foreground text-left leading-relaxed cursor-pointer select-none"
+              >
                 {dict.contact.privacyText}{' '}
-                <Link href="/privacy" className="text-primary hover:underline" onClick={(e) => e.stopPropagation()}>
+                <Link
+                  href="/privacy"
+                  className="text-primary hover:underline"
+                  onClick={(e) => e.stopPropagation()}
+                >
                   {dict.contact.privacyLink}
                 </Link>
               </label>
             </div>
-            
+
             <button
               type="submit"
               className="bg-primary text-primary-foreground px-8 py-3.5 min-h-11 rounded-full font-medium transition-all hover:bg-primary/90 mt-2"

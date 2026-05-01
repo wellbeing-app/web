@@ -9,7 +9,7 @@ const FOCUSABLE_SELECTOR = [
 
 function getFocusable(container: HTMLElement): HTMLElement[] {
   return Array.from(container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)).filter(
-    (el) => !el.hasAttribute('inert') && el.offsetParent !== null,
+    (el) => !el.hasAttribute('inert') && el.offsetParent !== null
   );
 }
 
@@ -21,7 +21,7 @@ function getFocusable(container: HTMLElement): HTMLElement[] {
  */
 export function trapFocus(
   container: HTMLElement,
-  options: { onEscape?: () => void; restoreFocusTo?: HTMLElement | null } = {},
+  options: { onEscape?: () => void; restoreFocusTo?: HTMLElement | null } = {}
 ): () => void {
   const { onEscape, restoreFocusTo } = options;
 

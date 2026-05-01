@@ -17,10 +17,7 @@ export function useIsDesktop(): boolean {
     mq.addEventListener('change', callback);
     return () => mq.removeEventListener('change', callback);
   }, []);
-  const getSnapshot = useCallback(
-    () => window.matchMedia(DESKTOP_MEDIA_QUERY).matches,
-    [],
-  );
+  const getSnapshot = useCallback(() => window.matchMedia(DESKTOP_MEDIA_QUERY).matches, []);
   const getServerSnapshot = useCallback(() => true, []);
   return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 }

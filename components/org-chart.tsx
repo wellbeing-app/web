@@ -46,7 +46,7 @@ export function OrgChart() {
       if (el) nodeRefs.current.set(id, el);
       else nodeRefs.current.delete(id);
     },
-    [],
+    []
   );
 
   const recalculate = useCallback(() => {
@@ -69,7 +69,7 @@ export function OrgChart() {
     };
 
     const walk = (node: TeamNode) => {
-      const children = node.kind === 'group' ? node.children : node.children ?? [];
+      const children = node.kind === 'group' ? node.children : (node.children ?? []);
       if (children.length === 0) return;
       const parentEl = nodeRefs.current.get(node.id);
       if (!parentEl) return;
@@ -110,9 +110,7 @@ export function OrgChart() {
     window.addEventListener('resize', recalculate);
 
     const ro =
-      typeof ResizeObserver !== 'undefined'
-        ? new ResizeObserver(() => recalculate())
-        : null;
+      typeof ResizeObserver !== 'undefined' ? new ResizeObserver(() => recalculate()) : null;
     if (ro && containerRef.current) ro.observe(containerRef.current);
 
     return () => {
@@ -126,7 +124,10 @@ export function OrgChart() {
   }
 
   return (
-    <div ref={containerRef} className="relative w-full flex justify-center py-12 md:overflow-x-auto">
+    <div
+      ref={containerRef}
+      className="relative w-full flex justify-center py-12 md:overflow-x-auto"
+    >
       <svg
         className="absolute inset-0 pointer-events-none"
         width={containerSize.width || '100%'}
@@ -170,9 +171,7 @@ function MobileOrgList({ node }: { node: TeamNode }) {
       animate="visible"
       className="w-full flex flex-col items-stretch gap-8 py-8"
     >
-      {node.kind === 'person' ? (
-        <MobilePersonRow node={node} featured />
-      ) : null}
+      {node.kind === 'person' ? <MobilePersonRow node={node} featured /> : null}
       {node.kind === 'person' && node.children && node.children.length > 0 ? (
         <div className="flex flex-col gap-6">
           {node.children.map((child) => (
@@ -263,17 +262,25 @@ function MobilePersonRow({
         aria-hidden="true"
       >
         {node.image ? (
-          <Image src={node.image} alt={node.name} width={featured ? 64 : 40} height={featured ? 64 : 40} className="object-cover w-full h-full" />
+          <Image
+            src={node.image}
+            alt={node.name}
+            width={featured ? 64 : 40}
+            height={featured ? 64 : 40}
+            className="object-cover w-full h-full"
+          />
         ) : (
           <span className="text-muted-foreground font-bold">{initials}</span>
         )}
       </div>
       <div className={featured ? 'flex flex-col items-center' : 'flex flex-col min-w-0'}>
-        <span className="font-semibold text-foreground leading-tight truncate">
-          {node.name}
-        </span>
+        <span className="font-semibold text-foreground leading-tight truncate">{node.name}</span>
         {role && (
-          <span className={featured ? 'text-muted-foreground text-sm mt-1' : 'text-muted-foreground text-xs'}>
+          <span
+            className={
+              featured ? 'text-muted-foreground text-sm mt-1' : 'text-muted-foreground text-xs'
+            }
+          >
             {role}
           </span>
         )}
@@ -283,7 +290,7 @@ function MobilePersonRow({
 }
 
 function TreeView({ node, registerRef }: { node: TeamNode; registerRef: RegisterRef }) {
-  const children = node.kind === 'group' ? node.children : node.children ?? [];
+  const children = node.kind === 'group' ? node.children : (node.children ?? []);
 
   return (
     <div className="flex flex-col items-center">
@@ -330,7 +337,13 @@ function PersonCard({
         aria-hidden="true"
       >
         {node.image ? (
-          <Image src={node.image} alt={node.name} width={56} height={56} className="object-cover w-full h-full" />
+          <Image
+            src={node.image}
+            alt={node.name}
+            width={56}
+            height={56}
+            className="object-cover w-full h-full"
+          />
         ) : (
           <span className="text-muted-foreground font-bold">{initials}</span>
         )}

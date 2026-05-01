@@ -11,7 +11,7 @@ export function Hero() {
   const safeMood = typeof mood === 'number' && !isNaN(mood) ? mood : 70;
   // Interpolate mouth path: Sad (0) -> Neutral (50) -> Happy (100)
   const mouthPath = `M 12 26 Q 20 ${22 + (safeMood / 100) * 10} 28 26`;
-  
+
   // Interpolate color: Red (0) -> Yellow (50) -> Green (100)
   // Hue: 0 (red) to 130 (green)
   const color = `hsl(${(mood / 100) * 130}, 65%, 55%)`;
@@ -46,34 +46,39 @@ export function Hero() {
                     <stop offset="100%" stopColor={color} />
                   </radialGradient>
                 </defs>
-                
+
                 {/* Blob Face */}
                 <motion.path
                   d="M20,4 C29,4 36,11 36,20 C36,29 29,36 20,36 C11,36 4,29 4,20 C4,11 11,4 20,4 Z"
                   fill="url(#moodGradient)"
                   className="drop-shadow-[0_0_10px_rgba(0,0,0,0.1)]"
-                  animate={{ 
-                    d: safeMood < 40 
-                      ? "M20,10 C27,10 32,16 32,22 C32,28 27,34 20,34 C13,34 8,28 8,22 C8,16 13,10 20,10 Z" 
-                      : safeMood > 70
-                      ? "M20,2 C31,2 38,10 38,20 C38,30 31,38 20,38 C9,38 2,30 2,20 C2,10 9,2 20,2 Z" 
-                      : "M20,4 C29,4 36,11 36,20 C36,29 29,36 20,36 C11,36 4,29 4,20 C4,11 11,4 20,4 Z" 
+                  animate={{
+                    d:
+                      safeMood < 40
+                        ? 'M20,10 C27,10 32,16 32,22 C32,28 27,34 20,34 C13,34 8,28 8,22 C8,16 13,10 20,10 Z'
+                        : safeMood > 70
+                          ? 'M20,2 C31,2 38,10 38,20 C38,30 31,38 20,38 C9,38 2,30 2,20 C2,10 9,2 20,2 Z'
+                          : 'M20,4 C29,4 36,11 36,20 C36,29 29,36 20,36 C11,36 4,29 4,20 C4,11 11,4 20,4 Z',
                   }}
-                  transition={{ type: "spring", stiffness: 80, damping: 15 }}
+                  transition={{ type: 'spring', stiffness: 80, damping: 15 }}
                 />
-                
+
                 {/* Eyes - Black arcs */}
                 <g fill="none" stroke="black" strokeWidth="1.8" strokeLinecap="round">
-                  <motion.path 
-                    d={safeMood < 40 ? "M12 20 Q 14.5 22 17 20" : "M12 17 Q 14.5 14.5 17 17"} 
-                    animate={{ d: safeMood < 40 ? "M12 20 Q 14.5 22 17 20" : "M12 17 Q 14.5 14.5 17 17" }}
+                  <motion.path
+                    d={safeMood < 40 ? 'M12 20 Q 14.5 22 17 20' : 'M12 17 Q 14.5 14.5 17 17'}
+                    animate={{
+                      d: safeMood < 40 ? 'M12 20 Q 14.5 22 17 20' : 'M12 17 Q 14.5 14.5 17 17',
+                    }}
                   />
-                  <motion.path 
-                    d={safeMood < 40 ? "M23 20 Q 25.5 22 28 20" : "M23 17 Q 25.5 14.5 28 17"} 
-                    animate={{ d: safeMood < 40 ? "M23 20 Q 25.5 22 28 20" : "M23 17 Q 25.5 14.5 28 17" }}
+                  <motion.path
+                    d={safeMood < 40 ? 'M23 20 Q 25.5 22 28 20' : 'M23 17 Q 25.5 14.5 28 17'}
+                    animate={{
+                      d: safeMood < 40 ? 'M23 20 Q 25.5 22 28 20' : 'M23 17 Q 25.5 14.5 28 17',
+                    }}
                   />
                 </g>
-                
+
                 {/* Mouth - Black arc */}
                 <motion.path
                   d={mouthPath}

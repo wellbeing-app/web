@@ -52,7 +52,7 @@ describe('WaitlistForm Edge Cases', () => {
     { email: '@example.com', reason: 'missing username' },
     { email: 'test@example', reason: 'missing top-level domain' },
     { email: 'test @example.com', reason: 'contains spaces' },
-    { email: 'invalid', reason: 'missing everything' }
+    { email: 'invalid', reason: 'missing everything' },
   ];
 
   invalidEmails.forEach(({ email, reason }) => {

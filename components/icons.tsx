@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { SVGProps } from 'react';
 
 const Apple = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} xmlSpace="preserve" viewBox="0 0 814 1000">
@@ -44,53 +44,23 @@ const Linux = (props: SVGProps<SVGSVGElement>) => (
         <stop offset="0%" stopColor="#FFEED7" />
         <stop offset="100%" stopColor="#BDBFC2" />
       </linearGradient>
-      <linearGradient
-        id="linux__logosLinuxTux1"
-        x1="54.407%"
-        x2="46.175%"
-        y1="2.404%"
-        y2="90.542%"
-      >
+      <linearGradient id="linux__logosLinuxTux1" x1="54.407%" x2="46.175%" y1="2.404%" y2="90.542%">
         <stop offset="0%" stopColor="#FFF" stopOpacity=".8" />
         <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
       </linearGradient>
-      <linearGradient
-        id="linux__logosLinuxTux2"
-        x1="51.86%"
-        x2="47.947%"
-        y1="88.248%"
-        y2="9.748%"
-      >
+      <linearGradient id="linux__logosLinuxTux2" x1="51.86%" x2="47.947%" y1="88.248%" y2="9.748%">
         <stop offset="0%" stopColor="#FFEED7" />
         <stop offset="100%" stopColor="#BDBFC2" />
       </linearGradient>
-      <linearGradient
-        id="linux__logosLinuxTux3"
-        x1="49.925%"
-        x2="49.924%"
-        y1="85.49%"
-        y2="13.811%"
-      >
+      <linearGradient id="linux__logosLinuxTux3" x1="49.925%" x2="49.924%" y1="85.49%" y2="13.811%">
         <stop offset="0%" stopColor="#FFEED7" />
         <stop offset="100%" stopColor="#BDBFC2" />
       </linearGradient>
-      <linearGradient
-        id="linux__logosLinuxTux4"
-        x1="53.901%"
-        x2="45.956%"
-        y1="3.102%"
-        y2="93.895%"
-      >
+      <linearGradient id="linux__logosLinuxTux4" x1="53.901%" x2="45.956%" y1="3.102%" y2="93.895%">
         <stop offset="0%" stopColor="#FFF" stopOpacity=".65" />
         <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
       </linearGradient>
-      <linearGradient
-        id="linux__logosLinuxTux5"
-        x1="45.593%"
-        x2="54.811%"
-        y1="5.475%"
-        y2="93.524%"
-      >
+      <linearGradient id="linux__logosLinuxTux5" x1="45.593%" x2="54.811%" y1="5.475%" y2="93.524%">
         <stop offset="0%" stopColor="#FFF" stopOpacity=".65" />
         <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
       </linearGradient>
@@ -134,33 +104,15 @@ const Linux = (props: SVGProps<SVGSVGElement>) => (
         <stop offset="0%" stopColor="#FFF" stopOpacity=".65" />
         <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
       </linearGradient>
-      <linearGradient
-        id="linux__logosLinuxTuxa"
-        x1="49.876%"
-        x2="49.876%"
-        y1="2.299%"
-        y2="81.204%"
-      >
+      <linearGradient id="linux__logosLinuxTuxa" x1="49.876%" x2="49.876%" y1="2.299%" y2="81.204%">
         <stop offset="0%" stopColor="#FFF" stopOpacity=".65" />
         <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
       </linearGradient>
-      <linearGradient
-        id="linux__logosLinuxTuxb"
-        x1="49.833%"
-        x2="49.824%"
-        y1="2.272%"
-        y2="71.799%"
-      >
+      <linearGradient id="linux__logosLinuxTuxb" x1="49.833%" x2="49.824%" y1="2.272%" y2="71.799%">
         <stop offset="0%" stopColor="#FFF" stopOpacity=".65" />
         <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
       </linearGradient>
-      <linearGradient
-        id="linux__logosLinuxTuxc"
-        x1="53.467%"
-        x2="38.949%"
-        y1="48.921%"
-        y2="98.1%"
-      >
+      <linearGradient id="linux__logosLinuxTuxc" x1="53.467%" x2="38.949%" y1="48.921%" y2="98.1%">
         <stop offset="0%" stopColor="#FFA63F" />
         <stop offset="100%" stopColor="#FF0" />
       </linearGradient>
@@ -204,13 +156,7 @@ const Linux = (props: SVGProps<SVGSVGElement>) => (
         <stop offset="0%" stopColor="#FFF" stopOpacity=".65" />
         <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
       </linearGradient>
-      <linearGradient
-        id="linux__logosLinuxTuxh"
-        x1="43.55%"
-        x2="57.114%"
-        y1="4.533%"
-        y2="92.827%"
-      >
+      <linearGradient id="linux__logosLinuxTuxh" x1="43.55%" x2="57.114%" y1="4.533%" y2="92.827%">
         <stop offset="0%" stopColor="#FFF" stopOpacity=".65" />
         <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
       </linearGradient>
@@ -224,13 +170,7 @@ const Linux = (props: SVGProps<SVGSVGElement>) => (
         <stop offset="0%" stopColor="#FFA63F" />
         <stop offset="100%" stopColor="#FF0" />
       </linearGradient>
-      <linearGradient
-        id="linux__logosLinuxTuxj"
-        x1="50.17%"
-        x2="49.68%"
-        y1="2.89%"
-        y2="94.17%"
-      >
+      <linearGradient id="linux__logosLinuxTuxj" x1="50.17%" x2="49.68%" y1="2.89%" y2="94.17%">
         <stop offset="0%" stopColor="#FFF" stopOpacity=".65" />
         <stop offset="100%" stopColor="#FFF" stopOpacity="0" />
       </linearGradient>
@@ -243,11 +183,7 @@ const Linux = (props: SVGProps<SVGSVGElement>) => (
         filterUnits="objectBoundingBox"
       >
         <feOffset in="SourceAlpha" result="shadowOffsetOuter1" />
-        <feGaussianBlur
-          in="shadowOffsetOuter1"
-          result="shadowBlurOuter1"
-          stdDeviation="6.5"
-        />
+        <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="6.5" />
       </filter>
     </defs>
     <g fill="none">

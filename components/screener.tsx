@@ -38,7 +38,12 @@ export function Screener() {
           >
             <PickerView
               onPick={(id) =>
-                setView({ kind: 'quiz', id, step: 0, answers: Array(SCREENERS[id].itemCount).fill(-1) })
+                setView({
+                  kind: 'quiz',
+                  id,
+                  step: 0,
+                  answers: Array(SCREENERS[id].itemCount).fill(-1),
+                })
               }
             />
           </motion.div>
@@ -106,7 +111,9 @@ function PickerView({ onPick }: { onPick: (id: ScreenerId) => void }) {
   const dict = useDictionary();
   return (
     <div className="space-y-4">
-      <p className="text-sm font-medium text-foreground/80 text-center">{dict.screener.pickPrompt}</p>
+      <p className="text-sm font-medium text-foreground/80 text-center">
+        {dict.screener.pickPrompt}
+      </p>
       <div className="grid gap-3">
         {INSTRUMENT_ORDER.map((id) => {
           const meta = dict.screener.instruments[id];
@@ -167,7 +174,9 @@ function QuizView({
 
       <div className="space-y-2">
         <p className="text-sm text-muted-foreground">{meta.timeframe}</p>
-        <p className="text-[length:var(--text-lg-fluid)] md:text-xl font-medium leading-relaxed">{meta.items[view.step]}</p>
+        <p className="text-[length:var(--text-lg-fluid)] md:text-xl font-medium leading-relaxed">
+          {meta.items[view.step]}
+        </p>
       </div>
 
       <div className="grid gap-2">
@@ -180,7 +189,7 @@ function QuizView({
               'w-full text-left rounded-xl border px-4 py-3.5 min-h-11 text-sm md:text-base transition-all cursor-pointer',
               currentAnswer === scoreValue
                 ? 'border-primary bg-primary/10 text-foreground'
-                : 'border-border bg-secondary/10 hover:bg-secondary/30',
+                : 'border-border bg-secondary/10 hover:bg-secondary/30'
             )}
             aria-pressed={currentAnswer === scoreValue}
           >
@@ -243,19 +252,20 @@ function ResultView({
           <ShieldAlert className="h-5 w-5 text-destructive shrink-0 mt-0.5" aria-hidden="true" />
           <div className="space-y-1">
             <div className="font-semibold text-destructive">{dict.screener.ui.crisisTitle}</div>
-            <p className="text-sm leading-relaxed text-foreground/90">{dict.screener.ui.crisisBody}</p>
+            <p className="text-sm leading-relaxed text-foreground/90">
+              {dict.screener.ui.crisisBody}
+            </p>
           </div>
         </div>
       )}
 
       <div className="space-y-3">
-        <div className="text-sm font-medium text-foreground/80">{dict.screener.ui.suggestedLabel}</div>
+        <div className="text-sm font-medium text-foreground/80">
+          {dict.screener.ui.suggestedLabel}
+        </div>
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
           {suggestions.map((f, i) => (
-            <div
-              key={i}
-              className="rounded-2xl border border-border/50 bg-secondary/10 p-4"
-            >
+            <div key={i} className="rounded-2xl border border-border/50 bg-secondary/10 p-4">
               <div className="font-semibold text-sm">{f.title}</div>
               <div className="text-xs text-muted-foreground mt-1 leading-relaxed">{f.desc}</div>
             </div>

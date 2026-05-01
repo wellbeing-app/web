@@ -18,7 +18,7 @@ export function ScrollIndicator() {
     // Use the same logic as hash syncing for consistency
     const scroll = window.scrollY;
     const center = scroll + window.innerHeight / 2;
-    
+
     let foundId: string = SECTION_IDS[0];
     for (const id of SECTION_IDS) {
       let element = elementsCache.current[id];

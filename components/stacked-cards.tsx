@@ -111,22 +111,14 @@ function StackingCard({
   const filter = useTransform(scrollYProgress, (p) => `blur(${p * 6}px)`);
 
   return (
-    <section
-      ref={sectionRef}
-      id={card.id}
-      className="relative h-[200vh]"
-      style={{ zIndex: index }}
-    >
+    <section ref={sectionRef} id={card.id} className="relative h-[200vh]" style={{ zIndex: index }}>
       <div className="sticky top-0 h-screen flex flex-col items-center px-4 will-change-transform">
         <div className="flex-1" />
         <motion.div
           className="relative w-full max-w-200 h-[70vh] flex items-center justify-center will-change-transform"
           style={{ scale, opacity, filter }}
         >
-          <CardPill 
-            showFullscreen={index > 0} 
-            href={card.href}
-          >
+          <CardPill showFullscreen={index > 0} href={card.href}>
             {card.component}
           </CardPill>
         </motion.div>
@@ -143,31 +135,16 @@ function FinalCard({ card, index }: { card: CardData; index: number }) {
       className="relative h-dvh flex items-center justify-center px-4"
       style={{ zIndex: index }}
     >
-      <CardPill 
-        href={card.href}
-      >
-        {card.component}
-      </CardPill>
+      <CardPill href={card.href}>{card.component}</CardPill>
       <Footer />
     </section>
   );
 }
 
-function MobileSection({
-  card,
-  showFullscreen,
-}: {
-  card: CardData;
-  showFullscreen: boolean;
-}) {
+function MobileSection({ card, showFullscreen }: { card: CardData; showFullscreen: boolean }) {
   return (
-    <section
-      id={card.id}
-      className="relative px-4 py-4 flex justify-center"
-    >
-      <motion.div
-        className="relative w-full bg-card border border-border rounded-3xl p-5 sm:p-6 flex flex-col items-center justify-center text-center"
-      >
+    <section id={card.id} className="relative px-4 py-4 flex justify-center">
+      <motion.div className="relative w-full bg-card border border-border rounded-3xl p-5 sm:p-6 flex flex-col items-center justify-center text-center">
         {showFullscreen && card.href && <FullscreenButton href={card.href} />}
         {card.component}
       </motion.div>
@@ -200,7 +177,7 @@ export function StackedCards({ cards }: StackedCardsProps) {
       // Find the card that is currently in the center of the viewport
       const scroll = lenis.scroll;
       const center = scroll + window.innerHeight / 2;
-      
+
       let currentActiveId = cards[0].id;
       for (const card of cards) {
         const el = document.getElementById(card.id);
@@ -242,11 +219,7 @@ export function StackedCards({ cards }: StackedCardsProps) {
     return (
       <div className="w-full flex flex-col pt-[calc(6rem+var(--safe-top))] pb-[calc(5rem+var(--safe-bottom))] relative">
         {cards.map((card, i) => (
-          <MobileSection
-            key={card.id}
-            card={card}
-            showFullscreen={i > 0 && i < lastIndex}
-          />
+          <MobileSection key={card.id} card={card} showFullscreen={i > 0 && i < lastIndex} />
         ))}
         <Footer />
       </div>

@@ -159,12 +159,7 @@
           "Moving or speaking so slowly that other people could have noticed — or being so fidgety or restless that you have been moving around a lot more than usual",
           "Thoughts that you would be better off dead, or of hurting yourself in some way"
         ],
-        "scale": [
-          "Not at all",
-          "Several days",
-          "More than half the days",
-          "Nearly every day"
-        ]
+        "scale": ["Not at all", "Several days", "More than half the days", "Nearly every day"]
       },
       "gad7": {
         "name": "GAD-7 · Anxiety",
@@ -179,12 +174,7 @@
           "Becoming easily annoyed or irritable",
           "Feeling afraid as if something awful might happen"
         ],
-        "scale": [
-          "Not at all",
-          "Several days",
-          "More than half the days",
-          "Nearly every day"
-        ]
+        "scale": ["Not at all", "Several days", "More than half the days", "Nearly every day"]
       }
     },
     "severityLabels": {

@@ -1,4 +1,15 @@
-import { BookHeart, Wind, Users, UserRound, Moon, Sparkles, Target, BarChart3, ShieldAlert, ArrowUpRight } from 'lucide-react';
+import {
+  BookHeart,
+  Wind,
+  Users,
+  UserRound,
+  Moon,
+  Sparkles,
+  Target,
+  BarChart3,
+  ShieldAlert,
+  ArrowUpRight,
+} from 'lucide-react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useDictionary } from '@/components/providers/dictionary-provider';
@@ -11,7 +22,7 @@ export function Features({ full = false }: FeaturesProps) {
   const dict = useDictionary();
   const params = useParams();
   const lang = params.lang as string;
-  
+
   const featureIcons = [BookHeart, Wind, Users];
   const fullFeatureIcons = [UserRound, BookHeart, Moon, Sparkles, Target, BarChart3, ShieldAlert];
 
@@ -29,7 +40,9 @@ export function Features({ full = false }: FeaturesProps) {
         </p>
       </div>
 
-      <div className={`grid grid-cols-1 ${full ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-3'} gap-4 md:gap-8 w-full px-4`}>
+      <div
+        className={`grid grid-cols-1 ${full ? 'md:grid-cols-2 lg:grid-cols-3' : 'md:grid-cols-3'} gap-4 md:gap-8 w-full px-4`}
+      >
         {displayList.map((feature, index) => {
           const Icon = displayIcons[index] || BookHeart;
           return (

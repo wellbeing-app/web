@@ -24,9 +24,7 @@ export const team: TeamNode = {
   ],
 };
 
-export function flattenPeople(
-  node: TeamNode,
-): Array<{ id: string; name: string; image?: string }> {
+export function flattenPeople(node: TeamNode): Array<{ id: string; name: string; image?: string }> {
   if (node.kind === 'person') {
     const rest = node.children?.flatMap(flattenPeople) ?? [];
     return [{ id: node.id, name: node.name, image: node.image }, ...rest];
