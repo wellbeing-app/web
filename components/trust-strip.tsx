@@ -5,7 +5,10 @@ import { Github } from '@/components/icons';
 import { useDictionary } from '@/components/providers/dictionary-provider';
 import type { ComponentType, SVGProps } from 'react';
 
-const TILES: { key: 'local' | 'oss' | 'free' | 'experts'; icon: ComponentType<SVGProps<SVGSVGElement>> }[] = [
+const TILES: {
+  key: 'local' | 'oss' | 'free' | 'experts';
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
+}[] = [
   { key: 'local', icon: ShieldCheck },
   { key: 'oss', icon: Github },
   { key: 'free', icon: Heart },
@@ -16,10 +19,7 @@ export function TrustStrip() {
   const dict = useDictionary();
 
   return (
-    <ul
-      role="list"
-      className="grid grid-cols-2 @md/card:grid-cols-4 gap-3 w-full"
-    >
+    <ul role="list" className="grid grid-cols-2 @md/card:grid-cols-4 gap-3 w-full">
       {TILES.map(({ key, icon: Icon }) => {
         const t = dict.trust.items[key];
         return (

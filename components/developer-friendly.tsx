@@ -260,7 +260,9 @@ export function DeveloperFriendly({ isFullPage = false }: DeveloperFriendlyProps
                       </div>
                       <div className="text-center">
                         <p className="font-semibold text-sm md:text-base">{member.name}</p>
-                        <p className="text-muted-foreground text-xs">{dict.team.roles[member.id]}</p>
+                        <p className="text-muted-foreground text-xs">
+                          {dict.team.roles[member.id]}
+                        </p>
                       </div>
                     </div>
                   );

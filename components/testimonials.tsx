@@ -5,12 +5,7 @@ import { useDictionary } from '@/components/providers/dictionary-provider';
 
 function QuoteMark({ className }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 32 32"
-      aria-hidden="true"
-      fill="currentColor"
-      className={className}
-    >
+    <svg viewBox="0 0 32 32" aria-hidden="true" fill="currentColor" className={className}>
       <path d="M11.5 8C7 8 3.5 11.4 3.5 15.8c0 3.4 2.4 5.7 5.4 5.7 1.5 0 2.5-.4 3.2-1l.4-.3-.6.7c-1 1.2-2.4 2-4.1 2.6L9 24l1.3 2.3.6-.2c5.4-1.7 9-6 9-11.4 0-2.4-.6-4.2-1.7-5.5C16.9 8 14.4 8 11.5 8Zm15 0c-4.5 0-8 3.4-8 7.8 0 3.4 2.4 5.7 5.4 5.7 1.5 0 2.5-.4 3.2-1l.4-.3-.6.7c-1 1.2-2.4 2-4.1 2.6l-.8.3 1.3 2.3.6-.2c5.4-1.7 9-6 9-11.4 0-2.4-.6-4.2-1.7-5.5C32 8 29.5 8 26.5 8Z" />
     </svg>
   );

@@ -9,11 +9,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 
 function HappyBlob() {
   return (
-    <svg
-      viewBox="0 0 40 40"
-      className="w-16 h-16 mx-auto mb-3"
-      aria-hidden="true"
-    >
+    <svg viewBox="0 0 40 40" className="w-16 h-16 mx-auto mb-3" aria-hidden="true">
       <defs>
         <radialGradient id="happyMood" cx="30%" cy="30%" r="70%">
           <stop offset="0%" stopColor="white" stopOpacity="0.5" />
@@ -78,10 +74,7 @@ export function WaitlistForm() {
       </div>
 
       {/* Trust badges row — quietly anchors the contact card before the form */}
-      <ul
-        role="list"
-        className="flex flex-wrap items-center justify-center gap-2 @sm/card:gap-3"
-      >
+      <ul role="list" className="flex flex-wrap items-center justify-center gap-2 @sm/card:gap-3">
         {TRUST_BADGES.map(({ icon: Icon, key }) => (
           <li
             key={key}
