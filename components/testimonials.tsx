@@ -2,19 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useDictionary } from '@/components/providers/dictionary-provider';
-
-function QuoteMark({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 32 32"
-      aria-hidden="true"
-      fill="currentColor"
-      className={className}
-    >
-      <path d="M11.5 8C7 8 3.5 11.4 3.5 15.8c0 3.4 2.4 5.7 5.4 5.7 1.5 0 2.5-.4 3.2-1l.4-.3-.6.7c-1 1.2-2.4 2-4.1 2.6L9 24l1.3 2.3.6-.2c5.4-1.7 9-6 9-11.4 0-2.4-.6-4.2-1.7-5.5C16.9 8 14.4 8 11.5 8Zm15 0c-4.5 0-8 3.4-8 7.8 0 3.4 2.4 5.7 5.4 5.7 1.5 0 2.5-.4 3.2-1l.4-.3-.6.7c-1 1.2-2.4 2-4.1 2.6l-.8.3 1.3 2.3.6-.2c5.4-1.7 9-6 9-11.4 0-2.4-.6-4.2-1.7-5.5C32 8 29.5 8 26.5 8Z" />
-    </svg>
-  );
-}
+import { Quote } from 'lucide-react';
 
 export function Testimonials() {
   const dict = useDictionary();
@@ -47,8 +35,8 @@ export function Testimonials() {
               transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
               className="relative flex flex-col gap-4 rounded-(--radius-card) bg-(--warmth-50)/40 border border-border/50 p-5 md:p-6 text-left"
             >
-              <QuoteMark className="w-6 h-6 text-(--warmth-300)" />
-              <blockquote className="text-base md:text-lg font-serif italic leading-relaxed text-foreground/85">
+              <Quote className="w-6 h-6 text-(--warmth-300) fill-(--warmth-300)/20" />
+              <blockquote className="text-base md:text-lg font-medium leading-relaxed text-foreground/85">
                 {t.quote}
               </blockquote>
               <figcaption className="flex items-center gap-3 mt-auto">

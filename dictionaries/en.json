@@ -16,7 +16,7 @@
   },
   "home": {
     "badge": "Pre-seed phase",
-    "title": "A space for the mind.",
+    "title": "Lumi. A space for mind.",
     "description": "No pressure. No rules. Just a safe place designed for your peace and daily balance. Free for everyone. Forever.",
     "supportBtn": "I want to help",
     "newsletterBtn": "Keep me updated",
@@ -45,7 +45,7 @@
   },
   "features": {
     "title": "What We Offer",
-    "description": "Designed for your peace.",
+    "description": "",
     "tryItLink": "Try it",
     "list": [
       { "title": "AI Features", "desc": "Optional AI-powered insights, disabled by default" },
@@ -102,13 +102,13 @@
   },
   "developer": {
     "title": "Developer Friendly",
-    "description": "We believe in an open ecosystem. Our code is open-source and welcomes contributions. We emphasize data control, with plans to create an API.",
+    "description": "We believe in an open ecosystem. Our code is open-source. We emphasize data control, with plans to create an API.",
     "moreLink": "Technical information",
     "githubLink": "View on GitHub"
   },
   "contact": {
     "title": "Stay in Touch",
-    "description": "Want to learn more? Join our newsletter.",
+    "description": "",
     "emailLabel": "Email address",
     "emailPlaceholder": "Your email",
     "emailError": "Please enter a valid email address.",
@@ -154,7 +154,7 @@
     "steps": [
       {
         "title": "Open the app",
-        "desc": "A soft, quiet space — no dashboards or guilt-trip charts waiting for you."
+        "desc": "A soft, quiet space - no dashboards or guilt-trip charts waiting for you."
       },
       {
         "title": "Tap how you feel",
@@ -171,7 +171,7 @@
     "description": "Early notes from beta testers and friends helping us shape Lumi.",
     "list": [
       {
-        "quote": "It feels like writing in my journal — but it actually nudges me forward when I'm stuck.",
+        "quote": "It feels like writing in my journal - but it actually nudges me forward when I'm stuck.",
         "name": "Klára",
         "role": "Beta tester · Brno"
       },
@@ -189,7 +189,7 @@
   },
   "faq": {
     "title": "Honest answers",
-    "description": "The questions we'd want answered before trusting another wellbeing app.",
+    "description": "",
     "items": [
       {
         "q": "Will my data ever leave my device?",
@@ -197,7 +197,7 @@
       },
       {
         "q": "Is it really free?",
-        "a": "Yes — and forever. There's no premium tier, no ads, no upsell. We believe daily mental-health support shouldn't be a paywall."
+        "a": "Yes - and forever. There's no premium tier, no ads, no upsell. We believe daily mental-health support shouldn't be a paywall."
       },
       {
         "q": "Can I use it without AI?",
@@ -221,7 +221,7 @@
   },
   "screener": {
     "heading": "Try a 1-minute wellbeing check",
-    "intro": "These are brief, internationally validated screeners. Your answers stay in your browser — nothing is stored or sent anywhere. The result is informational, not a diagnosis.",
+    "intro": "These are brief, internationally validated screeners. Your answers stay in your browser - nothing is stored or sent anywhere. The result is informational, not a diagnosis.",
     "cta": "Start a check",
     "pickPrompt": "Which check would you like to try?",
     "instruments": {
@@ -255,9 +255,9 @@
           "Trouble falling or staying asleep, or sleeping too much",
           "Feeling tired or having little energy",
           "Poor appetite or overeating",
-          "Feeling bad about yourself — or that you are a failure or have let yourself or your family down",
+          "Feeling bad about yourself - or that you are a failure or have let yourself or your family down",
           "Trouble concentrating on things, such as reading or watching television",
-          "Moving or speaking so slowly that other people could have noticed — or being so fidgety or restless that you have been moving around a lot more than usual",
+          "Moving or speaking so slowly that other people could have noticed - or being so fidgety or restless that you have been moving around a lot more than usual",
           "Thoughts that you would be better off dead, or of hurting yourself in some way"
         ],
         "scale": ["Not at all", "Several days", "More than half the days", "Nearly every day"]
@@ -281,7 +281,7 @@
     "severityLabels": {
       "who5_good": "Good wellbeing",
       "who5_low": "Reduced wellbeing",
-      "who5_poor": "Poor wellbeing — screening positive",
+      "who5_poor": "Poor wellbeing - screening positive",
       "minimal": "Minimal",
       "mild": "Mild",
       "moderate": "Moderate",
@@ -298,7 +298,7 @@
       "scoreLabel": "Your score",
       "suggestedLabel": "What our app would suggest",
       "disclaimer": "Screening tools are not a diagnosis. If anything here resonates, consider talking to a mental-health professional.",
-      "crisisTitle": "Please reach out — you are not alone",
+      "crisisTitle": "Please reach out - you are not alone",
       "crisisBody": "Your answers suggest it would help to talk to someone now. In the Czech Republic call 116 123 (Linka první psychické pomoci, 24/7) or 112 in an emergency. If you are in immediate danger, contact local emergency services."
     }
   },
@@ -320,7 +320,7 @@
     "rightsHeader": "In accordance with GDPR, you have the right to:",
     "retentionDesc": "We retain your email address only for as long as you remain subscribed to our newsletter. You can request deletion at any time by unsubscribing.",
     "processorDesc": "We use Resend as our third-party newsletter service provider to manage and send our newsletter communications.",
-    "controllerDesc": "The data controller for Lumi is Anna Zezulka. For any privacy-related inquiries, please contact us at: info@lumi-app.com",
+    "controllerDesc": "The data controller for Lumi is Anna Zezulka. For any privacy-related inquiries, please contact us at: info@lumi-nonprofit.com",
     "consent": "We process your personal data based on your consent, which you provide by checking the consent box when signing up for the newsletter. You can withdraw your consent at any time by clicking the unsubscribe link in any email.",
     "access": "access to your personal data",
     "correction": "requesting a correction of your data",

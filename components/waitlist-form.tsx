@@ -9,11 +9,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 
 function HappyBlob() {
   return (
-    <svg
-      viewBox="0 0 40 40"
-      className="w-16 h-16 mx-auto mb-3"
-      aria-hidden="true"
-    >
+    <svg viewBox="0 0 40 40" className="w-16 h-16 mx-auto mb-3" aria-hidden="true">
       <defs>
         <radialGradient id="happyMood" cx="30%" cy="30%" r="70%">
           <stop offset="0%" stopColor="white" stopOpacity="0.5" />
@@ -69,19 +65,15 @@ export function WaitlistForm() {
   };
 
   return (
-    <div className="relative space-y-5 flex flex-col items-center w-full max-w-2xl mx-auto animate-fade-in">
+    <div className="relative space-y-8 flex flex-col items-center w-full max-w-2xl mx-auto animate-fade-in">
       <div className="space-y-4 text-center">
         <h2 className="text-(length:--text-2xl-fluid) @lg/card:text-(length:--text-3xl-fluid) font-semibold tracking-tight">
           {dict.contact.title}
         </h2>
-        <p className="text-lg text-muted-foreground">{dict.contact.description}</p>
       </div>
 
       {/* Trust badges row — quietly anchors the contact card before the form */}
-      <ul
-        role="list"
-        className="flex flex-wrap items-center justify-center gap-2 @sm/card:gap-3"
-      >
+      <ul role="list" className="flex flex-wrap items-center justify-center gap-2 @sm/card:gap-3">
         {TRUST_BADGES.map(({ icon: Icon, key }) => (
           <li
             key={key}
@@ -154,13 +146,13 @@ export function WaitlistForm() {
           </div>
         )}
 
-        <div className="mt-5 pt-5 border-t border-border/50 flex flex-col items-center">
+        <div className="mt-8 pt-8 border-t border-border/50 flex flex-col items-center">
           <a
-            href="mailto:placeholder@lumi-app.org"
+            href="mailto:lumi@zezulka.me"
             className="group flex items-center gap-3 text-muted-foreground hover:text-(--warmth-700) transition-colors duration-(--duration-soft)"
           >
             <Mail className="w-5 h-5 transition-transform group-hover:scale-110" />
-            <span className="font-medium">placeholder@lumi-app.org</span>
+            <span className="font-medium">lumi@zezulka.me</span>
           </a>
         </div>
       </div>

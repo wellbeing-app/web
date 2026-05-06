@@ -16,7 +16,7 @@
   },
   "home": {
     "badge": "Pre-seed fáze",
-    "title": "Prostor pro mysl.",
+    "title": "Lumi. Prostor pro mysl.",
     "description": "Žádný nátlak. Žádná pravidla. Pouze bezpečné místo navržené pro váš klid a rovnováhu v každodenním životě. Zdarma pro každého. Navždy.",
     "supportBtn": "Chci se zapojit",
     "newsletterBtn": "Chci vědět víc",
@@ -38,14 +38,14 @@
   },
   "vision": {
     "title": "Naše vize",
-    "description": "Vytváříme komplexní a bezplatnou aplikaci, která pod jednou střechou sdružuje všechny potřebné nástroje pro každodenní péči o duševní zdraví.",
+    "description": "Vytváříme komplexní a bezplatnou aplikaci, která pod jednou střechou sdružuje potřebné nástroje pro každodenní péči o duševní zdraví.",
     "marketAnalysisTitle": "Syntéza trhu",
     "marketAnalysis": "Z analýzy vyplývá, že na trhu chybí aplikace, která by kombinovala moderní UI a AI prvky s českou lokalizací a krizovou intervencí, a zároveň nabízela personalizovaný přístup k uživateli. Náš projekt tento průnik představuje.",
     "learnMoreLink": "Dozvědět se více o naší vizi"
   },
   "features": {
     "title": "Co nabízíme",
-    "description": "Navrženo pro váš klid.",
+    "description": "",
     "tryItLink": "Vyzkoušet",
     "list": [
       { "title": "AI funkce", "desc": "Volitelné AI funkce, ve výchozím nastavení vypnuté" },
@@ -102,17 +102,17 @@
   },
   "developer": {
     "title": "Přátelské k vývojářům",
-    "description": "Věříme v otevřený ekosystém. Náš kód je open-source a vítáme příspěvky. Klademe důraz na kontrolu nad daty a plánujeme vytvoření API.",
+    "description": "Věříme v otevřený ekosystém. Náš kód je open-source. Klademe důraz na kontrolu nad daty a plánujeme vytvoření API.",
     "moreLink": "Technické informace",
     "githubLink": "Zobrazit na GitHubu"
   },
   "contact": {
-    "title": "Zůstaňme v kontaktu",
-    "description": "Chcete se dozvědět více? Připojte se k našemu newsletteru.",
+    "title": "Zůstaňte v obraze",
+    "description": "",
     "emailLabel": "E-mailová adresa",
     "emailPlaceholder": "Váš email",
     "emailError": "Prosím zadejte platnou e-mailovou adresu.",
-    "successMessage": "Děkujeme! Byli jste přidáni na odběratele.",
+    "successMessage": "Děkujeme! Byli jste přidáni do newsletteru.",
     "submitBtn": "Odeslat",
     "privacyText": "Souhlasím se zpracováním e-mailu pro účely newsletteru. Zpracováváme v souladu s GDPR.",
     "privacyLink": "Zásady ochrany osobních údajů",
@@ -128,7 +128,7 @@
   },
   "trust": {
     "title": "Postaveno na důvěře",
-    "description": "Lumi je navrženo tak, abyste nemuseli věřit slepě — každý slib si můžete sami ověřit.",
+    "description": "Lumi je navrženo tak, abyste nemuseli věřit slepě - každý slib si můžete sami ověřit.",
     "items": {
       "local": {
         "title": "Local-first",
@@ -149,12 +149,12 @@
     }
   },
   "howItWorks": {
-    "title": "Jak to chodí",
+    "title": "Náhled do aplikace",
     "description": "Tři malé kroky. Žádný tlak, žádné streaky, žádná oznámení, o která jste si neřekli.",
     "steps": [
       {
         "title": "Otevřete aplikaci",
-        "desc": "Měkký, klidný prostor — žádné dashboardy ani grafy plné výčitek."
+        "desc": "Měkký, klidný prostor - žádné dashboardy ani grafy plné výčitek."
       },
       {
         "title": "Klepněte, jak se cítíte",
@@ -171,7 +171,7 @@
     "description": "První ohlasy beta testerů a přátel, kteří nám pomáhají Lumi formovat.",
     "list": [
       {
-        "quote": "Působí to jako psaní do deníku — ale dokáže mě posunout, když jsem zaseknutá.",
+        "quote": "Působí to jako psaní do deníku - ale dokáže mě posunout, když jsem zaseknutá.",
         "name": "Klára",
         "role": "Beta testerka · Brno"
       },
@@ -189,7 +189,7 @@
   },
   "faq": {
     "title": "Upřímné odpovědi",
-    "description": "Otázky, na které bychom sami chtěli znát odpověď, než si nainstalujeme další wellbeing aplikaci.",
+    "description": "",
     "items": [
       {
         "q": "Opustí někdy moje data zařízení?",
@@ -197,7 +197,7 @@
       },
       {
         "q": "Je to opravdu zdarma?",
-        "a": "Ano — a navždy. Žádný prémiový tarif, žádné reklamy, žádný upsell. Věříme, že každodenní podpora duševního zdraví nemá být za paywallem."
+        "a": "Ano - a navždy. Žádný prémiový tarif, žádné reklamy, žádný upsell. Věříme, že každodenní podpora duševního zdraví nemá být za paywallem."
       },
       {
         "q": "Můžu Lumi používat bez AI?",
@@ -231,7 +231,7 @@
     "rightsHeader": "V souladu s GDPR máte právo na:",
     "retentionDesc": "Vaši e-mailovou adresu uchováváme pouze po dobu, kdy zůstáváte přihlášeni k odběru našeho newsletteru. O vymazání můžete požádat kdykoli odhlášením z odběru.",
     "processorDesc": "Pro správu a zasílání našich newsletterových sdělení využíváme službu Resend jako našeho externího poskytovatele služeb.",
-    "controllerDesc": "Správcem údajů pro projekt Lumi je Anna Zezulka. V případě jakýchkoli dotazů týkajících se ochrany osobních údajů nás prosím kontaktujte na adrese: info@lumi-app.com",
+    "controllerDesc": "Správcem údajů pro projekt Lumi je Anna Zezulka. V případě jakýchkoli dotazů týkajících se ochrany osobních údajů nás prosím kontaktujte na adrese: info@lumi-nonprofit.com",
     "consent": "Zpracováváme vaše osobní údaje na základě vašeho souhlasu, který poskytujete zaškrtnutím souhlasného políčka při přihlašování k odběru newsletteru. Souhlas můžete kdykoli odvolat kliknutím na odkaz pro odhlášení v jakémkoli e-mailu.",
     "access": "přístup k vašim osobním údajům",
     "correction": "požadavek na opravu vašich údajů",
@@ -248,7 +248,7 @@
   },
   "screener": {
     "heading": "Vyzkoušejte krátký dotazník pohody",
-    "intro": "Jde o stručné, mezinárodně validované dotazníky. Vaše odpovědi zůstávají ve vašem prohlížeči — nic se neukládá ani neodesílá. Výsledek je informativní, nejde o diagnózu.",
+    "intro": "Jde o stručné, mezinárodně validované dotazníky. Vaše odpovědi zůstávají ve vašem prohlížeči - nic se neukládá ani neodesílá. Výsledek je informativní, nejde o diagnózu.",
     "cta": "Začít dotazník",
     "pickPrompt": "Který dotazník chcete zkusit?",
     "instruments": {
@@ -282,9 +282,9 @@
           "Obtížné usínání, přerušovaný spánek nebo nadměrný spánek",
           "Pocit únavy nebo nedostatku energie",
           "Snížená chuť k jídlu nebo přejídání",
-          "Špatný pocit ze sebe sama — pocit selhání nebo zklamání sebe či rodiny",
+          "Špatný pocit ze sebe sama - pocit selhání nebo zklamání sebe či rodiny",
           "Potíže se soustředěním, například při čtení nebo sledování televize",
-          "Tak pomalý pohyb nebo řeč, že by si toho mohli všimnout ostatní — nebo naopak takový neklid, že jste se pohyboval/a mnohem více než obvykle",
+          "Tak pomalý pohyb nebo řeč, že by si toho mohli všimnout ostatní - nebo naopak takový neklid, že jste se pohyboval/a mnohem více než obvykle",
           "Myšlenky, že by pro vás bylo lepší být mrtvý/á, nebo že byste si měl/a nějak ublížit"
         ],
         "scale": ["Vůbec", "Několik dní", "Více než polovinu dní", "Téměř každý den"]
@@ -308,7 +308,7 @@
     "severityLabels": {
       "who5_good": "Dobrá pohoda",
       "who5_low": "Snížená pohoda",
-      "who5_poor": "Nízká pohoda — screening pozitivní",
+      "who5_poor": "Nízká pohoda - screening pozitivní",
       "minimal": "Minimální",
       "mild": "Mírná",
       "moderate": "Střední",
@@ -325,7 +325,7 @@
       "scoreLabel": "Vaše skóre",
       "suggestedLabel": "Co by naše aplikace doporučila",
       "disclaimer": "Screeningové dotazníky nejsou diagnózou. Pokud ve vás něco rezonuje, zvažte rozhovor s odborníkem na duševní zdraví.",
-      "crisisTitle": "Ozvěte se — nejste v tom sami",
+      "crisisTitle": "Ozvěte se - nejste v tom sami",
       "crisisBody": "Vaše odpovědi naznačují, že by vám pomohlo si s někým promluvit. V ČR volejte 116 123 (Linka první psychické pomoci, nonstop) nebo 112 v případě nouze. Pokud vám hrozí bezprostřední nebezpečí, kontaktujte záchrannou službu."
     }
   }

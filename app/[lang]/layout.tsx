@@ -29,7 +29,7 @@ const organizationJsonLd = {
   name: 'Lumi',
   url: baseUrl,
   logo: `${baseUrl}/logo.png`,
-  sameAs: ['https://www.linkedin.com/company/lumi-app', 'https://twitter.com/lumiapp'],
+  sameAs: ['https://www.linkedin.com/company/lumi-nonprofit', 'https://twitter.com/lumiapp'],
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: '+420-123-456-789',

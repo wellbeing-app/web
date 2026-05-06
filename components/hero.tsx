@@ -3,12 +3,13 @@
 import React, { useState } from 'react';
 import { useDictionary } from '@/components/providers/dictionary-provider';
 import { motion } from 'framer-motion';
+import { AppleHello } from '@/components/apple-hello';
 
 export function HeroIntro() {
   const dict = useDictionary();
 
   return (
-    <div className="relative gap-5 xs:gap-6 @sm/card:gap-7 @lg/card:gap-8 flex flex-col items-center py-0">
+    <div className="relative gap-3 xs:gap-4 @sm/card:gap-5 @lg/card:gap-8 flex flex-col items-center py-1 @lg/card:py-0">
       {/* Soft warm/sage drift blobs behind hero — additive friendliness, no layout impact */}
       <div
         aria-hidden="true"
@@ -29,11 +30,9 @@ export function HeroIntro() {
         {dict.home.badge}
       </span>
 
-      <h1 className="text-(length:--text-hero-fluid) leading-[1.1] @lg/card:leading-tight font-bold tracking-tight text-center transition-colors duration-(--duration-soft) animate-fade-in">
-        {dict.home.title}
-      </h1>
+      <AppleHello text={dict.home.title} />
 
-      <p className="text-(length:--text-base-fluid) @lg/card:text-(length:--text-lg-fluid) text-muted-foreground max-w-xl text-center leading-relaxed transition-colors duration-(--duration-soft) animate-fade-in">
+      <p className="text-(length:--text-sm-fluid) @lg/card:text-(length:--text-base-fluid) text-muted-foreground max-w-xl text-center leading-relaxed transition-colors duration-(--duration-soft) animate-fade-in px-4">
         {dict.home.description}
       </p>
     </div>

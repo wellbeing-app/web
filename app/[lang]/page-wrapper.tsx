@@ -38,7 +38,7 @@ export function PageWrapper() {
           { id: 'vision', component: <Mission />, href: '/vision' },
           { id: 'how', component: <HowItWorks /> },
           { id: 'features', component: <Features />, href: '/features' },
-          { id: 'team', component: <Team />, href: '/team' },
+          { id: 'team', component: <Team /> },
           { id: 'developer', component: <DeveloperFriendly />, href: '/developer' },
           { id: 'faq', component: <FAQ /> },
           { id: 'trust', component: <TrustStripCard /> },
