@@ -31,7 +31,7 @@ export function Footer() {
             {dict.footer.privacy}
           </Link>
           <a
-            href="https://github.com/lumi-app"
+            href="https://github.com/lumi-nonprofit"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-(--warmth-700) transition-colors duration-(--duration-soft)"

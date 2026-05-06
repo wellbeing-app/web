@@ -13,9 +13,6 @@ export function FAQ() {
         <h2 className="text-(length:--text-2xl-fluid) @lg/card:text-(length:--text-3xl-fluid) font-semibold tracking-tight">
           {dict.faq.title}
         </h2>
-        <p className="text-sm md:text-lg text-muted-foreground leading-relaxed">
-          {dict.faq.description}
-        </p>
       </div>
 
       <ul role="list" className="w-full max-w-2xl flex flex-col gap-3 px-2 text-left">

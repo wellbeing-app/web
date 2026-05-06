@@ -22,7 +22,7 @@ const PLATFORMS = [
 ];
 
 const SEQUENCE: SequenceItem[] = [
-  { type: 'cmd', dir: '~/lumi', text: 'git clone https://github.com/lumi-app/web' },
+  { type: 'cmd', dir: '~/lumi', text: 'git clone https://github.com/lumi-nonprofit/web' },
   {
     type: 'out',
     lines: [
@@ -217,7 +217,7 @@ export function DeveloperFriendly({ isFullPage = false }: DeveloperFriendlyProps
             </div>
 
             <a
-              href="https://github.com/lumi-app"
+              href="https://github.com/lumi-nonprofit"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 mt-4 px-6 py-3 rounded-full bg-primary text-primary-foreground text-sm md:text-base font-medium hover:scale-105 active:scale-95 transition-all shadow-lg hover:shadow-primary/20"

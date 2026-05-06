@@ -132,10 +132,12 @@ function FinalCard({ card, index }: { card: CardData; index: number }) {
   return (
     <section
       id={card.id}
-      className="relative min-h-dvh flex items-center justify-center px-4 pb-32"
+      className="relative min-h-dvh flex flex-col items-center px-4"
       style={{ zIndex: index }}
     >
+      <div className="flex-1" />
       <CardPill href={card.href}>{card.component}</CardPill>
+      <div className="flex-1" />
       <Footer />
     </section>
   );

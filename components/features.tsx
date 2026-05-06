@@ -52,9 +52,6 @@ export function Features({ full = false }: FeaturesProps) {
         <h2 className="text-(length:--text-2xl-fluid) @lg/card:text-(length:--text-3xl-fluid) font-semibold tracking-tight text-foreground transition-colors duration-(--duration-soft)">
           {dict.features.title}
         </h2>
-        <p className="text-sm md:text-lg text-muted-foreground leading-relaxed">
-          {dict.features.description}
-        </p>
       </div>
 
       <div

@@ -53,13 +53,10 @@ export function HowItWorks() {
 
   return (
     <div className="relative space-y-8 md:space-y-12 flex flex-col items-center w-full animate-fade-in">
-      <div className="space-y-2 md:space-y-3 text-center max-w-xl px-4">
+      <div className="space-y-2 text-center">
         <h2 className="text-(length:--text-2xl-fluid) @lg/card:text-(length:--text-3xl-fluid) font-semibold tracking-tight">
           {dict.howItWorks.title}
         </h2>
-        <p className="text-sm md:text-lg text-muted-foreground leading-relaxed">
-          {dict.howItWorks.description}
-        </p>
       </div>
 
       <div className="grid grid-cols-1 @md/card:grid-cols-3 gap-4 md:gap-8 w-full px-2">
