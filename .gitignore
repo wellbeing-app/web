@@ -16,6 +16,7 @@ playwright-report
 .playwright-mcp
 test-results
 memory
+.lighthouseci
 
 # next.js
 /.next/
@@ -27,6 +28,9 @@ memory
 # misc
 .DS_Store
 *.pem
+Thumbs.db
+.netlify
+lint_output.txt
 
 # debug
 npm-debug.log*
