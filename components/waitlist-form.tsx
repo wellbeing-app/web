@@ -69,7 +69,7 @@ export function WaitlistForm() {
   };
 
   return (
-    <div className="relative space-y-8 flex flex-col items-center w-full max-w-2xl mx-auto animate-fade-in">
+    <div className="relative space-y-5 flex flex-col items-center w-full max-w-2xl mx-auto animate-fade-in">
       <div className="space-y-4 text-center">
         <h2 className="text-(length:--text-2xl-fluid) @lg/card:text-(length:--text-3xl-fluid) font-semibold tracking-tight">
           {dict.contact.title}
@@ -154,7 +154,7 @@ export function WaitlistForm() {
           </div>
         )}
 
-        <div className="mt-8 pt-8 border-t border-border/50 flex flex-col items-center">
+        <div className="mt-5 pt-5 border-t border-border/50 flex flex-col items-center">
           <a
             href="mailto:placeholder@lumi-app.org"
             className="group flex items-center gap-3 text-muted-foreground hover:text-(--warmth-700) transition-colors duration-(--duration-soft)"

@@ -19,7 +19,11 @@ export const team: TeamNode = {
     {
       kind: 'group',
       id: 'vyvoj',
-      children: [{ kind: 'person', id: 'daniel', name: 'Daniel Pravdík' }],
+      children: [
+        { kind: 'person', id: 'daniel', name: 'Daniel Pravdík' },
+        { kind: 'person', id: 'matyas', name: 'Matyáš Procházka' },
+        { kind: 'person', id: 'martin', name: 'Martin Čechal' },
+      ],
     },
   ],
 };

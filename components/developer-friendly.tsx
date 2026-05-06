@@ -5,6 +5,7 @@ import { useDictionary } from '@/components/providers/dictionary-provider';
 import { Globe } from 'lucide-react';
 import { useInView, motion } from 'framer-motion';
 import { Apple, Android, Microsoft, Linux, Github } from '@/components/icons';
+import { team, flattenPeople } from '@/lib/team';
 
 interface DeveloperFriendlyProps {
   isFullPage?: boolean;
@@ -193,37 +194,80 @@ export function DeveloperFriendly({ isFullPage = false }: DeveloperFriendlyProps
       )}
 
       {isFullPage && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="w-full flex flex-col items-center gap-4 mt-12 md:mt-16"
-        >
-          <span className="text-xs uppercase tracking-widest text-muted-foreground/60 font-medium">
-            {dict.home.targetPlatforms}
-          </span>
-          <div className="flex flex-wrap justify-center gap-3 md:gap-5">
-            {PLATFORMS.map((platform) => (
-              <div
-                key={platform.name}
-                className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center bg-card/50 border border-border/50 backdrop-blur-md rounded-xl md:rounded-2xl transition-all duration-500 hover:bg-secondary/80 hover:scale-110 active:scale-95 touch-manipulation hover:shadow-[0_0_20px_rgba(var(--primary),0.1)] cursor-pointer group"
-                aria-label={platform.label}
-              >
-                <platform.icon className="w-6 h-6 md:w-8 md:h-8 text-foreground/70 group-hover:text-foreground transition-all duration-300" />
-              </div>
-            ))}
-          </div>
-
-          <a
-            href="https://github.com/lumi-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-4 px-6 py-3 rounded-full bg-primary text-primary-foreground text-sm md:text-base font-medium hover:scale-105 active:scale-95 transition-all shadow-lg hover:shadow-primary/20"
+        <>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="w-full flex flex-col items-center gap-4 mt-12 md:mt-16"
           >
-            <Github className="w-5 h-5" />
-            {dict.developer.githubLink}
-          </a>
-        </motion.div>
+            <span className="text-xs uppercase tracking-widest text-muted-foreground/60 font-medium">
+              {dict.home.targetPlatforms}
+            </span>
+            <div className="flex flex-wrap justify-center gap-3 md:gap-5">
+              {PLATFORMS.map((platform) => (
+                <div
+                  key={platform.name}
+                  className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center bg-card/50 border border-border/50 backdrop-blur-md rounded-xl md:rounded-2xl transition-all duration-500 hover:bg-secondary/80 hover:scale-110 active:scale-95 touch-manipulation hover:shadow-[0_0_20px_rgba(var(--primary),0.1)] cursor-pointer group"
+                  aria-label={platform.label}
+                >
+                  <platform.icon className="w-6 h-6 md:w-8 md:h-8 text-foreground/70 group-hover:text-foreground transition-all duration-300" />
+                </div>
+              ))}
+            </div>
+
+            <a
+              href="https://github.com/lumi-app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-4 px-6 py-3 rounded-full bg-primary text-primary-foreground text-sm md:text-base font-medium hover:scale-105 active:scale-95 transition-all shadow-lg hover:shadow-primary/20"
+            >
+              <Github className="w-5 h-5" />
+              {dict.developer.githubLink}
+            </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="w-full flex flex-col items-center gap-6 mt-12 md:mt-16"
+          >
+            <h3 className="text-lg md:text-xl font-semibold tracking-tight">
+              {dict.team.groups.vyvoj}
+            </h3>
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+              {flattenPeople(team)
+                .filter((p) => {
+                  const vyvoj = team.children?.find((c) => c.kind === 'group' && c.id === 'vyvoj');
+                  if (!vyvoj || vyvoj.kind !== 'group') return false;
+                  return flattenPeople(vyvoj).some((v) => v.id === p.id);
+                })
+                .map((member) => {
+                  const initials = member.name
+                    .split(' ')
+                    .filter(Boolean)
+                    .map((n) => n[0])
+                    .join('')
+                    .slice(0, 2);
+                  return (
+                    <div
+                      key={member.id}
+                      className="flex flex-col items-center gap-2 p-4 md:p-5 rounded-(--radius-card) bg-card/50 border border-border/50 min-w-[120px]"
+                    >
+                      <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-(--warmth-100) text-(--warmth-700) flex items-center justify-center font-semibold text-sm md:text-base">
+                        {initials}
+                      </div>
+                      <div className="text-center">
+                        <p className="font-semibold text-sm md:text-base">{member.name}</p>
+                        <p className="text-muted-foreground text-xs">{dict.team.roles[member.id]}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+          </motion.div>
+        </>
       )}
     </div>
   );

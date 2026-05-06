@@ -6,10 +6,10 @@ import { useDictionary } from './providers/dictionary-provider';
 
 const SECTION_IDS = [
   'home',
+  'wellbeing',
   'vision',
   'how',
   'features',
-  'testimonials',
   'team',
   'developer',
   'faq',
@@ -74,10 +74,10 @@ export function ScrollIndicator() {
 
   const sections = [
     { id: 'home', label: dict.nav.nav_home },
+    { id: 'wellbeing', label: dict.home.mood_label },
     { id: 'vision', label: dict.nav.nav_vision },
     { id: 'how', label: dict.nav.nav_how },
     { id: 'features', label: dict.nav.nav_features },
-    { id: 'testimonials', label: dict.nav.nav_testimonials },
     { id: 'team', label: dict.nav.nav_team },
     { id: 'developer', label: dict.nav.nav_developer },
     { id: 'faq', label: dict.nav.nav_faq },

@@ -4,16 +4,11 @@ import React, { useState } from 'react';
 import { useDictionary } from '@/components/providers/dictionary-provider';
 import { motion } from 'framer-motion';
 
-export function Hero() {
+export function HeroIntro() {
   const dict = useDictionary();
-  const [mood, setMood] = useState(70);
-
-  const safeMood = typeof mood === 'number' && !isNaN(mood) ? mood : 70;
-  const mouthPath = `M 12 26 Q 20 ${22 + (safeMood / 100) * 10} 28 26`;
-  const color = `hsl(${(mood / 100) * 130}, 65%, 55%)`;
 
   return (
-    <div className="relative gap-5 xs:gap-6 @sm/card:gap-7 @lg/card:gap-8 flex flex-col items-center py-0 overflow-hidden">
+    <div className="relative gap-5 xs:gap-6 @sm/card:gap-7 @lg/card:gap-8 flex flex-col items-center py-0">
       {/* Soft warm/sage drift blobs behind hero — additive friendliness, no layout impact */}
       <div
         aria-hidden="true"
@@ -41,9 +36,38 @@ export function Hero() {
       <p className="text-(length:--text-base-fluid) @lg/card:text-(length:--text-lg-fluid) text-muted-foreground max-w-xl text-center leading-relaxed transition-colors duration-(--duration-soft) animate-fade-in">
         {dict.home.description}
       </p>
+    </div>
+  );
+}
+
+export function HeroMood() {
+  const dict = useDictionary();
+  const [mood, setMood] = useState(70);
+
+  const safeMood = typeof mood === 'number' && !isNaN(mood) ? mood : 70;
+  const mouthPath = `M 12 26 Q 20 ${22 + (safeMood / 100) * 10} 28 26`;
+  const color = `hsl(${(mood / 100) * 130}, 65%, 55%)`;
+
+  return (
+    <div className="relative gap-5 xs:gap-6 @sm/card:gap-7 @lg/card:gap-8 flex flex-col items-center py-0">
+      {/* Soft warm/sage drift blobs */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+      >
+        <div className="absolute -top-12 -left-10 w-56 h-56 rounded-full bg-(--warmth-100)/60 blur-3xl animate-blob-drift" />
+        <div
+          className="absolute -bottom-16 -right-12 w-64 h-64 rounded-full bg-(--sage-100)/50 blur-3xl animate-blob-drift"
+          style={{ animationDelay: '-6s' }}
+        />
+      </div>
+
+      <p className="text-(length:--text-lg-fluid) @lg/card:text-(length:--text-xl-fluid) text-muted-foreground text-center leading-relaxed transition-colors duration-(--duration-soft) animate-fade-in">
+        {dict.home.mood_label}
+      </p>
 
       {/* Mood Slider Section */}
-      <div className="w-full max-w-[320px] @sm/card:max-w-sm animate-fade-in pt-2">
+      <div className="w-full max-w-[320px] @sm/card:max-w-sm animate-fade-in">
         <div className="glass border border-border/50 rounded-3xl p-4 @lg/card:p-5 shadow-(--shadow-pill)">
           <div className="flex flex-col @sm/card:flex-row items-center gap-4 @lg/card:gap-6">
             <div className="relative flex items-center justify-center shrink-0">
@@ -126,4 +150,9 @@ export function Hero() {
       </div>
     </div>
   );
+}
+
+/** @deprecated Use HeroIntro or HeroMood instead */
+export function Hero() {
+  return <HeroIntro />;
 }
