@@ -9,38 +9,48 @@ export function Hero() {
   const [mood, setMood] = useState(70);
 
   const safeMood = typeof mood === 'number' && !isNaN(mood) ? mood : 70;
-  // Interpolate mouth path: Sad (0) -> Neutral (50) -> Happy (100)
-  // Ensure we always have a valid path string to avoid "undefined" error in console
   const mouthPath = `M 12 26 Q 20 ${22 + (safeMood / 100) * 10} 28 26`;
-
-  // Interpolate color: Red (0) -> Yellow (50) -> Green (100)
-  // Hue: 0 (red) to 130 (green)
   const color = `hsl(${(mood / 100) * 130}, 65%, 55%)`;
 
   return (
-    <div className="relative gap-6 sm:gap-8 flex flex-col items-center py-0 overflow-hidden">
-      <span className="inline-flex items-center gap-2 bg-secondary/30 border border-border/50 backdrop-blur-sm text-secondary-foreground text-xs md:text-sm font-medium px-3 md:px-4 py-1 md:py-1.5 rounded-full transition-colors duration-300 animate-fade-in">
+    <div className="relative gap-5 xs:gap-6 @sm/card:gap-7 @lg/card:gap-8 flex flex-col items-center py-0 overflow-hidden">
+      {/* Soft warm/sage drift blobs behind hero — additive friendliness, no layout impact */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+      >
+        <div className="absolute -top-12 -left-10 w-56 h-56 rounded-full bg-(--warmth-100)/60 blur-3xl animate-blob-drift" />
+        <div
+          className="absolute -bottom-16 -right-12 w-64 h-64 rounded-full bg-(--sage-100)/50 blur-3xl animate-blob-drift"
+          style={{ animationDelay: '-6s' }}
+        />
+      </div>
+
+      <span className="inline-flex items-center gap-2 bg-secondary/30 border border-border/50 backdrop-blur-sm text-secondary-foreground text-xs @lg/card:text-sm font-medium px-3 @lg/card:px-4 py-1 @lg/card:py-1.5 rounded-(--radius-pill) transition-colors duration-(--duration-soft) animate-fade-in">
         <div className="relative w-1.5 h-1.5 shrink-0" aria-hidden="true">
-          <div className="absolute inset-0 rounded-full bg-[#E09B5A] animate-ping-ring" />
-          <div className="absolute inset-0 rounded-full bg-[#E09B5A]" />
+          <div className="absolute inset-0 rounded-full bg-(--warmth-500) animate-ping-ring" />
+          <div className="absolute inset-0 rounded-full bg-(--warmth-500)" />
         </div>
         {dict.home.badge}
       </span>
 
-      <h1 className="text-(length:--text-hero-fluid) md:text-6xl leading-[1.1] md:leading-tight font-bold tracking-tight text-center transition-colors duration-300 animate-fade-in">
+      <h1 className="text-(length:--text-hero-fluid) leading-[1.1] @lg/card:leading-tight font-bold tracking-tight text-center transition-colors duration-(--duration-soft) animate-fade-in">
         {dict.home.title}
       </h1>
 
-      <p className="text-(length:--text-base-fluid) md:text-lg text-muted-foreground max-w-xl text-center leading-relaxed transition-colors duration-300 animate-fade-in">
+      <p className="text-(length:--text-base-fluid) @lg/card:text-(length:--text-lg-fluid) text-muted-foreground max-w-xl text-center leading-relaxed transition-colors duration-(--duration-soft) animate-fade-in">
         {dict.home.description}
       </p>
 
       {/* Mood Slider Section */}
-      <div className="w-full max-w-[320px] md:max-w-sm animate-fade-in pt-2">
-        <div className="glass border border-border/50 rounded-3xl p-4 md:p-5 shadow-[0_0_20px_rgba(0,0,0,0.02)]">
-          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+      <div className="w-full max-w-[320px] @sm/card:max-w-sm animate-fade-in pt-2">
+        <div className="glass border border-border/50 rounded-3xl p-4 @lg/card:p-5 shadow-(--shadow-pill)">
+          <div className="flex flex-col @sm/card:flex-row items-center gap-4 @lg/card:gap-6">
             <div className="relative flex items-center justify-center shrink-0">
-              <svg width="80" height="80" viewBox="0 0 40 40" className="overflow-visible">
+              <svg
+                className="w-16 h-16 xs:w-20 xs:h-20 @lg/card:w-24 @lg/card:h-24 overflow-visible"
+                viewBox="0 0 40 40"
+              >
                 <defs>
                   <radialGradient id="moodGradient" cx="30%" cy="30%" r="70%">
                     <stop offset="0%" stopColor="white" stopOpacity="0.4" />
@@ -64,7 +74,7 @@ export function Hero() {
                   transition={{ type: 'spring', stiffness: 80, damping: 15 }}
                 />
 
-                {/* Eyes - Black arcs */}
+                {/* Eyes */}
                 <g fill="none" stroke="black" strokeWidth="1.8" strokeLinecap="round">
                   <motion.path
                     d={safeMood < 40 ? 'M12 20 Q 14.5 22 17 20' : 'M12 17 Q 14.5 14.5 17 17'}
@@ -82,7 +92,7 @@ export function Hero() {
                   />
                 </g>
 
-                {/* Mouth - Black arc */}
+                {/* Mouth */}
                 <motion.path
                   d={mouthPath}
                   stroke="black"
@@ -102,7 +112,7 @@ export function Hero() {
                 max="100"
                 value={mood}
                 onChange={(e) => setMood(parseInt(e.target.value))}
-                className="w-full h-1.5 bg-secondary border border-border rounded-full appearance-none cursor-pointer accent-primary focus:outline-hidden"
+                className="mood-slider w-full h-1.5 bg-secondary border border-border rounded-full appearance-none cursor-pointer accent-(--warmth-500) focus:outline-hidden"
                 aria-label={dict.home.mood_label || 'Mood slider'}
               />
               <div className="flex justify-between px-1 text-[9px] font-bold text-muted-foreground tracking-tighter uppercase">

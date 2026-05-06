@@ -17,7 +17,9 @@ export function Team({ showChart = false }: { showChart?: boolean }) {
   return (
     <div className="relative space-y-4 md:space-y-6 flex flex-col items-center animate-fade-in">
       <div className="space-y-2 md:space-y-4 text-center">
-        <h2 className="text-2xl md:text-5xl font-bold tracking-tight">{dict.team.title}</h2>
+        <h2 className="text-(length:--text-2xl-fluid) @lg/card:text-(length:--text-3xl-fluid) font-semibold tracking-tight">
+          {dict.team.title}
+        </h2>
         <p className="text-sm md:text-lg text-muted-foreground max-w-md mx-auto leading-relaxed">
           {dict.team.description}
         </p>
@@ -28,37 +30,46 @@ export function Team({ showChart = false }: { showChart?: boolean }) {
       ) : (
         <div className="flex flex-col items-center gap-4 md:gap-6 w-full">
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-6 w-full">
-            {people.map((member) => (
-              <div
-                key={member.id}
-                className="flex flex-col items-center gap-2 md:gap-3 p-3 md:p-6 rounded-2xl md:rounded-3xl bg-card border border-border/50 shadow-xs"
-              >
-                {member.image ? (
-                  <div className="relative w-14 h-14 md:w-24 md:h-24 rounded-full overflow-hidden border border-border/50">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 56px, 96px"
-                    />
+            {people.map((member) => {
+              const initials = member.name
+                .split(' ')
+                .map((n) => n[0])
+                .join('')
+                .slice(0, 2);
+              return (
+                <div
+                  key={member.id}
+                  className="flex flex-col items-center gap-2 md:gap-3 p-3 md:p-6 rounded-(--radius-card-inner) md:rounded-(--radius-card) bg-card border border-border/50 shadow-(--shadow-card)"
+                >
+                  {member.image ? (
+                    <div className="relative w-14 h-14 md:w-24 md:h-24 rounded-full overflow-hidden ring-2 ring-(--warmth-100)/80 ring-offset-2 ring-offset-card">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 56px, 96px"
+                      />
+                    </div>
+                  ) : (
+                    <div className="w-14 h-14 md:w-24 md:h-24 rounded-full bg-(--warmth-100) text-(--warmth-700) flex items-center justify-center font-semibold text-sm md:text-xl">
+                      {initials}
+                    </div>
+                  )}
+                  <div className="text-center">
+                    <h3 className="font-semibold text-sm md:text-lg">{member.name}</h3>
+                    <p className="text-muted-foreground text-xs sm:text-sm">
+                      {dict.team.roles[member.id]}
+                    </p>
                   </div>
-                ) : (
-                  <div className="w-14 h-14 md:w-24 md:h-24 rounded-full bg-accent animate-pulse" />
-                )}
-                <div className="text-center">
-                  <h3 className="font-bold text-sm md:text-lg">{member.name}</h3>
-                  <p className="text-muted-foreground text-xs sm:text-sm">
-                    {dict.team.roles[member.id]}
-                  </p>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <Link
             href={`/${lang}/team`}
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors group underline decoration-muted-foreground/30 underline-offset-4 hover:decoration-foreground"
+            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-(--warmth-700) transition-colors duration-(--duration-soft) group underline decoration-(--warmth-300) underline-offset-4 hover:decoration-(--warmth-700)"
           >
             <span>{dict.team.moreLink}</span>
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

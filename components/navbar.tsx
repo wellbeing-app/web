@@ -47,13 +47,13 @@ export function Navbar({ lang }: { lang: string }) {
 
   return (
     <>
-      <header className="fixed left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-200 mx-auto top-safe">
-        <nav className="relative bg-card px-3 py-3 rounded-full flex items-center justify-between border border-border transition-colors duration-300 min-h-16">
+      <header className="fixed left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-[50rem] lg:max-w-[56rem] mx-auto top-safe">
+        <nav className="relative glass px-2 xs:px-3 py-3 rounded-(--radius-pill) flex items-center justify-between transition-colors duration-(--duration-soft) min-h-16 shadow-(--shadow-pill)">
           {/* Left: Logo */}
-          <div className="flex-1 flex justify-start pl-6">
+          <div className="flex-1 flex justify-start pl-3 xs:pl-5">
             <Link
               href={`/${lang}`}
-              className="text-xl font-bold tracking-tight transition-colors duration-300"
+              className="text-xl font-semibold tracking-tight transition-colors duration-(--duration-soft)"
               onClick={(e) => handleScroll(e, `/${lang}`)}
             >
               Lumi.
@@ -61,12 +61,12 @@ export function Navbar({ lang }: { lang: string }) {
           </div>
 
           {/* Center: Desktop Nav Links (Absolute Centered) */}
-          <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-full transition-colors duration-300 animate-fade-in z-10">
+          <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-(--radius-pill) transition-colors duration-(--duration-soft) animate-fade-in z-10">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="h-9 inline-flex items-center text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-300 px-3 rounded-full hover:bg-secondary/50"
+                className="h-9 inline-flex items-center text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-(--duration-soft) px-3 rounded-(--radius-pill) hover:bg-(--warmth-100)/40"
                 onClick={(e) => handleScroll(e, link.href)}
               >
                 {link.label}
@@ -76,21 +76,21 @@ export function Navbar({ lang }: { lang: string }) {
 
           {/* Right: Desktop Controls */}
           <div className="flex-1 flex justify-end pr-1">
-            <div className="hidden md:flex items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-full transition-colors duration-300">
+            <div className="hidden md:flex items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-(--radius-pill) transition-colors duration-(--duration-soft)">
               <LanguageSwitcher lang={lang} />
               <ThemeToggle />
             </div>
           </div>
 
           {/* Mobile Nav Toggle */}
-          <div className="flex md:hidden items-center gap-2">
-            <div className="flex items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-full transition-colors duration-300">
+          <div className="flex md:hidden items-center gap-1.5 xs:gap-2">
+            <div className="flex items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-(--radius-pill) transition-colors duration-(--duration-soft)">
               <LanguageSwitcher lang={lang} />
               <ThemeToggle />
             </div>
             <button
               ref={buttonRef}
-              className="p-2.5 rounded-full hover:bg-secondary/40 transition-colors duration-200"
+              className="p-2 xs:p-2.5 rounded-(--radius-pill) hover:bg-(--warmth-100)/40 transition-colors duration-200"
               onClick={() => setIsOpen((v) => !v)}
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isOpen}

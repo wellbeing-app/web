@@ -128,7 +128,7 @@ export function OrgChart() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full flex justify-center py-12 md:overflow-x-auto"
+      className="relative w-full flex justify-center py-12 md:overflow-x-auto [mask-image:linear-gradient(to_right,transparent_0,#000_3rem,#000_calc(100%-3rem),transparent_100%)]"
     >
       <svg
         className="absolute inset-0 pointer-events-none"
@@ -143,8 +143,9 @@ export function OrgChart() {
             y1={line.y1}
             x2={line.x2}
             y2={line.y2}
-            className="stroke-border"
-            strokeWidth={2}
+            stroke="var(--warmth-300)"
+            strokeWidth={2.5}
+            strokeOpacity={0.7}
             strokeLinecap="round"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ pathLength: 1, opacity: 1 }}
@@ -251,15 +252,15 @@ function MobilePersonRow({
       variants={nodeVariants}
       className={
         featured
-          ? 'w-full flex flex-col items-center gap-2 bg-card border border-border rounded-2xl p-6 shadow-sm text-center'
-          : 'w-full flex items-center gap-3 bg-card border border-border rounded-xl p-3 shadow-sm'
+          ? 'w-full flex flex-col items-center gap-2 bg-card border border-border rounded-(--radius-card) p-6 shadow-(--shadow-card) text-center'
+          : 'w-full flex items-center gap-3 bg-card border border-border rounded-(--radius-card-inner) p-3 shadow-(--shadow-card)'
       }
     >
       <div
         className={
           featured
-            ? 'w-16 h-16 rounded-full bg-muted flex items-center justify-center overflow-hidden'
-            : 'w-10 h-10 shrink-0 rounded-full bg-muted flex items-center justify-center overflow-hidden'
+            ? 'w-16 h-16 rounded-full bg-(--warmth-100) text-(--warmth-700) flex items-center justify-center overflow-hidden ring-2 ring-(--warmth-100)/80 ring-offset-2 ring-offset-card'
+            : 'w-10 h-10 shrink-0 rounded-full bg-(--warmth-100) text-(--warmth-700) flex items-center justify-center overflow-hidden'
         }
         aria-hidden="true"
       >
@@ -332,10 +333,10 @@ function PersonCard({
     <motion.div
       ref={setRef}
       variants={nodeVariants}
-      className="w-52 md:w-56 bg-card rounded-xl p-5 shadow-sm border border-border flex flex-col items-center text-center"
+      className="w-52 md:w-56 bg-card rounded-(--radius-card-inner) p-5 shadow-(--shadow-card) border border-border flex flex-col items-center text-center"
     >
       <div
-        className="w-14 h-14 rounded-full bg-muted mb-3 flex items-center justify-center overflow-hidden"
+        className="w-14 h-14 rounded-full bg-(--warmth-100) text-(--warmth-700) mb-3 flex items-center justify-center overflow-hidden ring-2 ring-(--warmth-100)/80 ring-offset-2 ring-offset-card"
         aria-hidden="true"
       >
         {node.image ? (
@@ -347,7 +348,7 @@ function PersonCard({
             className="object-cover w-full h-full"
           />
         ) : (
-          <span className="text-muted-foreground font-bold">{initials}</span>
+          <span className="font-semibold">{initials}</span>
         )}
       </div>
       <h3 className="font-semibold text-foreground leading-tight">{node.name}</h3>

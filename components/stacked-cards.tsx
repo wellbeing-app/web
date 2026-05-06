@@ -27,10 +27,10 @@ function FullscreenButton({ href }: { href: string }) {
     <button
       type="button"
       onClick={() => router.push(`/${lang}${href}`)}
-      className="absolute top-6 right-6 md:top-8 md:right-8 p-2.5 md:p-3 rounded-xl md:rounded-2xl glass border border-border/50 bg-secondary/20 text-secondary-foreground/60 hover:text-secondary-foreground hover:bg-secondary/40 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer z-20"
+      className="absolute top-5 right-5 @sm/card:top-6 @sm/card:right-6 @lg/card:top-8 @lg/card:right-8 p-2.5 @lg/card:p-3 rounded-xl @lg/card:rounded-2xl glass border border-border/50 bg-secondary/20 text-secondary-foreground/60 hover:text-secondary-foreground hover:bg-secondary/40 hover:scale-105 active:scale-95 transition-all duration-(--duration-soft) ease-(--ease-out-soft) cursor-pointer z-20"
       aria-label="Fullscreen"
     >
-      <Maximize2 className="h-4 w-4 md:h-5 md:w-5" />
+      <Maximize2 className="h-4 w-4 @lg/card:h-5 @lg/card:w-5" />
     </button>
   );
 }
@@ -48,7 +48,7 @@ function CardPill({
 }) {
   return (
     <motion.div
-      className="w-full max-w-200 h-[70vh] bg-card border border-border rounded-4xl p-8 md:p-10 flex flex-col items-center justify-center text-center overflow-y-auto no-scrollbar relative group/card"
+      className="@container/card w-full max-w-[50rem] lg:max-w-[56rem] 3xl:max-w-[64rem] 4xl:max-w-[72rem] h-[70vh] 3xl:h-[68vh] 4xl:h-[64vh] bg-card border border-border rounded-(--radius-card) @md/card:rounded-(--radius-card-lg) shadow-(--shadow-card) p-5 xs:p-6 @sm/card:p-8 @lg/card:p-12 @2xl/card:p-14 flex flex-col items-center justify-center text-center overflow-y-auto no-scrollbar relative group/card"
       style={style}
     >
       {showFullscreen && href && <FullscreenButton href={href} />}
@@ -80,7 +80,7 @@ function NextSlideButton({
       style={style}
       className="flex-1 w-full flex items-center justify-center group will-change-transform cursor-pointer"
     >
-      <span className="inline-flex items-center gap-2 rounded-full glass border border-border/50 bg-secondary/30 text-secondary-foreground pl-6 pr-5 md:pl-7 md:pr-6 py-2 md:py-2.5 text-sm md:text-base font-medium leading-none transition group-hover:bg-secondary/50 group-hover:scale-105 active:scale-95 shadow-md">
+      <span className="inline-flex items-center gap-2 rounded-(--radius-pill) glass border border-border/50 bg-secondary/30 text-secondary-foreground pl-6 pr-5 md:pl-7 md:pr-6 py-2 md:py-2.5 text-sm md:text-base font-medium leading-none transition-all duration-(--duration-soft) ease-(--ease-out-soft) group-hover:bg-(--warmth-100)/60 group-hover:scale-105 active:scale-95 shadow-(--shadow-pill)">
         <span className="leading-none">{label}</span>
         <ChevronDown className="h-4 w-4 md:h-5 md:w-5 shrink-0" aria-hidden="true" />
       </span>
@@ -115,7 +115,7 @@ function StackingCard({
       <div className="sticky top-0 h-screen flex flex-col items-center px-4 will-change-transform">
         <div className="flex-1" />
         <motion.div
-          className="relative w-full max-w-200 h-[70vh] flex items-center justify-center will-change-transform"
+          className="relative w-full max-w-[50rem] lg:max-w-[56rem] 3xl:max-w-[64rem] 4xl:max-w-[72rem] h-[70vh] 3xl:h-[68vh] 4xl:h-[64vh] flex items-center justify-center will-change-transform"
           style={{ scale, opacity, filter }}
         >
           <CardPill showFullscreen={index > 0} href={card.href}>
@@ -132,7 +132,7 @@ function FinalCard({ card, index }: { card: CardData; index: number }) {
   return (
     <section
       id={card.id}
-      className="relative h-dvh flex items-center justify-center px-4"
+      className="relative min-h-dvh flex items-center justify-center px-4 pb-32"
       style={{ zIndex: index }}
     >
       <CardPill href={card.href}>{card.component}</CardPill>
@@ -144,7 +144,7 @@ function FinalCard({ card, index }: { card: CardData; index: number }) {
 function MobileSection({ card, showFullscreen }: { card: CardData; showFullscreen: boolean }) {
   return (
     <section id={card.id} className="relative px-4 py-4 flex justify-center">
-      <motion.div className="relative w-full bg-card border border-border rounded-3xl p-5 sm:p-6 flex flex-col items-center justify-center text-center">
+      <motion.div className="@container/card relative w-full bg-card border border-border rounded-(--radius-card) shadow-(--shadow-card) p-4 xs:p-5 sm:p-6 flex flex-col items-center justify-center text-center">
         {showFullscreen && card.href && <FullscreenButton href={card.href} />}
         {card.component}
       </motion.div>
