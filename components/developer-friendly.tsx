@@ -246,6 +246,7 @@ export function DeveloperFriendly({ isFullPage = false }: DeveloperFriendlyProps
                 .map((member) => {
                   const initials = member.name
                     .split(' ')
+                    .filter(Boolean)
                     .map((n) => n[0])
                     .join('')
                     .slice(0, 2);
