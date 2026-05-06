@@ -60,6 +60,40 @@ export interface Dictionary {
     submitBtn: string;
     privacyText: string;
     privacyLink: string;
+    trust: {
+      local: string;
+      free: string;
+      oss: string;
+    };
+  };
+  footer: {
+    privacy: string;
+    github: string;
+  };
+  trust: {
+    title: string;
+    description: string;
+    items: {
+      local: { title: string; desc: string };
+      oss: { title: string; desc: string };
+      free: { title: string; desc: string };
+      experts: { title: string; desc: string };
+    };
+  };
+  howItWorks: {
+    title: string;
+    description: string;
+    steps: Array<{ title: string; desc: string }>;
+  };
+  testimonials: {
+    title: string;
+    description: string;
+    list: Array<{ quote: string; name: string; role: string }>;
+  };
+  faq: {
+    title: string;
+    description: string;
+    items: Array<{ q: string; a: string }>;
   };
   privacy: {
     lastUpdated: string;

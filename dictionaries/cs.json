@@ -6,9 +6,12 @@
   "nav": {
     "nav_home": "Domů",
     "nav_vision": "Vize",
+    "nav_how": "Jak",
     "nav_features": "Funkce",
+    "nav_testimonials": "Hlasy",
     "nav_team": "Tým",
     "nav_developer": "Vývoj",
+    "nav_faq": "Otázky",
     "nav_contact": "Kontakt"
   },
   "home": {
@@ -110,7 +113,103 @@
     "successMessage": "Děkujeme! Byli jste přidáni na odběratele.",
     "submitBtn": "Odeslat",
     "privacyText": "Souhlasím se zpracováním e-mailu pro účely newsletteru. Zpracováváme v souladu s GDPR.",
-    "privacyLink": "Zásady ochrany osobních údajů"
+    "privacyLink": "Zásady ochrany osobních údajů",
+    "trust": {
+      "local": "Local-first",
+      "free": "Navždy zdarma",
+      "oss": "Open source"
+    }
+  },
+  "footer": {
+    "privacy": "Soukromí",
+    "github": "GitHub"
+  },
+  "trust": {
+    "title": "Postaveno na důvěře",
+    "description": "Lumi je navrženo tak, abyste nemuseli věřit slepě — každý slib si můžete sami ověřit.",
+    "items": {
+      "local": {
+        "title": "Local-first",
+        "desc": "Vaše záznamy zůstávají na vašem zařízení. Nesledujeme ani neprodáváme vaše data."
+      },
+      "oss": {
+        "title": "Open source",
+        "desc": "Přečtěte si kód, navrhněte vylepšení nebo si ověřte naše tvrzení na GitHubu."
+      },
+      "free": {
+        "title": "Navždy zdarma",
+        "desc": "Žádné prémiové funkce, žádné reklamy, žádné upselly. Pohoda za paywallem nebývá."
+      },
+      "experts": {
+        "title": "Studenti psychologie",
+        "desc": "Stavíme na metodách CBT a rámci RULER, ne na intuicích."
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "Jak to chodí",
+    "description": "Tři malé kroky. Žádný tlak, žádné streaky, žádná oznámení, o která jste si neřekli.",
+    "steps": [
+      {
+        "title": "Otevřete aplikaci",
+        "desc": "Měkký, klidný prostor — žádné dashboardy ani grafy plné výčitek."
+      },
+      {
+        "title": "Klepněte, jak se cítíte",
+        "desc": "Jeden posuvník, jeden okamžik. Lumi naslouchá a přizpůsobuje se vám."
+      },
+      {
+        "title": "Nechte Lumi pošťouchnout",
+        "desc": "Jemná doporučení, když je chcete. Ticho, když ho potřebujete."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Tiché hlasy",
+    "description": "První ohlasy beta testerů a přátel, kteří nám pomáhají Lumi formovat.",
+    "list": [
+      {
+        "quote": "Působí to jako psaní do deníku — ale dokáže mě posunout, když jsem zaseknutá.",
+        "name": "Klára",
+        "role": "Beta testerka · Brno"
+      },
+      {
+        "quote": "To, že nic neopouští můj telefon, mě přimělo to vyzkoušet. To, že mě to zklidňuje, mě tu drží.",
+        "name": "Marek",
+        "role": "Brzký uživatel · Praha"
+      },
+      {
+        "quote": "Většina aplikací pro pohodu po mně něco chce. Lumi prostě jen sedí vedle mě.",
+        "name": "Tereza",
+        "role": "Studentka psychologie"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Upřímné odpovědi",
+    "description": "Otázky, na které bychom sami chtěli znát odpověď, než si nainstalujeme další wellbeing aplikaci.",
+    "items": [
+      {
+        "q": "Opustí někdy moje data zařízení?",
+        "a": "Ne. Vaše záznamy nálad, deníku a reflexí ve výchozím nastavení zůstávají na vašem zařízení. Neprovádíme analytiku obsahu a nikomu nic neprodáváme."
+      },
+      {
+        "q": "Je to opravdu zdarma?",
+        "a": "Ano — a navždy. Žádný prémiový tarif, žádné reklamy, žádný upsell. Věříme, že každodenní podpora duševního zdraví nemá být za paywallem."
+      },
+      {
+        "q": "Můžu Lumi používat bez AI?",
+        "a": "Samozřejmě. AI funkce jsou volitelné a ve výchozím nastavení vypnuté. Hlavní funkce běží plně offline, bez jakéhokoli modelu."
+      },
+      {
+        "q": "Čím se Lumi liší od ostatních wellbeing aplikací?",
+        "a": "Negamifikujeme vaše pocity. Žádné streaky, odznaky ani výčitky. Lumi je navržené pro občasné otevření, ne pro každodenní závislost."
+      },
+      {
+        "q": "Kdo za Lumi stojí?",
+        "a": "Malý tým studentů psychologie a vývojářů v Česku, ve spolupráci s odborníky na duševní zdraví. Jsme nezisková organizace, ne startup honící exit."
+      }
+    ]
   },
   "privacy": {
     "lastUpdated": "Naposledy aktualizováno",

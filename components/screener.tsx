@@ -122,7 +122,7 @@ function PickerView({ onPick }: { onPick: (id: ScreenerId) => void }) {
               key={id}
               type="button"
               onClick={() => onPick(id)}
-              className="group flex items-center justify-between gap-4 text-left w-full rounded-2xl border border-border bg-secondary/20 hover:bg-secondary/40 px-5 py-4 transition-all hover:border-border cursor-pointer"
+              className="group flex items-center justify-between gap-4 text-left w-full rounded-(--radius-card-inner) border border-border bg-secondary/20 hover:bg-(--warmth-50)/50 hover:border-(--warmth-300)/60 px-5 py-4 transition-all duration-(--duration-soft) ease-(--ease-out-soft) cursor-pointer"
             >
               <div>
                 <div className="font-semibold">{meta.name}</div>
@@ -164,7 +164,7 @@ function QuizView({
         </div>
         <div className="h-1.5 w-full rounded-full bg-secondary/40 overflow-hidden">
           <motion.div
-            className="h-full bg-primary rounded-full"
+            className="h-full rounded-full bg-linear-to-r from-(--sage-500) to-(--warmth-500)"
             initial={false}
             animate={{ width: `${progressPct}%` }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
@@ -188,8 +188,8 @@ function QuizView({
             className={cn(
               'w-full text-left rounded-xl border px-4 py-3.5 min-h-11 text-sm md:text-base transition-all cursor-pointer',
               currentAnswer === scoreValue
-                ? 'border-primary bg-primary/10 text-foreground'
-                : 'border-border bg-secondary/10 hover:bg-secondary/30'
+                ? 'border-(--sage-500) bg-(--sage-100)/60 text-foreground'
+                : 'border-border bg-secondary/10 hover:bg-(--warmth-50)/40'
             )}
             aria-pressed={currentAnswer === scoreValue}
           >

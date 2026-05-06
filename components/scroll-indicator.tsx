@@ -4,7 +4,18 @@ import { useEffect, useState, useCallback, useRef } from 'react';
 import { useLenis } from './providers/smooth-scroll';
 import { useDictionary } from './providers/dictionary-provider';
 
-const SECTION_IDS = ['home', 'vision', 'features', 'team', 'developer', 'contact'] as const;
+const SECTION_IDS = [
+  'home',
+  'vision',
+  'how',
+  'features',
+  'testimonials',
+  'team',
+  'developer',
+  'faq',
+  'trust',
+  'contact',
+] as const;
 
 export function ScrollIndicator() {
   const dict = useDictionary();
@@ -64,15 +75,19 @@ export function ScrollIndicator() {
   const sections = [
     { id: 'home', label: dict.nav.nav_home },
     { id: 'vision', label: dict.nav.nav_vision },
+    { id: 'how', label: dict.nav.nav_how },
     { id: 'features', label: dict.nav.nav_features },
+    { id: 'testimonials', label: dict.nav.nav_testimonials },
     { id: 'team', label: dict.nav.nav_team },
     { id: 'developer', label: dict.nav.nav_developer },
+    { id: 'faq', label: dict.nav.nav_faq },
+    { id: 'trust', label: dict.trust.title },
     { id: 'contact', label: dict.nav.nav_contact },
   ];
 
   return (
     <nav
-      className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center gap-2 p-2 rounded-full glass border border-border/50"
+      className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col items-center gap-2 p-2 rounded-(--radius-pill) glass border border-border/50 shadow-(--shadow-pill)"
       aria-label="Progress navigation"
     >
       {sections.map(({ id, label }) => (
@@ -80,8 +95,8 @@ export function ScrollIndicator() {
           key={id}
           onClick={() => scrollToSection(id)}
           className={`
-            w-2 rounded-full transition-all duration-300 ease-out cursor-pointer
-            ${activeId === id ? 'h-5 bg-foreground' : 'h-2 bg-foreground/20 hover:bg-foreground/50'}
+            w-2 rounded-full transition-all duration-(--duration-soft) ease-(--ease-out-soft) cursor-pointer
+            ${activeId === id ? 'h-5 bg-(--warmth-500)' : 'h-2 bg-foreground/20 hover:bg-(--warmth-500)/60'}
           `}
           title={label}
           aria-label={`Scroll to ${label}`}

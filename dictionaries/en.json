@@ -6,9 +6,12 @@
   "nav": {
     "nav_home": "Home",
     "nav_vision": "Vision",
+    "nav_how": "How",
     "nav_features": "Features",
+    "nav_testimonials": "Voices",
     "nav_team": "Team",
     "nav_developer": "Dev",
+    "nav_faq": "FAQ",
     "nav_contact": "Contact"
   },
   "home": {
@@ -110,7 +113,103 @@
     "successMessage": "Thank you! You have been subscribed.",
     "submitBtn": "Subscribe",
     "privacyText": "I agree to have my email collected for newsletter purposes. We process in accordance with GDPR.",
-    "privacyLink": "Privacy Policy"
+    "privacyLink": "Privacy Policy",
+    "trust": {
+      "local": "Local-first",
+      "free": "Free forever",
+      "oss": "Open source"
+    }
+  },
+  "footer": {
+    "privacy": "Privacy",
+    "github": "GitHub"
+  },
+  "trust": {
+    "title": "Quietly built on trust",
+    "description": "Lumi is designed so you don't have to take a leap of faith — every promise is one you can verify.",
+    "items": {
+      "local": {
+        "title": "Local-first",
+        "desc": "Your reflections live on your device. We don't track or sell anything."
+      },
+      "oss": {
+        "title": "Open source",
+        "desc": "Read the code, suggest improvements, audit our claims on GitHub."
+      },
+      "free": {
+        "title": "Free forever",
+        "desc": "No upsells, no premium tiers, no ads. Wellbeing isn't a paywall."
+      },
+      "experts": {
+        "title": "Built by psychology students",
+        "desc": "Methods grounded in CBT and the RULER framework, not vibes."
+      }
+    }
+  },
+  "howItWorks": {
+    "title": "How it feels",
+    "description": "Three small steps. No pressure, no streak shaming, no notifications you didn't ask for.",
+    "steps": [
+      {
+        "title": "Open the app",
+        "desc": "A soft, quiet space — no dashboards or guilt-trip charts waiting for you."
+      },
+      {
+        "title": "Tap how you feel",
+        "desc": "One slider, one moment. Lumi listens and adapts to where you are today."
+      },
+      {
+        "title": "Let Lumi nudge you",
+        "desc": "Gentle suggestions when you want them. Silence when you need it."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Quiet voices",
+    "description": "Early notes from beta testers and friends helping us shape Lumi.",
+    "list": [
+      {
+        "quote": "It feels like writing in my journal — but it actually nudges me forward when I'm stuck.",
+        "name": "Klára",
+        "role": "Beta tester · Brno"
+      },
+      {
+        "quote": "The fact that nothing leaves my phone is what made me try it. The fact that it's calming is what made me stay.",
+        "name": "Marek",
+        "role": "Early user · Prague"
+      },
+      {
+        "quote": "Most wellbeing apps feel like they want something from me. Lumi just… sits with me.",
+        "name": "Tereza",
+        "role": "Psychology student"
+      }
+    ]
+  },
+  "faq": {
+    "title": "Honest answers",
+    "description": "The questions we'd want answered before trusting another wellbeing app.",
+    "items": [
+      {
+        "q": "Will my data ever leave my device?",
+        "a": "No. By default, your reflections, mood entries, and journal stay on your device. We don't run analytics on your content, and we don't sell anything to anyone."
+      },
+      {
+        "q": "Is it really free?",
+        "a": "Yes — and forever. There's no premium tier, no ads, no upsell. We believe daily mental-health support shouldn't be a paywall."
+      },
+      {
+        "q": "Can I use it without AI?",
+        "a": "Absolutely. AI features are optional and disabled by default. Every core flow works fully offline, without any model in the loop."
+      },
+      {
+        "q": "How is this different from other wellbeing apps?",
+        "a": "We don't gamify your feelings. No streaks, no badges, no guilt. Lumi is designed to be opened occasionally, not obsessively."
+      },
+      {
+        "q": "Who is behind Lumi?",
+        "a": "A small team of psychology students and developers in Czechia, advised by mental-health professionals. We're a non-profit, not a startup chasing exit."
+      }
+    ]
   },
   "accessibility": {
     "skipToMain": "Skip to main content"
