@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect, useLayoutEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { motion, Variants } from 'framer-motion';
 import { team, type TeamNode } from '@/lib/team';
 import { useDictionary } from '@/components/providers/dictionary-provider';

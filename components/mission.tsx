@@ -8,6 +8,7 @@ interface MissionProps {
   isFullPage?: boolean;
 }
 
+
 export function Mission({ isFullPage = false }: MissionProps) {
   const dict = useDictionary();
   const params = useParams();

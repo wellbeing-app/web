@@ -1,9 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
-import Link from 'next/link';
-import { useParams } from 'next/navigation';
-import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useDictionary } from '@/components/providers/dictionary-provider';
 import { OrgChart } from '@/components/org-chart';
 import { team, flattenPeople } from '@/lib/team';
@@ -12,8 +10,6 @@ import Image from 'next/image';
 
 export function Team({ showChart = false }: { showChart?: boolean }) {
   const dict = useDictionary();
-  const params = useParams();
-  const lang = params.lang as string;
   const people = flattenPeople(team);
 
   const [currentIndex, setCurrentActiveIndex] = useState(0);
