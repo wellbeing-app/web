@@ -42,7 +42,7 @@ export function Team({ showChart = false }: { showChart?: boolean }) {
                   className="flex flex-col items-center gap-2 md:gap-3 p-3 md:p-6 rounded-(--radius-card-inner) md:rounded-(--radius-card) bg-card border border-border/50 shadow-(--shadow-card)"
                 >
                   {member.image ? (
-                    <div className="relative w-14 h-14 md:w-24 md:h-24 rounded-full overflow-hidden ring-2 ring-(--warmth-100)/80 ring-offset-2 ring-offset-card">
+                    <div className="relative w-14 h-14 md:w-24 md:h-24 rounded-full overflow-hidden ring-2 ring-(--warmth-100)/80 ring-offset-2 ring-offset-card bg-white">
                       <Image
                         src={member.image}
                         alt={member.name}

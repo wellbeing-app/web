@@ -259,8 +259,8 @@ function MobilePersonRow({
       <div
         className={
           featured
-            ? 'w-16 h-16 rounded-full bg-(--warmth-100) text-(--warmth-700) flex items-center justify-center overflow-hidden ring-2 ring-(--warmth-100)/80 ring-offset-2 ring-offset-card'
-            : 'w-10 h-10 shrink-0 rounded-full bg-(--warmth-100) text-(--warmth-700) flex items-center justify-center overflow-hidden'
+            ? `w-16 h-16 rounded-full ${node.image ? 'bg-white' : 'bg-(--warmth-100)'} text-(--warmth-700) flex items-center justify-center overflow-hidden ring-2 ring-(--warmth-100)/80 ring-offset-2 ring-offset-card`
+            : `w-10 h-10 shrink-0 rounded-full ${node.image ? 'bg-white' : 'bg-(--warmth-100)'} text-(--warmth-700) flex items-center justify-center overflow-hidden`
         }
         aria-hidden="true"
       >
@@ -336,7 +336,7 @@ function PersonCard({
       className="w-52 md:w-56 bg-card rounded-(--radius-card-inner) p-5 shadow-(--shadow-card) border border-border flex flex-col items-center text-center"
     >
       <div
-        className="w-14 h-14 rounded-full bg-(--warmth-100) text-(--warmth-700) mb-3 flex items-center justify-center overflow-hidden ring-2 ring-(--warmth-100)/80 ring-offset-2 ring-offset-card"
+        className={`w-14 h-14 rounded-full ${node.image ? 'bg-white' : 'bg-(--warmth-100)'} text-(--warmth-700) mb-3 flex items-center justify-center overflow-hidden ring-2 ring-(--warmth-100)/80 ring-offset-2 ring-offset-card`}
         aria-hidden="true"
       >
         {node.image ? (

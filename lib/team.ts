@@ -12,7 +12,7 @@ export const team: TeamNode = {
       kind: 'group',
       id: 'vedeni',
       children: [
-        { kind: 'person', id: 'sofia', name: 'Sofia Grycová', image: '/sofia.webp' },
+        { kind: 'person', id: 'sofia', name: 'Sofia Grycová', image: '/sofia.png' },
         { kind: 'person', id: 'natalie', name: 'Natálie Neumannová', image: '/natalie.webp' },
       ],
     },
@@ -22,7 +22,7 @@ export const team: TeamNode = {
       children: [
         { kind: 'person', id: 'daniel', name: 'Daniel Pravdík' },
         { kind: 'person', id: 'matyas', name: 'Matyáš Procházka' },
-        { kind: 'person', id: 'martin', name: 'Martin Čechal' },
+        { kind: 'person', id: 'martin', name: 'Martin Čechal', image: '/martin.webp' },
       ],
     },
   ],
