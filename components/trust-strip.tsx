@@ -1,31 +1,33 @@
 'use client';
 
-import { ShieldCheck, Heart, GraduationCap } from 'lucide-react';
+import { ShieldCheck, Heart, GraduationCap, Lock, Eye } from 'lucide-react';
 import { Github } from '@/components/icons';
 import { useDictionary } from '@/components/providers/dictionary-provider';
 import type { ComponentType, SVGProps } from 'react';
 
 const TILES: {
-  key: 'local' | 'oss' | 'free' | 'experts';
+  key: 'free' | 'noAds' | 'noDataSale' | 'localFirst' | 'openSource' | 'expertConsult';
   icon: ComponentType<SVGProps<SVGSVGElement>>;
 }[] = [
-  { key: 'local', icon: ShieldCheck },
-  { key: 'oss', icon: Github },
   { key: 'free', icon: Heart },
-  { key: 'experts', icon: GraduationCap },
+  { key: 'noAds', icon: Eye },
+  { key: 'noDataSale', icon: ShieldCheck },
+  { key: 'localFirst', icon: Lock },
+  { key: 'openSource', icon: Github },
+  { key: 'expertConsult', icon: GraduationCap },
 ];
 
 export function TrustStrip() {
   const dict = useDictionary();
 
   return (
-    <ul role="list" className="grid grid-cols-2 @md/card:grid-cols-4 gap-3 w-full">
+    <ul role="list" className="grid grid-cols-2 @lg/card:grid-cols-3 gap-3 w-full">
       {TILES.map(({ key, icon: Icon }) => {
         const t = dict.trust.items[key];
         return (
           <li
             key={key}
-            className="flex flex-col items-center gap-2 rounded-(--radius-card-inner) border border-border/60 bg-(--warmth-50)/40 p-4 text-center"
+            className="flex flex-col items-center gap-2 rounded-(--radius-card-inner) border border-border/50 bg-(--warmth-50)/40 p-4 text-center"
           >
             <Icon className="w-5 h-5 text-(--warmth-700)" aria-hidden="true" />
             <div className="font-semibold text-sm text-foreground">{t.title}</div>

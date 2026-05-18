@@ -4,16 +4,29 @@ import React, { useState } from 'react';
 import { useDictionary } from '@/components/providers/dictionary-provider';
 import { motion } from 'framer-motion';
 import { AppleHello } from '@/components/apple-hello';
+import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { useLenis } from '@/components/providers/smooth-scroll';
+import { scrollToPageTarget } from '@/lib/scroll-to-section';
 
 export function HeroIntro() {
   const dict = useDictionary();
+  const lenisRef = useLenis();
+
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    e.preventDefault();
+    scrollToPageTarget(target, lenisRef.current, { duration: 0.9, lock: true, force: true });
+  };
 
   return (
     <div className="relative gap-3 xs:gap-4 @sm/card:gap-5 @lg/card:gap-8 flex flex-col items-center py-1 @lg/card:py-0">
-      {/* Soft warm/sage drift blobs behind hero — additive friendliness, no layout impact */}
+      {/* Soft accent/sage drift blobs behind hero - no layout impact */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden dark:hidden"
       >
         <div className="absolute -top-12 -left-10 w-56 h-56 rounded-full bg-(--warmth-100)/60 blur-3xl animate-blob-drift" />
         <div
@@ -22,19 +35,37 @@ export function HeroIntro() {
         />
       </div>
 
-      <span className="inline-flex items-center gap-2 bg-secondary/30 border border-border/50 backdrop-blur-sm text-secondary-foreground text-xs @lg/card:text-sm font-medium px-3 @lg/card:px-4 py-1 @lg/card:py-1.5 rounded-(--radius-pill) transition-colors duration-(--duration-soft) animate-fade-in">
+      <span className="inline-flex items-center gap-2 bg-secondary/30 border border-border/50 backdrop-blur-sm text-secondary-foreground text-xs @lg/card:text-sm font-medium px-3 @lg/card:px-4 py-1 @lg/card:py-1.5 rounded-pill transition-colors duration-(--duration-soft) animate-fade-in">
         <div className="relative w-1.5 h-1.5 shrink-0" aria-hidden="true">
-          <div className="absolute inset-0 rounded-full bg-(--warmth-500) animate-ping-ring" />
-          <div className="absolute inset-0 rounded-full bg-(--warmth-500)" />
+          <div className="absolute inset-0 rounded-full bg-warmth-500 animate-ping-ring" />
+          <div className="absolute inset-0 rounded-full bg-warmth-500" />
         </div>
         {dict.home.badge}
       </span>
 
       <AppleHello text={dict.home.title} />
 
-      <p className="text-(length:--text-sm-fluid) @lg/card:text-(length:--text-base-fluid) text-muted-foreground max-w-xl text-center leading-relaxed transition-colors duration-(--duration-soft) animate-fade-in px-4">
+      <p className="text-base md:text-lg text-foreground/80 max-w-2xl text-center leading-relaxed md:leading-loose transition-colors duration-(--duration-soft) animate-fade-in px-4">
         {dict.home.description}
       </p>
+
+      <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in w-full">
+        <Link 
+          href="#how" 
+          onClick={(e) => scrollToSection(e, 'how')}
+          className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-pill font-medium transition-all duration-(--duration-soft) ease-out-soft hover:-translate-y-0.5 hover:shadow-(--shadow-mood-glow) hover:bg-primary/90 min-w-[200px] w-full sm:w-auto"
+        >
+          {dict.home.supportBtn}
+          <ArrowRight className="w-4 h-4" />
+        </Link>
+        <Link 
+          href="#contact" 
+          onClick={(e) => scrollToSection(e, 'contact')}
+          className="inline-flex items-center justify-center gap-2 bg-secondary/30 text-secondary-foreground border border-border/50 px-6 py-3 rounded-pill font-medium transition-all duration-(--duration-soft) ease-out-soft hover:-translate-y-0.5 hover:bg-secondary/50 min-w-[200px] w-full sm:w-auto"
+        >
+          {dict.home.newsletterBtn}
+        </Link>
+      </div>
     </div>
   );
 }
@@ -45,14 +76,14 @@ export function HeroMood() {
 
   const safeMood = typeof mood === 'number' && !isNaN(mood) ? mood : 70;
   const mouthPath = `M 12 26 Q 20 ${22 + (safeMood / 100) * 10} 28 26`;
-  const color = `hsl(${(mood / 100) * 130}, 65%, 55%)`;
+  const color = 'var(--warmth-500)';
 
   return (
     <div className="relative gap-5 xs:gap-6 @sm/card:gap-7 @lg/card:gap-8 flex flex-col items-center py-0">
-      {/* Soft warm/sage drift blobs */}
+      {/* Soft accent/sage drift blobs */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden dark:hidden"
       >
         <div className="absolute -top-12 -left-10 w-56 h-56 rounded-full bg-(--warmth-100)/60 blur-3xl animate-blob-drift" />
         <div
@@ -135,7 +166,7 @@ export function HeroMood() {
                 max="100"
                 value={mood}
                 onChange={(e) => setMood(parseInt(e.target.value))}
-                className="mood-slider w-full h-1.5 bg-secondary border border-border rounded-full appearance-none cursor-pointer accent-(--warmth-500) focus:outline-hidden"
+                className="mood-slider w-full h-1.5 bg-secondary border border-border rounded-full appearance-none cursor-pointer accent-warmth-500 focus:outline-hidden"
                 aria-label={dict.home.mood_label || 'Mood slider'}
               />
               <div className="flex justify-between px-1 text-[9px] font-bold text-muted-foreground tracking-tighter uppercase">

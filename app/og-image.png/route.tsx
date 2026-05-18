@@ -37,11 +37,11 @@ export async function GET(req: NextRequest) {
 
     // Brand colors from design system
     const colors = {
-      background: '#F0EEE9',
-      primary: '#363533',
-      accent: '#e2dfd8',
-      text: '#363533',
-      secondaryText: '#5c5a57',
+      background: '#EEF3F6',
+      primary: '#30363a',
+      accent: '#DDE6EC',
+      text: '#30363a',
+      secondaryText: '#59656d',
     };
 
     return new ImageResponse(

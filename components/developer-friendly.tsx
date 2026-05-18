@@ -158,11 +158,11 @@ export function DeveloperFriendly({ isFullPage = false }: DeveloperFriendlyProps
       </div>
 
       {!isFullPage && (
-        <div className="w-full -mt-4 rounded-2xl bg-card/80 border border-border backdrop-blur-sm text-left flex flex-col h-[220px] md:h-[250px] overflow-hidden">
+        <div className="w-full -mt-4 rounded-2xl bg-card/80 border border-border/50 backdrop-blur-sm text-left flex flex-col h-[220px] md:h-[250px] overflow-hidden">
           <div className="flex items-center gap-2 px-6 py-4 border-b border-border/10 bg-black/5 dark:bg-white/5">
-            <div className="w-3 h-3 rounded-full bg-red-500/80" />
-            <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-            <div className="w-3 h-3 rounded-full bg-green-500/80" />
+            <div className="w-3 h-3 rounded-full bg-(--warmth-300)/80" />
+            <div className="w-3 h-3 rounded-full bg-(--warmth-500)/80" />
+            <div className="w-3 h-3 rounded-full bg-(--sage-500)/80" />
           </div>
 
           <div

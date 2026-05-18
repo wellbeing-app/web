@@ -28,7 +28,7 @@ export function Mission({ isFullPage = false }: MissionProps) {
         </h2>
 
         <div className="relative max-w-2xl mx-auto">
-          {/* Stylized quote glyphs in warm accent */}
+          {/* Stylized quote glyphs in the accent color */}
           <Quote className="hidden sm:block absolute -top-3 -left-2 md:-top-5 md:-left-3 w-7 h-7 md:w-10 md:h-10 text-(--warmth-300) opacity-80 pointer-events-none" />
           <p className="text-base md:text-2xl font-medium leading-relaxed text-foreground/85">
             {dict.vision.description}

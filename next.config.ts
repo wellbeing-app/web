@@ -34,6 +34,17 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.gravatar.com',
+        port: '',
+        pathname: '/avatar/**',
+        search: '?s=256',
+      },
+    ],
+  },
   productionBrowserSourceMaps: true,
   experimental: {
     optimizePackageImports: ['lucide-react'],

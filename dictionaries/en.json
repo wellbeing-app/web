@@ -1,85 +1,126 @@
 {
   "metadata": {
     "title": "Lumi.",
-    "description": "App for your daily mental health"
+    "description": "A Czech privacy-first prevention tool for students. Recognize mental overload, stabilize during difficult moments, find human support."
   },
   "nav": {
     "nav_home": "Home",
-    "nav_vision": "Vision",
-    "nav_how": "How",
-    "nav_features": "Features",
-    "nav_testimonials": "Voices",
-    "nav_team": "Team",
-    "nav_developer": "Dev",
+    "nav_how": "How it helps",
+    "nav_safety": "Safety",
+    "nav_schools": "For schools",
     "nav_faq": "FAQ",
     "nav_contact": "Contact"
   },
+  "continueBtns": {
+    "problem": "Show solution",
+    "how": "Explore features",
+    "features": "Safety and boundaries",
+    "boundaries": "Why trust Lumi",
+    "trust": "For schools and partners",
+    "partners": "Common questions",
+    "faq": "I want updates"
+  },
   "home": {
-    "badge": "Pre-seed phase",
-    "title": "Lumi. A space for mind.",
-    "description": "No pressure. No rules. Just a safe place designed for your peace and daily balance. Free for everyone. Forever.",
-    "supportBtn": "I want to help",
-    "newsletterBtn": "Keep me updated",
+    "badge": "For Czech students",
+    "title": "Lumi helps students handle mental overload before it becomes a crisis.",
+    "description": "A Czech, privacy-first app for recognizing what is happening, calming down in difficult moments, and finding real human support when needed.",
+    "supportBtn": "How Lumi helps",
+    "newsletterBtn": "I want to know about the pilot",
     "targetPlatforms": "Target platforms",
     "mood_label": "How are you feeling today?",
     "mood_low": "Low",
     "mood_neutral": "Neutral",
     "mood_great": "Great",
     "rotatingPhrases": [
-      "RULER method",
-      "Inspired by CBT",
-      "Science-backed",
-      "Transparent",
+      "Prevent crisis",
+      "Privacy-first",
+      "Evidence-informed",
+      "Czech language",
       "Open-source",
-      "Optional AI",
+      "No pressure",
       "Local-first",
-      "Personalization"
+      "Free forever"
+    ]
+  },
+  "problem": {
+    "title": "The problem",
+    "description": "Many students feel stuck between 'I can still handle this' and 'I need help.' They experience stress, anxiety, and overwhelm, but don't know whether to seek therapy, call a crisis line, or simply find a way to understand what's happening. Existing options are fragmented—each solving only part of the problem.",
+    "points": [
+      {
+        "title": "Unsupported middle ground",
+        "desc": "Many students don't feel well but don't know if it's time to seek help yet."
+      },
+      {
+        "title": "Fragmented solutions",
+        "desc": "Therapy, crisis lines, apps, and sites often only solve one part of the problem."
+      },
+      {
+        "title": "Low-barrier first step",
+        "desc": "Lumi helps you start safely: name the state, calm down, and find further support."
+      }
     ]
   },
   "vision": {
-    "title": "Our Vision",
-    "description": "We are creating a comprehensive and free application that brings together all the necessary tools for daily mental health care under one roof.",
-    "marketAnalysisTitle": "Market Synthesis",
-    "marketAnalysis": "Our analysis shows that the market lacks an application that combines modern UI and AI features with professional localized support and crisis intervention, while offering a personalized approach. Our project represents this intersection.",
-    "learnMoreLink": "Learn more about our vision"
+    "title": "What is Lumi?",
+    "description": "Many students are stuck between 'I can still handle this' and 'I need help.' They feel stressed, overwhelmed or anxious, but do not always know whether they need therapy, crisis support or just a way to understand what is happening. Lumi is a safe first step—not therapy, not crisis service, but supportive prevention that helps students recognize patterns, stabilize during difficult moments, and find real human support when needed.",
+    "marketAnalysisTitle": "For students, schools and counsellors",
+    "marketAnalysis": "Lumi is designed for students who feel overwhelmed, but it can also support schools, universities and counselling centres as a low-threshold prevention tool. It gives students a first step outside consultation hours and helps them understand when it may be time to reach out for human support.",
+    "learnMoreLink": "Learn more about our approach"
   },
   "features": {
-    "title": "What We Offer",
-    "description": "",
-    "tryItLink": "Try it",
+    "title": "Core features",
+    "description": "Everything students need to recognize mental overload, stabilize in difficult moments, and reach human support.",
+    "tryItLink": "Explore",
     "list": [
-      { "title": "AI Features", "desc": "Optional AI-powered insights, disabled by default" },
-      { "title": "Breathing Exercises", "desc": "Instant stress relief" },
-      { "title": "Community Support", "desc": "You are not alone" }
+      {
+        "title": "Emotional check-in",
+        "desc": "Quick logging of mood, stress, energy, and sleep without pressure to perform."
+      },
+      {
+        "title": "Guided journaling",
+        "desc": "Safe questions to help name what is happening without unnecessary overthinking."
+      },
+      {
+        "title": "Stabilization tools",
+        "desc": "Breathing exercises, grounding techniques, and guided writing for moments of overwhelm."
+      },
+      {
+        "title": "Support contacts",
+        "desc": "Crisis lines, school counseling, and other trusted sources of support in one place."
+      },
+      {
+        "title": "Privacy by default",
+        "desc": "Sensitive records are designed to stay primarily on your device."
+      },
+      {
+        "title": "Optional AI insights",
+        "desc": "AI is not required for basic support and serves only as an optional, safely limited feature."
+      }
     ],
     "fullList": [
       {
-        "title": "Personalization & First Steps",
-        "desc": "The app adapts to you from the first moment. A short questionnaire maps your current state and goals."
+        "title": "Emotional check-in",
+        "desc": "Notice patterns in mood, stress, sleep and energy without pressure or judgment."
       },
       {
-        "title": "Digital Diary & Emotions",
-        "desc": "A safe space for reflection. Mood tracker using the RULER method and interactive guided journaling."
+        "title": "Guided journaling",
+        "desc": "Reflect safely with prompts designed for clarity. Understand what's happening in your own words."
       },
       {
-        "title": "Monitoring Sleep & Activities",
-        "desc": "Track sleep quality and find correlations between your daily activities and mood."
+        "title": "Stabilization tools",
+        "desc": "Simple breathing and grounding exercises for moments when you feel overwhelmed."
       },
       {
-        "title": "Therapeutic Tools",
-        "desc": "Visual breathing exercises and specialized modules for managing anxiety, stress, or panic attacks."
+        "title": "Support contacts and next steps",
+        "desc": "One-tap access to crisis lines, school counselling and trusted human resources."
       },
       {
-        "title": "Goals & Motivation",
-        "desc": "Plan short-term and long-term goals with clear progress tracking."
+        "title": "Privacy-first/local-first storage",
+        "desc": "Sensitive reflections are designed to stay on your device by default. No tracking, no data sales, no analytics."
       },
       {
-        "title": "Analytics & Correlations",
-        "desc": "Advanced mood graphs and automatic correlation analysis between lifestyle and mental health."
-      },
-      {
-        "title": "Crisis Support",
-        "desc": "Instant access to an SOS button and an up-to-date directory of professional help and crisis centers."
+        "title": "Optional AI insights",
+        "desc": "AI works locally, is optional, and never required for core support."
       }
     ]
   },
@@ -87,9 +128,9 @@
     "title": "Our Team",
     "description": "The people behind the vision.",
     "roles": {
-      "anna": "Psychology student & Developer",
-      "sofia": "Psychology student",
-      "natalie": "Psychology student",
+      "anna": "Project founder",
+      "sofia": "Project leadership",
+      "natalie": "Project leadership",
       "daniel": "Developer",
       "matyas": "Developer",
       "martin": "Developer"
@@ -98,7 +139,28 @@
       "vedeni": "Leadership",
       "vyvoj": "Development"
     },
-    "moreLink": "And more"
+    "moreLink": "And more",
+    "profile": {
+      "work": "Work",
+      "location": "Location",
+      "pronunciation": "Pronunciation",
+      "pronouns": "Pronouns",
+      "languages": "Languages",
+      "timezone": "Timezone",
+      "verified": "Verified",
+      "links": "Links",
+      "interests": "Interests",
+      "gallery": "Gallery",
+      "contact": "Contact",
+      "payments": "Payments",
+      "contactForm": "Contact form",
+      "calendar": "Calendar",
+      "email": "Email",
+      "phone": "Phone",
+      "gravatar": "Gravatar",
+      "registered": "Registered",
+      "updated": "Updated"
+    }
   },
   "developer": {
     "title": "Developer Friendly",
@@ -107,13 +169,13 @@
     "githubLink": "View on GitHub"
   },
   "contact": {
-    "title": "Stay in Touch",
+    "title": "Follow Lumi's progress",
     "description": "",
     "emailLabel": "Email address",
     "emailPlaceholder": "Your email",
     "emailError": "Please enter a valid email address.",
     "successMessage": "Thank you! You have been subscribed.",
-    "submitBtn": "Subscribe",
+    "submitBtn": "Subscribe for updates",
     "privacyText": "I agree to have my email collected for newsletter purposes. We process in accordance with GDPR.",
     "privacyLink": "Privacy Policy",
     "trust": {
@@ -127,42 +189,50 @@
     "github": "GitHub"
   },
   "trust": {
-    "title": "Quietly built on trust",
-    "description": "Lumi is designed so you don't have to take a leap of faith — every promise is one you can verify.",
+    "title": "Built on trust",
+    "description": "Lumi is privacy-first by design. No ads, no data sales, no paywall for core support.",
     "items": {
-      "local": {
-        "title": "Local-first",
-        "desc": "Your reflections live on your device. We don't track or sell anything."
-      },
-      "oss": {
-        "title": "Open source",
-        "desc": "Read the code, suggest improvements, audit our claims on GitHub."
-      },
       "free": {
-        "title": "Free forever",
-        "desc": "No upsells, no premium tiers, no ads. Wellbeing isn't a paywall."
+        "title": "Free for students",
+        "desc": "Basic support is free for students."
       },
-      "experts": {
-        "title": "Built by psychology students",
-        "desc": "Methods grounded in CBT and the RULER framework, not vibes."
+      "noAds": {
+        "title": "No ad tracking",
+        "desc": "Lumi is not built on advertising or ad tracking."
+      },
+      "noDataSale": {
+        "title": "No data sales",
+        "desc": "We do not sell sensitive records or use them for advertising."
+      },
+      "localFirst": {
+        "title": "Local by default",
+        "desc": "Personal reflections stay primarily on your device, not on our servers."
+      },
+      "openSource": {
+        "title": "Open-source",
+        "desc": "The code is public so our technical decisions can be audited."
+      },
+      "expertConsult": {
+        "title": "Expert review before pilot",
+        "desc": "We want to verify content and safety principles with experts before testing."
       }
     }
   },
   "howItWorks": {
-    "title": "How it feels",
-    "description": "Three small steps. No pressure, no streak shaming, no notifications you didn't ask for.",
+    "title": "Three ways Lumi helps",
+    "description": "Recognize mental overload early, stabilize in difficult moments, connect to human support when needed.",
     "steps": [
       {
-        "title": "Open the app",
-        "desc": "A soft, quiet space - no dashboards or guilt-trip charts waiting for you."
+        "title": "Recognize",
+        "desc": "Notice mood, stress, sleep and energy patterns before they become a crisis."
       },
       {
-        "title": "Tap how you feel",
-        "desc": "One slider, one moment. Lumi listens and adapts to where you are today."
+        "title": "Stabilize",
+        "desc": "Use breathing, grounding and journaling to calm down when overwhelmed."
       },
       {
-        "title": "Let Lumi nudge you",
-        "desc": "Gentle suggestions when you want them. Silence when you need it."
+        "title": "Connect",
+        "desc": "Find crisis lines, school counselling and trusted human support when needed."
       }
     ]
   },
@@ -187,29 +257,77 @@
       }
     ]
   },
+  "whatLumiIsNot": {
+    "title": "Lumi Boundaries",
+    "description": "Lumi is not therapy, diagnosis, or a crisis service. It is a supportive prevention tool that helps students orient themselves in their own state, manage difficult moments, and find human support.",
+    "items": [
+      {
+        "claim": "Not therapy or diagnosis",
+        "clarification": "Only professionals provide diagnosis and treatment. Lumi helps with self-reflection, stabilization, and direction to support."
+      },
+      {
+        "claim": "Does not replace professional care",
+        "clarification": "Lumi is not a replacement for psychologists, psychiatrists, or crisis workers. It serves as a first step and bridge to human help."
+      },
+      {
+        "claim": "Not an emergency or crisis service",
+        "clarification": "In an urgent situation, it is necessary to contact a crisis line, emergency services, or a trusted person."
+      }
+    ]
+  },
+  "forPartners": {
+    "title": "For schools and partners",
+    "description": "A low-threshold prevention tool for schools and universities.",
+    "benefits": [
+      {
+        "title": "Outside consultation hours",
+        "desc": "Students have first-line support even when school counseling is unavailable."
+      },
+      {
+        "title": "Bridge to professionals",
+        "desc": "Lumi does not replace professionals. It helps students recognize when to reach out to a human."
+      },
+      {
+        "title": "Feedback-driven pilot",
+        "desc": "We are looking for schools and organizations for safe testing and impact evaluation."
+      }
+    ]
+  },
   "faq": {
-    "title": "Honest answers",
+    "title": "Common questions",
     "description": "",
     "items": [
       {
-        "q": "Will my data ever leave my device?",
-        "a": "No. By default, your reflections, mood entries, and journal stay on your device. We don't run analytics on your content, and we don't sell anything to anyone."
+        "q": "Is Lumi therapy?",
+        "a": "No. It helps you reflect, stabilize and reach human support. Not therapy, not diagnosis."
       },
       {
-        "q": "Is it really free?",
-        "a": "Yes - and forever. There's no premium tier, no ads, no upsell. We believe daily mental-health support shouldn't be a paywall."
+        "q": "Who is Lumi for?",
+        "a": "Students and young people who feel stressed, anxious or overwhelmed."
       },
       {
-        "q": "Can I use it without AI?",
-        "a": "Absolutely. AI features are optional and disabled by default. Every core flow works fully offline, without any model in the loop."
+        "q": "What if I feel really bad?",
+        "a": "Lumi is not an emergency service. If you feel unable to stay safe, contact 112, crisis line 116 123, or a trusted person immediately."
       },
       {
-        "q": "How is this different from other wellbeing apps?",
-        "a": "We don't gamify your feelings. No streaks, no badges, no guilt. Lumi is designed to be opened occasionally, not obsessively."
+        "q": "Why local-first?",
+        "a": "Mental health data is sensitive. Personal reflections are designed to stay on your device by default."
       },
       {
-        "q": "Who is behind Lumi?",
-        "a": "A small team of psychology students and developers in Czechia, advised by mental-health professionals. We're a non-profit, not a startup chasing exit."
+        "q": "Is AI required?",
+        "a": "No. Core features work without AI. Any AI is optional and locally processed."
+      },
+      {
+        "q": "Will Lumi be free?",
+        "a": "Core support is always free. No ads, no data sales, no paywall."
+      },
+      {
+        "q": "Why open-source?",
+        "a": "You can read the code, verify our claims and audit our work on GitHub."
+      },
+      {
+        "q": "Who built Lumi?",
+        "a": "A small Czech team of psychology and software experts. We're seeking guidance from mental health professionals."
       }
     ]
   },
@@ -221,7 +339,7 @@
   },
   "screener": {
     "heading": "Try a 1-minute wellbeing check",
-    "intro": "These are brief, internationally validated screeners. Your answers stay in your browser - nothing is stored or sent anywhere. The result is informational, not a diagnosis.",
+    "intro": "These are evidence-informed self-reflection tools based on internationally used questionnaires. Your answers stay in your browser—nothing is stored or sent anywhere. The result is for your personal reflection only, not a diagnosis. If anything resonates, please talk to a mental-health professional.",
     "cta": "Start a check",
     "pickPrompt": "Which check would you like to try?",
     "instruments": {

@@ -77,9 +77,9 @@ export function WaitlistForm() {
         {TRUST_BADGES.map(({ icon: Icon, key }) => (
           <li
             key={key}
-            className="inline-flex items-center gap-2 rounded-(--radius-pill) border border-border/60 bg-(--warmth-50)/40 px-3 py-1.5 text-xs font-medium text-foreground/80"
+            className="inline-flex items-center gap-2 rounded-pill border border-border/60 bg-(--warmth-50)/40 px-3 py-1.5 text-xs font-medium text-foreground/80"
           >
-            <Icon className="w-3.5 h-3.5 text-(--warmth-700)" />
+            <Icon className="w-3.5 h-3.5 text-warmth-700" />
             <span>{dict.contact.trust[key]}</span>
           </li>
         ))}
@@ -102,45 +102,45 @@ export function WaitlistForm() {
                   aria-label={dict.contact.emailLabel}
                   aria-invalid={error ? 'true' : 'false'}
                   aria-describedby={error ? 'email-error' : undefined}
-                  className={`w-full px-6 py-3.5 min-h-11 rounded-(--radius-pill) bg-secondary/20 border outline-hidden focus:ring-2 focus:ring-(--warmth-300)/40 transition-all duration-(--duration-soft) shadow-(--shadow-pill) ${
-                    error ? 'border-(--warmth-700)/70' : 'border-border'
+                  className={`w-full px-6 py-3.5 min-h-11 rounded-pill bg-secondary/20 border outline-hidden focus:ring-2 focus:ring-(--warmth-300)/40 transition-all duration-(--duration-soft) shadow-(--shadow-pill) ${
+                    error ? 'border-(--warmth-700)/70' : 'border-border/50'
                   }`}
                 />
               </div>
               {error && (
-                <p id="email-error" className="text-sm text-(--warmth-700)" role="alert">
+                <p id="email-error" className="text-sm text-warmth-700" role="alert">
                   {error}
                 </p>
               )}
             </div>
-            <div className="flex items-start gap-3 mt-1 px-6">
+            <label
+              htmlFor="gdpr-consent"
+              className="flex items-start gap-3 mt-1 px-4 sm:px-6 py-2 cursor-pointer group rounded-lg hover:bg-secondary/30 transition-colors"
+            >
               <div className="flex items-center h-5 mt-0.5">
                 <Checkbox id="gdpr-consent" required />
               </div>
-              <label
-                htmlFor="gdpr-consent"
-                className="text-xs text-muted-foreground text-left leading-relaxed cursor-pointer select-none"
-              >
+              <div className="text-xs text-muted-foreground text-left leading-relaxed select-none group-hover:text-foreground/80 transition-colors">
                 {dict.contact.privacyText}{' '}
                 <Link
                   href="/privacy"
-                  className="text-(--warmth-700) underline decoration-(--warmth-300) underline-offset-4 hover:decoration-(--warmth-700)"
+                  className="text-warmth-700 underline decoration-warmth-300 underline-offset-4 hover:decoration-warmth-700 relative z-10"
                   onClick={(e) => e.stopPropagation()}
                 >
                   {dict.contact.privacyLink}
                 </Link>
-              </label>
-            </div>
+              </div>
+            </label>
 
             <button
               type="submit"
-              className="bg-primary text-primary-foreground px-8 py-3.5 min-h-11 rounded-(--radius-pill) font-medium transition-all duration-(--duration-soft) ease-(--ease-out-soft) hover:-translate-y-0.5 hover:shadow-(--shadow-mood-glow) hover:bg-primary/90 mt-2"
+              className="bg-primary text-primary-foreground px-8 py-3.5 min-h-11 rounded-pill font-medium transition-all duration-(--duration-soft) ease-out-soft hover:-translate-y-0.5 hover:shadow-(--shadow-mood-glow) hover:bg-primary/90 mt-2"
             >
               {dict.contact.submitBtn}
             </button>
           </form>
         ) : (
-          <div className="w-full p-6 bg-(--warmth-50)/50 border border-(--warmth-300)/40 rounded-(--radius-card) text-center animate-fade-in">
+          <div className="w-full p-6 bg-(--warmth-50)/50 border border-(--warmth-300)/40 rounded-card text-center animate-fade-in">
             <HappyBlob />
             <p className="text-foreground font-medium">{dict.contact.successMessage}</p>
           </div>
@@ -149,7 +149,7 @@ export function WaitlistForm() {
         <div className="mt-8 pt-8 border-t border-border/50 flex flex-col items-center">
           <a
             href="mailto:lumi@zezulka.me"
-            className="group flex items-center gap-3 text-muted-foreground hover:text-(--warmth-700) transition-colors duration-(--duration-soft)"
+            className="group flex items-center gap-3 text-muted-foreground hover:text-warmth-700 transition-colors duration-(--duration-soft)"
           >
             <Mail className="w-5 h-5 transition-transform group-hover:scale-110" />
             <span className="font-medium">lumi@zezulka.me</span>

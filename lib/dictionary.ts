@@ -4,6 +4,7 @@ export interface Dictionary {
     description: string;
   };
   nav: Record<string, string>;
+  continueBtns: Record<string, string>;
   home: {
     badge: string;
     title: string;
@@ -16,6 +17,11 @@ export interface Dictionary {
     mood_neutral: string;
     mood_great: string;
     rotatingPhrases: string[];
+  };
+  problem: {
+    title: string;
+    description: string;
+    points: Array<{ title: string; desc: string }>;
   };
   vision: {
     title: string;
@@ -43,6 +49,27 @@ export interface Dictionary {
     roles: Record<string, string>;
     groups: Record<string, string>;
     moreLink: string;
+    profile: {
+      work: string;
+      location: string;
+      pronunciation: string;
+      pronouns: string;
+      languages: string;
+      timezone: string;
+      verified: string;
+      links: string;
+      interests: string;
+      gallery: string;
+      contact: string;
+      payments: string;
+      contactForm: string;
+      calendar: string;
+      email: string;
+      phone: string;
+      gravatar: string;
+      registered: string;
+      updated: string;
+    };
   };
   developer: {
     title: string;
@@ -74,10 +101,12 @@ export interface Dictionary {
     title: string;
     description: string;
     items: {
-      local: { title: string; desc: string };
-      oss: { title: string; desc: string };
       free: { title: string; desc: string };
-      experts: { title: string; desc: string };
+      noAds: { title: string; desc: string };
+      noDataSale: { title: string; desc: string };
+      localFirst: { title: string; desc: string };
+      openSource: { title: string; desc: string };
+      expertConsult: { title: string; desc: string };
     };
   };
   howItWorks: {
@@ -94,6 +123,16 @@ export interface Dictionary {
     title: string;
     description: string;
     items: Array<{ q: string; a: string }>;
+  };
+  whatLumiIsNot: {
+    title: string;
+    description: string;
+    items: Array<{ claim: string; clarification: string }>;
+  };
+  forPartners: {
+    title: string;
+    description: string;
+    benefits: Array<{ title: string; desc: string }>;
   };
   privacy: {
     lastUpdated: string;

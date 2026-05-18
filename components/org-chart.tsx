@@ -5,6 +5,11 @@ import { motion, Variants } from 'framer-motion';
 import { team, type TeamNode } from '@/lib/team';
 import { useDictionary } from '@/components/providers/dictionary-provider';
 import { useIsDesktop } from '@/lib/use-is-desktop';
+import {
+  useTeamGravatarProfiles,
+  type TeamGravatarProfileMap,
+} from '@/lib/use-team-gravatar-profiles';
+import type { TeamGravatarProfile } from '@/lib/team-gravatar-types';
 import Image from 'next/image';
 
 interface ConnectionLine {
@@ -34,8 +39,22 @@ const nodeVariants: Variants = {
 
 type RegisterRef = (id: string) => (el: HTMLElement | null) => void;
 
+function getProfileName(fallbackName: string, profile?: TeamGravatarProfile) {
+  const fullName = [profile?.firstName, profile?.lastName].filter(Boolean).join(' ');
+  return profile?.displayName ?? (fullName || fallbackName);
+}
+
+function getProfileRole(fallbackRole: string | undefined, profile?: TeamGravatarProfile) {
+  return [profile?.jobTitle, profile?.company].filter(Boolean).join(' · ') || fallbackRole;
+}
+
+function getProfileMeta(profile?: TeamGravatarProfile) {
+  return [profile?.location, profile?.pronouns].filter(Boolean).join(' · ');
+}
+
 export function OrgChart() {
   const isDesktop = useIsDesktop();
+  const gravatarProfiles = useTeamGravatarProfiles();
   const containerRef = useRef<HTMLDivElement>(null);
   const nodeRefs = useRef<Map<string, HTMLElement>>(new Map());
   const [lines, setLines] = useState<ConnectionLine[]>([]);
@@ -122,7 +141,7 @@ export function OrgChart() {
   }, [recalculate, isDesktop]);
 
   if (!isDesktop) {
-    return <MobileOrgList node={team} />;
+    return <MobileOrgList node={team} gravatarProfiles={gravatarProfiles} />;
   }
 
   return (
@@ -160,13 +179,19 @@ export function OrgChart() {
         animate="visible"
         className="relative z-10"
       >
-        <TreeView node={team} registerRef={registerRef} />
+        <TreeView node={team} registerRef={registerRef} gravatarProfiles={gravatarProfiles} />
       </motion.div>
     </div>
   );
 }
 
-function MobileOrgList({ node }: { node: TeamNode }) {
+function MobileOrgList({
+  node,
+  gravatarProfiles,
+}: {
+  node: TeamNode;
+  gravatarProfiles: TeamGravatarProfileMap;
+}) {
   return (
     <motion.div
       variants={containerVariants}
@@ -174,20 +199,30 @@ function MobileOrgList({ node }: { node: TeamNode }) {
       animate="visible"
       className="w-full flex flex-col items-stretch gap-8 py-8"
     >
-      {node.kind === 'person' ? <MobilePersonRow node={node} featured /> : null}
+      {node.kind === 'person' ? (
+        <MobilePersonRow node={node} featured gravatarProfiles={gravatarProfiles} />
+      ) : null}
       {node.kind === 'person' && node.children && node.children.length > 0 ? (
         <div className="flex flex-col gap-6">
           {node.children.map((child) => (
-            <MobileSubtree key={child.id} node={child} />
+            <MobileSubtree key={child.id} node={child} gravatarProfiles={gravatarProfiles} />
           ))}
         </div>
       ) : null}
-      {node.kind === 'group' ? <MobileSubtree node={node} /> : null}
+      {node.kind === 'group' ? (
+        <MobileSubtree node={node} gravatarProfiles={gravatarProfiles} />
+      ) : null}
     </motion.div>
   );
 }
 
-function MobileSubtree({ node }: { node: TeamNode }) {
+function MobileSubtree({
+  node,
+  gravatarProfiles,
+}: {
+  node: TeamNode;
+  gravatarProfiles: TeamGravatarProfileMap;
+}) {
   const dict = useDictionary();
   if (node.kind === 'group') {
     const label = dict.team.groups[node.id] ?? node.id;
@@ -200,9 +235,9 @@ function MobileSubtree({ node }: { node: TeamNode }) {
           {node.children.map((child) => (
             <li key={child.id}>
               {child.kind === 'person' ? (
-                <MobilePersonRow node={child} />
+                <MobilePersonRow node={child} gravatarProfiles={gravatarProfiles} />
               ) : (
-                <MobileSubtree node={child} />
+                <MobileSubtree node={child} gravatarProfiles={gravatarProfiles} />
               )}
             </li>
           ))}
@@ -214,15 +249,15 @@ function MobileSubtree({ node }: { node: TeamNode }) {
   const children = node.children ?? [];
   return (
     <motion.div variants={nodeVariants} className="flex flex-col gap-3">
-      <MobilePersonRow node={node} />
+      <MobilePersonRow node={node} gravatarProfiles={gravatarProfiles} />
       {children.length > 0 && (
         <ul className="flex flex-col gap-2 pl-4 border-l border-dashed border-border">
           {children.map((child) => (
             <li key={child.id}>
               {child.kind === 'person' ? (
-                <MobilePersonRow node={child} />
+                <MobilePersonRow node={child} gravatarProfiles={gravatarProfiles} />
               ) : (
-                <MobileSubtree node={child} />
+                <MobileSubtree node={child} gravatarProfiles={gravatarProfiles} />
               )}
             </li>
           ))}
@@ -234,13 +269,21 @@ function MobileSubtree({ node }: { node: TeamNode }) {
 
 function MobilePersonRow({
   node,
+  gravatarProfiles,
   featured = false,
 }: {
   node: Extract<TeamNode, { kind: 'person' }>;
+  gravatarProfiles: TeamGravatarProfileMap;
   featured?: boolean;
 }) {
   const dict = useDictionary();
   const role = dict.team.roles[node.id];
+  const profile = gravatarProfiles[node.id];
+  const avatarSrc = profile?.avatarUrl ?? node.image;
+  const avatarAlt = profile?.avatarAltText ?? node.name;
+  const profileName = getProfileName(node.name, profile);
+  const profileRole = getProfileRole(role, profile);
+  const profileMeta = getProfileMeta(profile);
   const initials = node.name
     .split(' ')
     .map((n) => n[0])
@@ -252,22 +295,21 @@ function MobilePersonRow({
       variants={nodeVariants}
       className={
         featured
-          ? 'w-full flex flex-col items-center gap-2 bg-card border border-border rounded-(--radius-card) p-6 shadow-(--shadow-card) text-center'
-          : 'w-full flex items-center gap-3 bg-card border border-border rounded-(--radius-card-inner) p-3 shadow-(--shadow-card)'
+          ? 'w-full flex flex-col items-center gap-2 bg-(--glass-bg) border border-border/50 rounded-(--radius-card) p-6 shadow-(--shadow-card) text-center'
+          : 'w-full flex items-center gap-3 bg-(--glass-bg) border border-border/50 rounded-(--radius-card-inner) p-3 shadow-(--shadow-card)'
       }
     >
       <div
         className={
           featured
-            ? `w-16 h-16 rounded-full ${node.image ? 'bg-white' : 'bg-(--warmth-100)'} text-(--warmth-700) flex items-center justify-center overflow-hidden ring-2 ring-(--warmth-100)/80 ring-offset-2 ring-offset-card`
-            : `w-10 h-10 shrink-0 rounded-full ${node.image ? 'bg-white' : 'bg-(--warmth-100)'} text-(--warmth-700) flex items-center justify-center overflow-hidden`
+            ? `w-16 h-16 rounded-full ${avatarSrc ? 'bg-white' : 'bg-(--warmth-100)'} text-(--warmth-700) flex items-center justify-center overflow-hidden ring-2 ring-(--warmth-100)/80 ring-offset-2 ring-offset-card`
+            : `w-10 h-10 shrink-0 rounded-full ${avatarSrc ? 'bg-white' : 'bg-(--warmth-100)'} text-(--warmth-700) flex items-center justify-center overflow-hidden`
         }
-        aria-hidden="true"
       >
-        {node.image ? (
+        {avatarSrc ? (
           <Image
-            src={node.image}
-            alt={node.name}
+            src={avatarSrc}
+            alt={avatarAlt}
             width={featured ? 64 : 40}
             height={featured ? 64 : 40}
             className="object-cover w-full h-full"
@@ -277,14 +319,23 @@ function MobilePersonRow({
         )}
       </div>
       <div className={featured ? 'flex flex-col items-center' : 'flex flex-col min-w-0'}>
-        <span className="font-semibold text-foreground leading-tight truncate">{node.name}</span>
-        {role && (
+        <span className="font-semibold text-foreground leading-tight truncate">{profileName}</span>
+        {profileRole && (
           <span
             className={
               featured ? 'text-muted-foreground text-sm mt-1' : 'text-muted-foreground text-xs'
             }
           >
-            {role}
+            {profileRole}
+          </span>
+        )}
+        {profileMeta && (
+          <span
+            className={
+              featured ? 'text-muted-foreground text-xs' : 'text-muted-foreground text-[0.68rem]'
+            }
+          >
+            {profileMeta}
           </span>
         )}
       </div>
@@ -292,13 +343,21 @@ function MobilePersonRow({
   );
 }
 
-function TreeView({ node, registerRef }: { node: TeamNode; registerRef: RegisterRef }) {
+function TreeView({
+  node,
+  registerRef,
+  gravatarProfiles,
+}: {
+  node: TeamNode;
+  registerRef: RegisterRef;
+  gravatarProfiles: TeamGravatarProfileMap;
+}) {
   const children = node.kind === 'group' ? node.children : (node.children ?? []);
 
   return (
     <div className="flex flex-col items-center">
       {node.kind === 'person' ? (
-        <PersonCard node={node} setRef={registerRef(node.id)} />
+        <PersonCard node={node} setRef={registerRef(node.id)} gravatarProfiles={gravatarProfiles} />
       ) : (
         <GroupLabel node={node} setRef={registerRef(node.id)} />
       )}
@@ -306,7 +365,12 @@ function TreeView({ node, registerRef }: { node: TeamNode; registerRef: Register
       {children.length > 0 && (
         <div className="mt-12 flex gap-6 md:gap-10 items-start">
           {children.map((child) => (
-            <TreeView key={child.id} node={child} registerRef={registerRef} />
+            <TreeView
+              key={child.id}
+              node={child}
+              registerRef={registerRef}
+              gravatarProfiles={gravatarProfiles}
+            />
           ))}
         </div>
       )}
@@ -317,12 +381,20 @@ function TreeView({ node, registerRef }: { node: TeamNode; registerRef: Register
 function PersonCard({
   node,
   setRef,
+  gravatarProfiles,
 }: {
   node: Extract<TeamNode, { kind: 'person' }>;
   setRef: (el: HTMLElement | null) => void;
+  gravatarProfiles: TeamGravatarProfileMap;
 }) {
   const dict = useDictionary();
   const role = dict.team.roles[node.id];
+  const profile = gravatarProfiles[node.id];
+  const avatarSrc = profile?.avatarUrl ?? node.image;
+  const avatarAlt = profile?.avatarAltText ?? node.name;
+  const profileName = getProfileName(node.name, profile);
+  const profileRole = getProfileRole(role, profile);
+  const profileMeta = getProfileMeta(profile);
   const initials = node.name
     .split(' ')
     .map((n) => n[0])
@@ -333,16 +405,15 @@ function PersonCard({
     <motion.div
       ref={setRef}
       variants={nodeVariants}
-      className="w-52 md:w-56 bg-card rounded-(--radius-card-inner) p-5 shadow-(--shadow-card) border border-border flex flex-col items-center text-center"
+      className="w-52 md:w-56 bg-(--glass-bg) rounded-(--radius-card-inner) p-5 shadow-(--shadow-card) border border-border/50 flex flex-col items-center text-center"
     >
       <div
-        className={`w-14 h-14 rounded-full ${node.image ? 'bg-white' : 'bg-(--warmth-100)'} text-(--warmth-700) mb-3 flex items-center justify-center overflow-hidden ring-2 ring-(--warmth-100)/80 ring-offset-2 ring-offset-card`}
-        aria-hidden="true"
+        className={`w-14 h-14 rounded-full ${avatarSrc ? 'bg-white' : 'bg-(--warmth-100)'} text-(--warmth-700) mb-3 flex items-center justify-center overflow-hidden ring-2 ring-(--warmth-100)/80 ring-offset-2 ring-offset-card`}
       >
-        {node.image ? (
+        {avatarSrc ? (
           <Image
-            src={node.image}
-            alt={node.name}
+            src={avatarSrc}
+            alt={avatarAlt}
             width={56}
             height={56}
             className="object-cover w-full h-full"
@@ -351,8 +422,9 @@ function PersonCard({
           <span className="font-semibold">{initials}</span>
         )}
       </div>
-      <h3 className="font-semibold text-foreground leading-tight">{node.name}</h3>
-      {role && <p className="text-muted-foreground text-sm mt-1">{role}</p>}
+      <h3 className="font-semibold text-foreground leading-tight">{profileName}</h3>
+      {profileRole && <p className="text-muted-foreground text-sm mt-1">{profileRole}</p>}
+      {profileMeta && <p className="text-muted-foreground text-xs mt-1">{profileMeta}</p>}
     </motion.div>
   );
 }

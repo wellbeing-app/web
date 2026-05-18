@@ -1,85 +1,126 @@
 {
   "metadata": {
     "title": "Lumi.",
-    "description": "Bezplatná aplikace pro vaši duševní pohodu. Denník nálad, dechová cvičení a komunitní podpora pro každý den."
+    "description": "Česká aplikace s důrazem na soukromí pro studenty. Rozpoznejte psychické přetížení, stabilizujte se v těžkých chvílích, najděte lidskou pomoc."
   },
   "nav": {
     "nav_home": "Domů",
-    "nav_vision": "Vize",
-    "nav_how": "Jak",
-    "nav_features": "Funkce",
-    "nav_testimonials": "Hlasy",
-    "nav_team": "Tým",
-    "nav_developer": "Vývoj",
-    "nav_faq": "Otázky",
+    "nav_how": "Jak pomáhá",
+    "nav_safety": "Bezpečnost",
+    "nav_schools": "Pro školy",
+    "nav_faq": "FAQ",
     "nav_contact": "Kontakt"
   },
+  "continueBtns": {
+    "problem": "Ukázat řešení",
+    "how": "Prozkoumat funkce",
+    "features": "Bezpečnost a hranice",
+    "boundaries": "Proč důvěřovat Lumi",
+    "trust": "Pro školy a partnery",
+    "partners": "Časté otázky",
+    "faq": "Chci dostávat novinky"
+  },
   "home": {
-    "badge": "Pre-seed fáze",
-    "title": "Lumi. Prostor pro mysl.",
-    "description": "Žádný nátlak. Žádná pravidla. Pouze bezpečné místo navržené pro váš klid a rovnováhu v každodenním životě. Zdarma pro každého. Navždy.",
-    "supportBtn": "Chci se zapojit",
-    "newsletterBtn": "Chci vědět víc",
+    "badge": "Pro české studenty",
+    "title": "Lumi pomáhá studentům zvládnout psychické přetížení dřív, než přeroste v krizi.",
+    "description": "Česká aplikace s důrazem na soukromí, která pomáhá rozpoznat vlastní stav, zklidnit se v náročné chvíli a najít lidskou pomoc, když je potřeba.",
+    "supportBtn": "Jak Lumi pomáhá",
+    "newsletterBtn": "Chci vědět o pilotu",
     "targetPlatforms": "Cílové platformy",
     "mood_label": "Jak se dnes cítíte?",
     "mood_low": "Špatně",
     "mood_neutral": "Neutrálně",
     "mood_great": "Skvěle",
     "rotatingPhrases": [
-      "Metoda RULER",
-      "Inspirováno CBT",
-      "Podloženo vědou",
-      "Transparentní",
+      "Prevence krize",
+      "Ochrana soukromí",
+      "Evidence-informed",
+      "Český jazyk",
       "Open-source",
-      "Volitelná AI",
+      "Bez nátlaku",
       "Local-first",
-      "Personalizace"
+      "Zdarma pro studenty"
+    ]
+  },
+  "problem": {
+    "title": "Problém",
+    "description": "Mnoho studentů se nachází mezi ‚ještě to zvládnu' a ‚potřebuji pomoc'. Prožívají stres, úzkost nebo přetížení, ale nevědí, jestli hledat terapii, volat krizovou linku, nebo si nejdřív ujasnit, co se s nimi děje. Dostupná řešení jsou roztříštěná — každé řeší jen část problému.",
+    "points": [
+      {
+        "title": "Mezifáze bez opory",
+        "desc": "Mnoho studentů se necítí dobře, ale neví, jestli už je čas vyhledat pomoc."
+      },
+      {
+        "title": "Roztříštěná řešení",
+        "desc": "Terapie, krizové linky, aplikace a weby často řeší jen jednu část problému."
+      },
+      {
+        "title": "Nízká bariéra prvního kroku",
+        "desc": "Lumi pomáhá začít bezpečně: pojmenovat stav, zklidnit se a najít další podporu."
+      }
     ]
   },
   "vision": {
-    "title": "Naše vize",
-    "description": "Vytváříme komplexní a bezplatnou aplikaci, která pod jednou střechou sdružuje potřebné nástroje pro každodenní péči o duševní zdraví.",
-    "marketAnalysisTitle": "Syntéza trhu",
-    "marketAnalysis": "Z analýzy vyplývá, že na trhu chybí aplikace, která by kombinovala moderní UI a AI prvky s českou lokalizací a krizovou intervencí, a zároveň nabízela personalizovaný přístup k uživateli. Náš projekt tento průnik představuje.",
-    "learnMoreLink": "Dozvědět se více o naší vizi"
+    "title": "Co je Lumi?",
+    "description": "Mnoho studentů uvízne mezi 'Zvládám to' a 'Potřebuji pomoc.' Cítí se stresovani, přetíženi nebo úzkostní, ale často neví, zda potřebují terapii, krizovou podporu nebo jen způsob, jak pochopit, co se děje. Lumi je bezpečný první krok—ne terapie, ne krizová služba, ale preventivní podpora, která studentům pomáhá rozpoznat vzorce, stabilizovat se v těžkých chvílích a najít skutečnou lidskou podporu.",
+    "marketAnalysisTitle": "Pro studenty, školy a poradce",
+    "marketAnalysis": "Lumi je navrženo pro studenty, kteří se cítí přetíženi, ale může také podporovat školy, univerzity a poradny jako nízko-prahový preventivní nástroj. Dává studentům první krok mimo konzultační doby a pomáhá jim pochopit, kdy je čas obrátit se na odborníka.",
+    "learnMoreLink": "Dozvědět se více o našem přístupu"
   },
   "features": {
-    "title": "Co nabízíme",
-    "description": "",
-    "tryItLink": "Vyzkoušet",
+    "title": "Základní funkce",
+    "description": "Vše, co studenti potřebují k rozpoznání psychického přetížení, stabilizaci v obtížných chvílích a dosažení lidské podpory.",
+    "tryItLink": "Prozkoumat",
     "list": [
-      { "title": "AI funkce", "desc": "Volitelné AI funkce, ve výchozím nastavení vypnuté" },
-      { "title": "Dechová cvičení", "desc": "Okamžitá úleva od stresu" },
-      { "title": "Komunitní podpora", "desc": "Nejste v tom sami" }
+      {
+        "title": "Emoční check-in",
+        "desc": "Krátké zaznamenání nálady, stresu, energie a spánku bez tlaku na výkon."
+      },
+      {
+        "title": "Vedený deník",
+        "desc": "Bezpečné otázky, které pomáhají pojmenovat, co se děje, bez zbytečného přemýšlení navíc."
+      },
+      {
+        "title": "Stabilizační nástroje",
+        "desc": "Dechová cvičení, uzemňovací techniky a vedené psaní pro chvíle zahlcení."
+      },
+      {
+        "title": "Kontakty na pomoc",
+        "desc": "Krizové linky, školní poradny a další důvěryhodné zdroje podpory na jednom místě."
+      },
+      {
+        "title": "Soukromí ve výchozím nastavení",
+        "desc": "Citlivé záznamy jsou navržené tak, aby zůstávaly primárně ve vašem zařízení."
+      },
+      {
+        "title": "Volitelné AI vhledy",
+        "desc": "AI není nutná pro základní podporu a slouží pouze jako doplňková, bezpečně omezená funkce."
+      }
     ],
     "fullList": [
       {
-        "title": "Personalizace a první kroky",
-        "desc": "Aplikace se vám přizpůsobí od prvního okamžiku. Krátký dotazník zmapuje vaše rozpoložení a cíle."
+        "title": "Emoční kontrola",
+        "desc": "Pozorujte náladu, stres, spánek a energii bez tlaku nebo posouzení."
       },
       {
-        "title": "Digitální deník a emoce",
-        "desc": "Bezpečný prostor pro reflexi. Mood tracker s metodou RULER a interaktivní průvodce zápisem."
+        "title": "Vedené psaní",
+        "desc": "Bezpečně se zamyslete s podněty navrženými na srozumitelnost. Pochopte, co se děje."
       },
       {
-        "title": "Monitoring spánku a aktivit",
-        "desc": "Sledujte kvalitu spánku a hledejte souvislosti mezi vašimi aktivitami a náladou."
+        "title": "Nástroje na stabilizaci",
+        "desc": "Jednoduché dechové a uzemňovací cviky pro chvíle přetížení."
       },
       {
-        "title": "Terapeutické nástroje",
-        "desc": "Vizuální dechová cvičení a moduly zaměřené na zvládání úzkosti, stresu nebo paniky."
+        "title": "Kontakty na podporu a další kroky",
+        "desc": "Jedním klepnutím přístup ke krizovým linkám, školnímu poradenství a lidem, kteří pomáhají."
       },
       {
-        "title": "Cíle a motivace",
-        "desc": "Plánování krátkodobých i dlouhodobých cílů s přehledným sledováním pokroku."
+        "title": "Ochrana soukromí / místně první úložiště",
+        "desc": "Citlivé reflexe jsou navrženy tak, aby zůstaly primárně na vašem zařízení. Žádné sledování, žádný prodej dat."
       },
       {
-        "title": "Analytika a souvislosti",
-        "desc": "Pokročilé grafy a automatické hledání korelací mezi životním stylem a duševním zdravím."
-      },
-      {
-        "title": "Krizová podpora",
-        "desc": "Okamžitý přístup k SOS tlačítku a aktuální adresář odborné pomoci a krizových center."
+        "title": "Volitelné AI poznatky",
+        "desc": "AI pracuje místně, je volitelné a nikdy vyžadované pro základní podporu."
       }
     ]
   },
@@ -87,9 +128,9 @@
     "title": "Náš tým",
     "description": "Jsme skupina studentů psychologie a vývojářů, kteří se spojili s vášní pro duševní zdraví a technologie.",
     "roles": {
-      "anna": "Studentka psychologie & Vývojářka",
-      "sofia": "Studentka psychologie",
-      "natalie": "Studentka psychologie",
+      "anna": "Zakladatelka projektu",
+      "sofia": "Vedení projektu",
+      "natalie": "Vedení projektu",
       "daniel": "Vývojář",
       "matyas": "Vývojář",
       "martin": "Vývojář"
@@ -98,7 +139,28 @@
       "vedeni": "Vedení",
       "vyvoj": "Vývoj"
     },
-    "moreLink": "A další"
+    "moreLink": "A další",
+    "profile": {
+      "work": "Práce",
+      "location": "Místo",
+      "pronunciation": "Výslovnost",
+      "pronouns": "Zájmena",
+      "languages": "Jazyky",
+      "timezone": "Časové pásmo",
+      "verified": "Ověřeno",
+      "links": "Odkazy",
+      "interests": "Zájmy",
+      "gallery": "Galerie",
+      "contact": "Kontakt",
+      "payments": "Platby",
+      "contactForm": "Kontaktní formulář",
+      "calendar": "Kalendář",
+      "email": "E-mail",
+      "phone": "Telefon",
+      "gravatar": "Gravatar",
+      "registered": "Registrováno",
+      "updated": "Upraveno"
+    }
   },
   "developer": {
     "title": "Přátelské k vývojářům",
@@ -107,18 +169,18 @@
     "githubLink": "Zobrazit na GitHubu"
   },
   "contact": {
-    "title": "Zůstaňte v obraze",
+    "title": "Sledujte vývoj Lumi",
     "description": "",
     "emailLabel": "E-mailová adresa",
     "emailPlaceholder": "Váš email",
     "emailError": "Prosím zadejte platnou e-mailovou adresu.",
     "successMessage": "Děkujeme! Byli jste přidáni do newsletteru.",
-    "submitBtn": "Odeslat",
+    "submitBtn": "Přihlásit se k novinkám",
     "privacyText": "Souhlasím se zpracováním e-mailu pro účely newsletteru. Zpracováváme v souladu s GDPR.",
     "privacyLink": "Zásady ochrany osobních údajů",
     "trust": {
-      "local": "Local-first",
-      "free": "Navždy zdarma",
+      "local": "Lokální ukládání",
+      "free": "Zdarma pro studenty",
       "oss": "Open source"
     }
   },
@@ -128,41 +190,49 @@
   },
   "trust": {
     "title": "Postaveno na důvěře",
-    "description": "Lumi je navrženo tak, abyste nemuseli věřit slepě - každý slib si můžete sami ověřit.",
+    "description": "Lumi je privacy-first podle návrhu. Bez reklam, bez prodeje dat, bez paywallu pro základní podporu.",
     "items": {
-      "local": {
-        "title": "Local-first",
-        "desc": "Vaše záznamy zůstávají na vašem zařízení. Nesledujeme ani neprodáváme vaše data."
-      },
-      "oss": {
-        "title": "Open source",
-        "desc": "Přečtěte si kód, navrhněte vylepšení nebo si ověřte naše tvrzení na GitHubu."
-      },
       "free": {
-        "title": "Navždy zdarma",
-        "desc": "Žádné prémiové funkce, žádné reklamy, žádné upselly. Pohoda za paywallem nebývá."
+        "title": "Zdarma pro studenty",
+        "desc": "Základní podpora je zdarma pro studenty."
       },
-      "experts": {
-        "title": "Studenti psychologie",
-        "desc": "Stavíme na metodách CBT a rámci RULER, ne na intuicích."
+      "noAds": {
+        "title": "Bez reklamního sledování",
+        "desc": "Lumi není postavená na reklamě ani reklamním sledování."
+      },
+      "noDataSale": {
+        "title": "Bez prodeje dat",
+        "desc": "Citlivé záznamy neprodáváme ani nevyužíváme pro reklamu."
+      },
+      "localFirst": {
+        "title": "Lokálně ve výchozím nastavení",
+        "desc": "Osobní reflexe zůstávají primárně ve vašem zařízení, ne na našich serverech."
+      },
+      "openSource": {
+        "title": "Open-source",
+        "desc": "Kód je veřejný, aby bylo možné kontrolovat naše technická rozhodnutí."
+      },
+      "expertConsult": {
+        "title": "Odborná revize před pilotem",
+        "desc": "Obsah a bezpečnostní principy chceme ověřit s odborníky před testováním."
       }
     }
   },
   "howItWorks": {
-    "title": "Náhled do aplikace",
-    "description": "Tři malé kroky. Žádný tlak, žádné streaky, žádná oznámení, o která jste si neřekli.",
+    "title": "Tři způsoby, jak Lumi pomáhá",
+    "description": "Rozpoznejte duševní přetížení brzy, stabilizujte se v těžkých chvílích, dostupte se lidské podpory, když je potřebná.",
     "steps": [
       {
-        "title": "Otevřete aplikaci",
-        "desc": "Měkký, klidný prostor - žádné dashboardy ani grafy plné výčitek."
+        "title": "Rozpoznat",
+        "desc": "Sledujte náladu, stres, spánek a energii, abyste si dřív všimli zhoršování stavu."
       },
       {
-        "title": "Klepněte, jak se cítíte",
-        "desc": "Jeden posuvník, jeden okamžik. Lumi naslouchá a přizpůsobuje se vám."
+        "title": "Stabilizovat",
+        "desc": "Dechová cvičení, uzemňovací techniky a vedené psaní k zklidnění, když jste přetíženi."
       },
       {
-        "title": "Nechte Lumi pošťouchnout",
-        "desc": "Jemná doporučení, když je chcete. Ticho, když ho potřebujete."
+        "title": "Najít pomoc",
+        "desc": "Najděte krizové linky, školní poradenství a důvěryhodnou lidskou podporu, když je potřebná."
       }
     ]
   },
@@ -187,29 +257,77 @@
       }
     ]
   },
+  "whatLumiIsNot": {
+    "title": "Hranice Lumi",
+    "description": "Lumi není terapie, diagnóza ani krizová služba. Je to podpůrný preventivní nástroj, který studentům pomáhá zorientovat se ve vlastním stavu, zvládnout náročnou chvíli a najít lidskou podporu.",
+    "items": [
+      {
+        "claim": "Není terapie ani diagnóza",
+        "clarification": "Diagnózu a léčbu poskytují odborníci. Lumi pomáhá se sebereflexí, stabilizací a nasměrováním na podporu."
+      },
+      {
+        "claim": "Nenahrazuje odbornou péči",
+        "clarification": "Lumi není náhrada za psychology, psychiatry ani krizové pracovníky. Slouží jako první krok a most k lidské pomoci."
+      },
+      {
+        "claim": "Není krizová ani akutní služba",
+        "clarification": "V naléhavé situaci je potřeba kontaktovat krizovou linku, záchrannou službu nebo důvěryhodného člověka."
+      }
+    ]
+  },
+  "forPartners": {
+    "title": "Pro školy a partnery",
+    "description": "Nízko-prahový preventivní nástroj pro školy a univerzity.",
+    "benefits": [
+      {
+        "title": "Mimo konzultační hodiny",
+        "desc": "Student má první podporu i ve chvíli, kdy školní poradna není dostupná."
+      },
+      {
+        "title": "Most k odborníkům",
+        "desc": "Lumi nenahrazuje odborníky. Pomáhá studentům rozpoznat, kdy je čas obrátit se na člověka."
+      },
+      {
+        "title": "Pilot se zpětnou vazbou",
+        "desc": "Hledáme školy a organizace pro bezpečné testování a vyhodnocení dopadu."
+      }
+    ]
+  },
   "faq": {
-    "title": "Upřímné odpovědi",
+    "title": "Časté otázky",
     "description": "",
     "items": [
       {
-        "q": "Opustí někdy moje data zařízení?",
-        "a": "Ne. Vaše záznamy nálad, deníku a reflexí ve výchozím nastavení zůstávají na vašem zařízení. Neprovádíme analytiku obsahu a nikomu nic neprodáváme."
+        "q": "Je Lumi terapie?",
+        "a": "Ne. Pomáhá vám přemýšlet, stabilizovat se a najít lidskou podporu. Není terapie, není diagnóza."
       },
       {
-        "q": "Je to opravdu zdarma?",
-        "a": "Ano - a navždy. Žádný prémiový tarif, žádné reklamy, žádný upsell. Věříme, že každodenní podpora duševního zdraví nemá být za paywallem."
+        "q": "Pro koho je Lumi určeno?",
+        "a": "Studenti a mladí lidé, kteří se cítí stresování, úzkostliví nebo přetíženi."
       },
       {
-        "q": "Můžu Lumi používat bez AI?",
-        "a": "Samozřejmě. AI funkce jsou volitelné a ve výchozím nastavení vypnuté. Hlavní funkce běží plně offline, bez jakéhokoli modelu."
+        "q": "Co když se cítím opravdu špatně?",
+        "a": "Lumi není tísňový servis. Pokud se cítíte v ohrožení, okamžitě se obraťte na 112, krizovou linku 116 123 nebo důvěryhodného člověka."
       },
       {
-        "q": "Čím se Lumi liší od ostatních wellbeing aplikací?",
-        "a": "Negamifikujeme vaše pocity. Žádné streaky, odznaky ani výčitky. Lumi je navržené pro občasné otevření, ne pro každodenní závislost."
+        "q": "Proč lokální ukládání?",
+        "a": "Data o duševním zdraví jsou citlivá. Osobní reflexe jsou navrženy tak, aby zůstaly na vašem zařízení jako výchozí nastavení."
       },
       {
-        "q": "Kdo za Lumi stojí?",
-        "a": "Malý tým studentů psychologie a vývojářů v Česku, ve spolupráci s odborníky na duševní zdraví. Jsme nezisková organizace, ne startup honící exit."
+        "q": "Je AI povinná?",
+        "a": "Ne. Základní funkce fungují bez AI. Veškerá AI je volitelná a místně zpracovávaná."
+      },
+      {
+        "q": "Bude Lumi zdarma?",
+        "a": "Základní podpora je vždy zdarma. Bez reklam, bez prodeje dat, bez paywallu."
+      },
+      {
+        "q": "Proč open-source?",
+        "a": "Můžete si přečíst kód, ověřit naše tvrzení a auditovat nás na GitHubu."
+      },
+      {
+        "q": "Kdo Lumi vytvořil?",
+        "a": "Malý český tým psychologů a vývojářů. Hledáme vedení odborníků na duševní zdraví."
       }
     ]
   },
@@ -248,7 +366,7 @@
   },
   "screener": {
     "heading": "Vyzkoušejte krátký dotazník pohody",
-    "intro": "Jde o stručné, mezinárodně validované dotazníky. Vaše odpovědi zůstávají ve vašem prohlížeči - nic se neukládá ani neodesílá. Výsledek je informativní, nejde o diagnózu.",
+    "intro": "Jde o evidence-informed nástroje pro sebereflexi založené na mezinárodně používaných dotaznících. Vaše odpovědi zůstávají ve vašem prohlížeči—nic se neukládá ani neodesílá. Výsledek je pouze pro vaši osobní reflexi, nikoli diagnózu. Pokud v něčem rezonuje, prosím mluvte s odborníkem na duševní zdraví.",
     "cta": "Začít dotazník",
     "pickPrompt": "Který dotazník chcete zkusit?",
     "instruments": {
@@ -287,7 +405,12 @@
           "Tak pomalý pohyb nebo řeč, že by si toho mohli všimnout ostatní - nebo naopak takový neklid, že jste se pohyboval/a mnohem více než obvykle",
           "Myšlenky, že by pro vás bylo lepší být mrtvý/á, nebo že byste si měl/a nějak ublížit"
         ],
-        "scale": ["Vůbec", "Několik dní", "Více než polovinu dní", "Téměř každý den"]
+        "scale": [
+          "Vůbec",
+          "Několik dní",
+          "Více než polovinu dní",
+          "Téměř každý den"
+        ]
       },
       "gad7": {
         "name": "GAD-7 · Úzkost",
@@ -302,7 +425,12 @@
           "Snadná podrážděnost nebo rozčilení",
           "Pocit strachu, jako by se mělo stát něco zlého"
         ],
-        "scale": ["Vůbec", "Několik dní", "Více než polovinu dní", "Téměř každý den"]
+        "scale": [
+          "Vůbec",
+          "Několik dní",
+          "Více než polovinu dní",
+          "Téměř každý den"
+        ]
       }
     },
     "severityLabels": {

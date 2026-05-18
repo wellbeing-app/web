@@ -3,17 +3,17 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { useLenis } from './providers/smooth-scroll';
 import { useDictionary } from './providers/dictionary-provider';
+import { getHeaderScrollOffset, getSectionTop, scrollToPageTarget } from '@/lib/scroll-to-section';
 
 const SECTION_IDS = [
   'home',
-  'wellbeing',
-  'vision',
+  'problem',
   'how',
   'features',
-  'team',
-  'developer',
-  'faq',
+  'whatLumiIsNot',
   'trust',
+  'forPartners',
+  'faq',
   'contact',
 ] as const;
 
@@ -26,9 +26,8 @@ export function ScrollIndicator() {
   const determineActiveSection = useCallback(() => {
     if (typeof window === 'undefined') return;
 
-    // Use the same logic as hash syncing for consistency
-    const scroll = window.scrollY;
-    const center = scroll + window.innerHeight / 2;
+    const navOffset = getHeaderScrollOffset();
+    const activationPoint = window.scrollY + navOffset + (window.innerHeight - navOffset) * 0.35;
 
     let foundId: string = SECTION_IDS[0];
     for (const id of SECTION_IDS) {
@@ -41,7 +40,7 @@ export function ScrollIndicator() {
         }
       }
 
-      if (element && element.offsetTop <= center) {
+      if (element && getSectionTop(element) <= activationPoint) {
         foundId = id;
       }
     }
@@ -64,24 +63,18 @@ export function ScrollIndicator() {
     const element = document.getElementById(id);
     if (!element) return;
 
-    const lenis = lenisRef.current;
-    if (lenis) {
-      lenis.scrollTo(element, { offset: 0, duration: 1.4 });
-    } else {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    scrollToPageTarget(element, lenisRef.current, { duration: 1.4 });
   };
 
   const sections = [
     { id: 'home', label: dict.nav.nav_home },
-    { id: 'wellbeing', label: dict.home.mood_label },
-    { id: 'vision', label: dict.nav.nav_vision },
+    { id: 'problem', label: dict.problem.title },
     { id: 'how', label: dict.nav.nav_how },
-    { id: 'features', label: dict.nav.nav_features },
-    { id: 'team', label: dict.nav.nav_team },
-    { id: 'developer', label: dict.nav.nav_developer },
-    { id: 'faq', label: dict.nav.nav_faq },
+    { id: 'features', label: dict.features.title },
+    { id: 'whatLumiIsNot', label: dict.whatLumiIsNot.title },
     { id: 'trust', label: dict.trust.title },
+    { id: 'forPartners', label: dict.forPartners.title },
+    { id: 'faq', label: dict.nav.nav_faq },
     { id: 'contact', label: dict.nav.nav_contact },
   ];
 

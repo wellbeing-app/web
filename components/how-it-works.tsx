@@ -6,13 +6,13 @@ import { useDictionary } from '@/components/providers/dictionary-provider';
 const STEP_FACES = [
   // Step 1 — neutral, slight smile
   {
-    color: 'hsl(40, 50%, 70%)',
+    color: 'var(--warmth-300)',
     mouthD: 'M 12 26 Q 20 27 28 26',
     eyesUp: true,
   },
   // Step 2 — engaged, soft smile
   {
-    color: 'hsl(80, 50%, 65%)',
+    color: 'var(--warmth-500)',
     mouthD: 'M 12 26 Q 20 30 28 26',
     eyesUp: true,
   },

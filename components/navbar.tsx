@@ -9,6 +9,7 @@ import { LanguageSwitcher } from '@/components/language-switcher';
 import { useDictionary } from '@/components/providers/dictionary-provider';
 import { MobileMenu } from '@/components/mobile-menu';
 import { useLenis } from '@/components/providers/smooth-scroll';
+import { scrollToPageTarget } from '@/lib/scroll-to-section';
 
 export function Navbar({ lang }: { lang: string }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,10 +21,10 @@ export function Navbar({ lang }: { lang: string }) {
   const closeMenu = useCallback(() => setIsOpen(false), []);
 
   const navLinks = [
-    { href: `/${lang}#vision`, label: dict.nav.nav_vision },
-    { href: `/${lang}#features`, label: dict.nav.nav_features },
-    { href: `/${lang}#team`, label: dict.nav.nav_team },
-    { href: `/${lang}#developer`, label: dict.nav.nav_developer },
+    { href: `/${lang}#how`, label: dict.nav.nav_how },
+    { href: `/${lang}#whatLumiIsNot`, label: dict.nav.nav_safety },
+    { href: `/${lang}#forPartners`, label: dict.nav.nav_schools },
+    { href: `/${lang}#faq`, label: dict.nav.nav_faq },
     { href: `/${lang}#contact`, label: dict.nav.nav_contact },
   ];
 
@@ -33,9 +34,9 @@ export function Navbar({ lang }: { lang: string }) {
     // Check if we're already on the path we're linking to
     if (pathname === path) {
       const target = hash ? document.getElementById(hash) : 0;
-      if (target !== null && lenisRef.current) {
+      if (target !== null) {
         e.preventDefault();
-        lenisRef.current.scrollTo(target, {
+        scrollToPageTarget(target, lenisRef.current, {
           duration: 0.6,
           easing: (t) => 1 - Math.pow(1 - t, 3),
           lock: true,
@@ -47,8 +48,8 @@ export function Navbar({ lang }: { lang: string }) {
 
   return (
     <>
-      <header className="fixed left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-[50rem] lg:max-w-[56rem] mx-auto top-safe">
-        <nav className="relative glass px-2 xs:px-3 py-3 rounded-(--radius-pill) flex items-center justify-between transition-colors duration-(--duration-soft) min-h-16 shadow-(--shadow-pill)">
+      <header className="fixed left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-200 lg:max-w-4xl mx-auto top-safe">
+        <nav className="relative bg-card border border-border/70 px-2 xs:px-3 py-3 rounded-pill flex items-center justify-between transition-colors duration-(--duration-soft) min-h-16 shadow-(--shadow-pill)">
           {/* Left: Logo */}
           <div className="flex-1 flex justify-start pl-3 xs:pl-5">
             <Link
@@ -61,12 +62,12 @@ export function Navbar({ lang }: { lang: string }) {
           </div>
 
           {/* Center: Desktop Nav Links (Absolute Centered) */}
-          <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-(--radius-pill) transition-colors duration-(--duration-soft) animate-fade-in z-10">
+          <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-pill transition-colors duration-(--duration-soft) animate-fade-in z-10">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="h-9 inline-flex items-center text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-(--duration-soft) px-3 rounded-(--radius-pill) hover:bg-(--warmth-100)/40"
+                className="h-9 inline-flex items-center text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-(--duration-soft) px-3 rounded-pill hover:bg-(--warmth-100)/40"
                 onClick={(e) => handleScroll(e, link.href)}
               >
                 {link.label}
@@ -76,7 +77,7 @@ export function Navbar({ lang }: { lang: string }) {
 
           {/* Right: Desktop Controls */}
           <div className="flex-1 flex justify-end pr-1">
-            <div className="hidden md:flex items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-(--radius-pill) transition-colors duration-(--duration-soft)">
+            <div className="hidden md:flex items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-pill transition-colors duration-(--duration-soft)">
               <LanguageSwitcher lang={lang} />
               <ThemeToggle />
             </div>
@@ -84,13 +85,13 @@ export function Navbar({ lang }: { lang: string }) {
 
           {/* Mobile Nav Toggle */}
           <div className="flex md:hidden items-center gap-1.5 xs:gap-2">
-            <div className="flex items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-(--radius-pill) transition-colors duration-(--duration-soft)">
+            <div className="flex items-center gap-1 p-1 bg-secondary/30 border border-border/50 backdrop-blur-sm rounded-pill transition-colors duration-(--duration-soft)">
               <LanguageSwitcher lang={lang} />
               <ThemeToggle />
             </div>
             <button
               ref={buttonRef}
-              className="p-2 xs:p-2.5 rounded-(--radius-pill) hover:bg-(--warmth-100)/40 transition-colors duration-200"
+              className="p-2 xs:p-2.5 rounded-pill hover:bg-(--warmth-100)/40 transition-colors duration-200"
               onClick={() => setIsOpen((v) => !v)}
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isOpen}

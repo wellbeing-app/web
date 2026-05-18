@@ -48,7 +48,7 @@ function CardPill({
 }) {
   return (
     <motion.div
-      className="@container/card w-full max-w-[50rem] lg:max-w-[56rem] 3xl:max-w-[64rem] 4xl:max-w-[72rem] h-[70vh] 3xl:h-[68vh] 4xl:h-[64vh] bg-card border border-border rounded-(--radius-card) @md/card:rounded-(--radius-card-lg) shadow-(--shadow-card) p-5 xs:p-6 @sm/card:p-8 @lg/card:p-12 @2xl/card:p-14 flex flex-col items-center justify-center text-center overflow-y-auto no-scrollbar relative group/card"
+      className="@container/card w-full max-w-[50rem] lg:max-w-[56rem] 3xl:max-w-[64rem] 4xl:max-w-[72rem] h-[70vh] 3xl:h-[68vh] 4xl:h-[64vh] bg-(--glass-bg) border border-border/50 rounded-(--radius-card) @md/card:rounded-(--radius-card-lg) shadow-(--shadow-card) p-5 xs:p-6 @sm/card:p-8 @lg/card:p-12 @2xl/card:p-14 flex flex-col items-center justify-center text-center overflow-y-auto no-scrollbar relative group/card"
       style={style}
     >
       {showFullscreen && href && <FullscreenButton href={href} />}
@@ -146,7 +146,7 @@ function FinalCard({ card, index }: { card: CardData; index: number }) {
 function MobileSection({ card, showFullscreen }: { card: CardData; showFullscreen: boolean }) {
   return (
     <section id={card.id} className="relative px-4 py-4 flex justify-center">
-      <motion.div className="@container/card relative w-full bg-card border border-border rounded-(--radius-card) shadow-(--shadow-card) p-4 xs:p-5 sm:p-6 flex flex-col items-center justify-center text-center">
+      <motion.div className="@container/card relative w-full bg-(--glass-bg) border border-border/50 rounded-(--radius-card) shadow-(--shadow-card) p-4 xs:p-5 sm:p-6 flex flex-col items-center justify-center text-center">
         {showFullscreen && card.href && <FullscreenButton href={card.href} />}
         {card.component}
       </motion.div>

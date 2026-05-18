@@ -18,7 +18,7 @@ export function Footer() {
 
   return (
     <div className="w-[95%] max-w-[50rem] lg:max-w-[56rem] mx-auto absolute bottom-0 left-1/2 -translate-x-1/2 z-10">
-      <div className="bg-card border-x border-t border-border rounded-t-(--radius-card-lg) px-6 md:px-8 pt-4 pb-[calc(1rem+var(--safe-bottom))] md:py-6 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-2xl">
+      <div className="bg-(--glass-bg) border-x border-t border-border/50 rounded-t-(--radius-card-lg) px-6 md:px-8 pt-4 pb-[calc(1rem+var(--safe-bottom))] md:py-6 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-2xl">
         <p className="text-[10px] md:text-xs text-muted-foreground font-medium flex items-center gap-1.5">
           <span className="leading-none">©</span>
           <span>2026 Lumi.</span>

@@ -122,7 +122,7 @@ function PickerView({ onPick }: { onPick: (id: ScreenerId) => void }) {
               key={id}
               type="button"
               onClick={() => onPick(id)}
-              className="group flex items-center justify-between gap-4 text-left w-full rounded-(--radius-card-inner) border border-border bg-secondary/20 hover:bg-(--warmth-50)/50 hover:border-(--warmth-300)/60 px-5 py-4 transition-all duration-(--duration-soft) ease-(--ease-out-soft) cursor-pointer"
+              className="group flex items-center justify-between gap-4 text-left w-full rounded-(--radius-card-inner) border border-border/50 bg-secondary/20 hover:bg-(--warmth-50)/50 hover:border-(--warmth-300)/60 px-5 py-4 transition-all duration-(--duration-soft) ease-(--ease-out-soft) cursor-pointer"
             >
               <div>
                 <div className="font-semibold">{meta.name}</div>
@@ -189,7 +189,7 @@ function QuizView({
               'w-full text-left rounded-xl border px-4 py-3.5 min-h-11 text-sm md:text-base transition-all cursor-pointer',
               currentAnswer === scoreValue
                 ? 'border-(--sage-500) bg-(--sage-100)/60 text-foreground'
-                : 'border-border bg-secondary/10 hover:bg-(--warmth-50)/40'
+                : 'border-border/50 bg-secondary/10 hover:bg-(--warmth-50)/40'
             )}
             aria-pressed={currentAnswer === scoreValue}
           >
@@ -281,7 +281,7 @@ function ResultView({
         <button
           type="button"
           onClick={onRestart}
-          className="rounded-full border border-border px-5 py-2 text-sm hover:bg-secondary/40 transition-colors cursor-pointer"
+          className="rounded-full border border-border/50 px-5 py-2 text-sm hover:bg-secondary/40 transition-colors cursor-pointer"
         >
           {dict.screener.ui.startOver}
         </button>

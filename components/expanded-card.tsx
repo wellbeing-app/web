@@ -68,7 +68,7 @@ export function ExpandedCard({ children, label = 'Expanded view' }: ExpandedCard
             initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.88 }}
             animate={reduce ? { opacity: 1 } : { opacity: 1, scale: 1 }}
             exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.88 }}
-            className="relative w-full max-w-5xl h-auto max-h-[calc(100dvh-2rem)] md:max-h-[calc(100dvh-4rem)] bg-card border border-border rounded-4xl shadow-2xl overflow-y-auto no-scrollbar overscroll-contain"
+            className="relative w-full max-w-5xl h-auto max-h-[calc(100dvh-2rem)] md:max-h-[calc(100dvh-4rem)] bg-card border border-border/50 rounded-4xl shadow-2xl overflow-y-auto no-scrollbar overscroll-contain"
             transition={reduce ? { duration: 0 } : SPRING}
           >
             {/* Desktop close — sticky top-right inside the scrolling panel */}
