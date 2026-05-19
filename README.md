@@ -1,107 +1,115 @@
-# Lumi.
+# Lumi
 
-A premium, modern wellbeing platform landing page designed with an "Apple-style" aesthetics. This project features a unique Rolodex-style stacked card navigation, glassmorphism design elements, and a robust internationalization system.
+Lumi is a localized Next.js App Router site for a wellbeing nonprofit. The app
+combines a polished landing experience with route-level content pages, modal
+detail views, localized dictionaries, strict security headers, and Sentry
+instrumentation.
 
-## ✨ Features
+Production URL: https://lumi.zezulka.me
 
-- **Apple-Inspired UI**: Premium stacked card navigation with scroll-driven scale and blur effects.
-- **Glassmorphism Design**: Sleek, semi-transparent UI elements with backdrop filters and smooth theme transitions.
-- **Internationalization (i18n)**: Full support for English (`en`) and Czech (`cs`) routes with dictionary-based content management.
-- **Strict Security**: Per-request CSP nonces, strict-dynamic script handling, and automated violation reporting.
-- **Premium Aesthetics**: Tailwind 4 based design system with custom animations and harmonious color palettes.
-- **Responsive & Accessible**: Optimized for all devices with a focus on semantic HTML and accessibility standards.
+## Stack
 
-## 🚀 Tech Stack
+- Next.js 16 App Router with React 19 and TypeScript
+- Tailwind CSS 4 for styling
+- Framer Motion and Lenis for motion and smooth scrolling
+- next-themes for light and dark mode
+- Sentry for observability, with Vercel Analytics and Speed Insights available
+  as dependencies
+- Vitest, Playwright, Storybook, ESLint, and Lighthouse CI for quality checks
 
-- **Framework**: [Next.js 16.2 (App Router)](https://nextjs.org/)
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Testing**: [Playwright](https://playwright.dev/) (E2E), [Vitest](https://vitest.dev/) (Unit)
-- **UI Docs**: [Storybook](https://storybook.js.org/)
+## Project Structure
 
-## 🛠️ Getting Started
+- `app/[lang]/` contains localized App Router pages for `en` and `cs`.
+- `app/[lang]/@modal/` contains intercepted modal routes for selected content
+  pages.
+- `app/api/` contains route handlers for CSP reports, Sentry examples, and team
+  Gravatar profiles.
+- `components/` contains the landing page sections, navigation, providers, and
+  shared UI components.
+- `dictionaries/` stores English and Czech copy.
+- `lib/` contains dictionaries, team data, utilities, hooks, focus management,
+  and scroll helpers.
+- `proxy.ts` handles locale redirects, CSP nonce creation, and security response
+  headers that require request context.
+- `next.config.ts`, `sentry.*.config.ts`, `instrumentation*.ts`,
+  `netlify.toml`, and `lighthouserc.json` define framework, monitoring,
+  deployment, and audit configuration.
+- `e2e/`, `tests/`, `*.test.ts`, and `*.test.tsx` contain browser, React, and
+  node-oriented tests.
 
-### Prerequisites
+## Local Development
 
-- Node.js 20+
-- npm
-
-### Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone <repository-url>
-   cd web
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-### Running Locally
-
-Start the development server:
+Use Node.js `>=20.9.0`.
 
 ```bash
+npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see the result.
+Open http://localhost:3000. Requests without a locale prefix are redirected by
+`proxy.ts`; the main local entry points are:
 
-## 🔐 Environment Variables
+- http://localhost:3000/en
+- http://localhost:3000/cs
 
-The project is designed to be deployment-ready with minimal configuration. Currently, it uses standard environment variables:
+## Scripts
 
-- `NODE_ENV`: Set to `development` or `production` to toggle security policies (e.g., CSP `unsafe-inline` is only allowed in dev).
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the Next.js development server. |
+| `npm run build` | Build the production app. |
+| `npm run start` | Serve the production build. |
+| `npm run lint` | Run ESLint. |
+| `npm run test` | Run the default Vitest suite. |
+| `npm run test:node` | Run Vitest with the node-specific config. |
+| `npm run test:e2e` | Run Playwright against a local Next dev server. |
+| `npm run storybook` | Start Storybook on port 6006. |
+| `npm run build-storybook` | Build the static Storybook output. |
+| `npm run sentry:sourcemaps` | Inject and optionally upload Sentry source maps. |
+| `npm run format` | Format source, config, JSON, CSS, and Markdown files. |
 
-## 🧪 Testing
+## Content And Routing
 
-### E2E Testing (Playwright)
+Supported locales are `en` and `cs`. Copy lives in `dictionaries/en.json` and
+`dictionaries/cs.json`, then flows through `lib/dictionary.ts` and
+`DictionaryProvider`.
 
-Run the end-to-end tests:
+The root `proxy.ts` file follows the Next.js 16 Proxy convention. It redirects
+unprefixed paths to the best locale from the `locale` cookie, `Accept-Language`,
+or the English fallback. It also creates the per-request CSP nonce used by the
+App Router layout.
 
-```bash
-npm run test:e2e
-```
+Primary public routes:
 
-### Unit Testing (Vitest)
+- `/en` and `/cs`
+- `/[lang]/features`
+- `/[lang]/developer`
+- `/[lang]/vision`
+- `/[lang]/privacy`
 
-Unit testing is supported via Vitest. To run tests:
+## Security And Observability
 
-```bash
-npx vitest
-```
+Security headers are split between request-aware logic in `proxy.ts` and static
+headers in `next.config.ts`. The proxy sets the CSP, nonce, and cache policy;
+the Next config sets frame, content type, referrer, permissions, and HSTS
+headers.
 
-### UI Testing (Storybook)
+Sentry is wired through `instrumentation.ts`, `instrumentation-client.ts`,
+`sentry.server.config.ts`, `sentry.edge.config.ts`, and the `withSentryConfig`
+wrapper in `next.config.ts`. Set `SENTRY_AUTH_TOKEN` when uploading source maps;
+without it, `npm run sentry:sourcemaps` only injects them and skips upload.
 
-View component documentation:
+## Deployment
 
-```bash
-npm run storybook
-```
-
-## 🌍 Language Support
-
-Content is managed via localized dictionaries in `dictionaries/`.
-
-- `en.json`: English content
-- `cs.json`: Czech content
-
-The routing is handled by a custom `proxy.ts` middleware that manages locale detection via headers and cookies.
-
-## 📦 Deployment
-
-The app is optimized for deployment on [Vercel](https://vercel.com/):
+The production build is generated with:
 
 ```bash
 npm run build
 ```
 
-The build process will generate a production-ready bundle with optimized images and a strict CSP.
+`netlify.toml` configures Netlify to run the build and publish `.next` with
+`@netlify/plugin-nextjs`. The codebase also includes Vercel analytics packages
+and metadata using `https://lumi.zezulka.me` as the canonical base URL.
 
----
-
-Built with ❤️ for the future of wellbeing.
+For Lighthouse CI, build and serve the app, then run the LHCI workflow against
+the URLs configured in `lighthouserc.json`.
